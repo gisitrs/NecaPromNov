@@ -1,5 +1,5 @@
 
-GitHub io link: https://gisitrs.github.io/NecaProm/
+GitHub io link: https://gisitrs.github.io/NecaPromNov/
 
 -- PHP tutorial
 
