@@ -1,0 +1,38 @@
+
+GitHub io link: https://gisitrs.github.io/NecaProm/
+
+-- PHP tutorial
+
+https://www.youtube.com/watch?v=d3bW9z1-Yv4
+
+
+-- Download and install MySQL workbench
+
+- https://www.youtube.com/watch?v=wgRwITQHszU
+- https://www.youtube.com/watch?v=o6BQcI9h4_Q
+
+
+-- Create Database backup (Export data) in MySQL Workbench
+- https://www.greengeeks.com/tutorials/make-a-mysql-database-backup-with-mysql-workbench/
+
+
+-- Connect to Database on cPanel
+
+- https://www.youtube.com/watch?v=svDjrz3i8rU&list=PLQaNyZxA8zSUHzyndlhliMp7DiKmfaQP5&index=2
+- https://www.youtube.com/watch?v=uVMCXYQoz1I
+
+
+-- Joomla
+
+- https://www.youtube.com/watch?v=agMGyThdulE
+
+
+-- Download HTML content from cPanel
+
+- https://www.entirelydigital.com/manage/knowledgebase/4995/How-to-download-a-copy-of-your-cPanel-website-folder.html
+- https://www.youtube.com/watch?v=WO5J9pyJl3I
+
+
+-- Fetch data from MySQL database
+
+- https://www.youtube.com/watch?v=bHFoobciCTM
