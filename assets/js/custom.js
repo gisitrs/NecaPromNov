@@ -120,7 +120,33 @@
 			}, 300);
 		});
 	});
-    
 
+	$("a").click(function(){
+		var id = $(this).attr('id');
+
+	    $('*[id*=filter]:visible').each(function(index, value) {
+		    $("#"+ value.id + "").removeClass("is_active");
+	    });
+
+	    $("#"+ id + "").addClass("is_active");
+
+	    $('*[id*=nekretnina]:visible').each(function(index, value) {
+		    $("#"+ value.id + "").hide();
+	    });
+        
+		var selectedId = id.split("filter")[0];
+		var finalSelectedId = "";
+
+		if(selectedId === "kuce"){
+			finalSelectedId = "kuca";
+		}
+		else if(selectedId === "nekretnine"){
+			finalSelectedId = "nekretnina";
+		}
+
+		$('*[id*='+ finalSelectedId + ']:hidden').each(function(index, value) {
+		    $("#"+ value.id + "").show();
+	    });
+    });
 
 })(window.jQuery);
