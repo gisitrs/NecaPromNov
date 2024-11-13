@@ -117,9 +117,32 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
 
-  <div class="properties section">
+  <div class="section properties">
     <div class="container">
-      <div class="row">
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Sve nekretnine</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Kuće</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Stanovi</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Vikendice</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Placevi</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Seos. domaćinstva</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Poslovni prostor</a>
+        </li>
+      </ul>
+      <div class="row properties-box">
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
@@ -138,7 +161,7 @@ https://templatemo.com/tm-591-villa-agency
                    $result1 = $conn-> query($sql1);*/
                    /* assets/images/property-01.jpg */
                    /* assets/images/properties/".$row["image"]. */
-                   echo "<div class="."col-lg-4 col-md-6".">".
+                   echo "<div class="."col-lg-4".">".
                             "<div class="."item".">".
                                 "<a href="."property-details.html"."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
@@ -157,7 +180,7 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
 
-  <div class="contact section">
+  <!--<div class="contact section">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
@@ -229,7 +252,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 
   <footer>
     <div class="container">
@@ -239,7 +262,7 @@ https://templatemo.com/tm-591-villa-agency
         Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
