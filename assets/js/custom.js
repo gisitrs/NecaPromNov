@@ -130,18 +130,39 @@
 
 	    $("#"+ id + "").addClass("is_active");
 
-	    $('*[id*=nekretnina]:visible').each(function(index, value) {
+	    $('*[id*=realestate]:visible').each(function(index, value) {
 		    $("#"+ value.id + "").hide();
 	    });
         
 		var selectedId = id.split("filter")[0];
 		var finalSelectedId = "";
 
-		if(selectedId === "kuce"){
-			finalSelectedId = "kuca";
+		if(selectedId === "houses"){
+			finalSelectedId = "house";
 		}
-		else if(selectedId === "nekretnine"){
-			finalSelectedId = "nekretnina";
+		else if(selectedId === "rlest"){
+			finalSelectedId = "realestate";
+		}
+		else if(selectedId === "flats"){
+			finalSelectedId = "flat";
+		}
+		else if(selectedId === "cottages"){
+			finalSelectedId = "cottage";
+		}
+		else if(selectedId === "parcels"){
+			finalSelectedId = "parcel";
+		}
+		else if(selectedId === "villages"){
+			finalSelectedId = "village";
+		}
+		else if(selectedId === "issuingb"){
+			finalSelectedId = "issuing";
+		}
+		else if(selectedId === "apartments"){
+			finalSelectedId = "apartment";
+		}
+		else if(selectedId === "replacements"){
+			finalSelectedId = "replacement";
 		}
 
 		$('*[id*='+ finalSelectedId + ']:hidden').each(function(index, value) {

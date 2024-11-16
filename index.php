@@ -120,27 +120,33 @@ https://templatemo.com/tm-591-villa-agency
   <div class="section properties">
     <div class="container">
     <div class="row">
-      <ul class="properties-filter">
+      <ul class="properties-filter" style="cursor:pointer">
         <li>
-          <a class="is_active" id="nekretninefilter" href="#!" data-filter="*">Sve nekretnine</a>
+          <a id="rlestfilter" class="is_active">Sve nekretnine</a>
         </li>
         <li>
-          <a href="#!" id="kucefilter" data-filter=".rac">Kuće</a>
+          <a id="housesfilter">Kuće</a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Stanovi</a>
+          <a id="flatsfilter">Stanovi</a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Vikendice</a>
+          <a id="cottagesfilter">Vikendice</a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Placevi</a>
+          <a id="parcelsfilter">Placevi</a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Seos. domaćinstva</a>
+          <a id="villagesfilter">Seos. domaćinstva</a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Poslovni prostor</a>
+          <a id="issuingbfilter">Poslovni prostor</a>
+        </li>
+        <li>
+          <a id="apartmentsfilter">Izdavanje apartmana</a>
+        </li>
+        <li>
+          <a id="replacementsfilter">Zamene</a>
         </li>
       </ul>
         <?php 
@@ -164,7 +170,9 @@ https://templatemo.com/tm-591-villa-agency
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
                                 "<a href="."property-details.html"."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
+                                
                                 "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
+                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
