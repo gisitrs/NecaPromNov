@@ -108,6 +108,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
+            $contactformtitle = "Više o nepokretnosti";
             
             if ($result-> num_rows > 0)
             {
@@ -132,13 +133,42 @@ https://templatemo.com/tm-591-villa-agency
                                                              <li>Cena: <span>".$row["price"]."</span></li>
                                                           </ul>
                                                       </div>
+                                                      <br>
+                                                      <h4>Informacije o nepokretnosti</h4>
+                                                      <p>".$row["pro_small_desc"]."</p>
                                                   </div>
                                                   <div class="."col-lg-6".">
                                                       <img src="."assets/images/properties/".$row["id"]."/".$row["image"].">
                                                   </div>
                                                   <div class="."col-lg-3".">
-                                                      <h4>Informacije o nepokretnosti</h4>
-                                                      <p>".$row["pro_small_desc"]."</p>
+                                                      <div class="."bg-white".">
+                                                         <h3 class="."text-black".">Pošalji pitanje</h3>
+                                                         <form class="."form-contact-agent".">
+                                                            <div class="."form-group".">
+                                                               <label for="."name".">Naslov</label>
+                                                               <input type="."text"." id="."name"." class="."form-control".">
+                                                            </div>
+                                                            <div class="."form-group".">
+                                                               <label for="."name".">Vaše ime</label>
+                                                               <input type="."text"." id="."name"." class="."form-control".">
+                                                            </div>
+                                                            <div class="."form-group".">
+                                                               <label for="."name".">Telefon</label>
+                                                               <input type="."text"." id="."name"." class="."form-control".">
+                                                            </div>
+                                                            <div class="."form-group".">
+                                                               <label for="."email".">Vaš email</label>
+                                                               <input type="."email"." id="."email"." class="."form-control".">
+                                                            </div>
+                                                            <div class="."form-group".">
+                                                               <label for="."phone".">Poruka</label>
+                                                               <input type="."text"." id="."phone"." class="."form-control".">
+                                                            </div>
+                                                            <div class="."form-group".">
+                                                               <input type="."submit"." id="."phone"." class="."btn-primary"." value="."Send Message".">
+                                                            </div>
+                                                          </form>
+                                                       </div>
                                                   </div>
                                               </div>
                                           </div>
