@@ -77,11 +77,13 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="properties.html">Properties</a></li>
-                      <li><a href="property-details.html" class="active">Property Details</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
-                      <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                      <li><a href="index.php">Naslovna</a></li>
+                      <li><a href="properties.php">Prodaja</a></li>
+                      <li><a href="rents.php">Izdavanje</a></li>
+                      <li><a href="vacations.php">Letovanje</a></li>
+                      <li><a href="excursions.php">Izleti</a></li>
+                      <li><a href="contact.html">Kontakt</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -109,16 +111,41 @@ https://templatemo.com/tm-591-villa-agency
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <div class="main-image">
-            <img src="assets/images/single-property.jpg" alt="">
-          </div>
-          <div class="main-content">
-            <span class="category">Apparment</span>
-            <h4>24 New Street Miami, OR 24560</h4>
-            <p>Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of them ugh hella.
+        <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
             
-            <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.</p>
-          </div> 
+            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                   /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
+                   $result1 = $conn-> query($sql1);*/
+                   /* assets/images/property-01.jpg */
+                   /* assets/images/properties/".$row["image"]. */
+                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
+                            "<div class="."item".">".
+                                "<a href="."property-details.php?prid=".$row["id"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
+                                
+                                "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
+                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
+                                "<p>".$row["pro_small_desc"]."</p>".
+                              "</div>".
+                          "</div>";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">

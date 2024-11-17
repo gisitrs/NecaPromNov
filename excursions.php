@@ -82,6 +82,7 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="vacations.php">Letovanje</a></li>
                       <li><a href="excursions.php" class="active">Izleti</a></li>
                       <li><a href="contact.html">Kontakt</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

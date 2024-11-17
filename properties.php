@@ -82,6 +82,7 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="vacations.php">Letovanje</a></li>
                       <li><a href="excursions.php">Izleti</a></li>
                       <li><a href="contact.html">Kontakt</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -154,9 +155,8 @@ https://templatemo.com/tm-591-villa-agency
                    /* assets/images/properties/".$row["image"]. */
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
-                                "<a href="."property-details.html"."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
-                                
-                                "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
                                 "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".

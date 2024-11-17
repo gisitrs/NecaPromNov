@@ -8,6 +8,7 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
         `marinkom_jos1`.`jos_osrs_properties`.`ref` AS `ref`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_name` AS `pro_name`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
+        `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
         (CASE
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
             ELSE CAST(`marinkom_jos1`.`jos_osrs_properties`.`price`
