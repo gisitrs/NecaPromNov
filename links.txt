@@ -38,3 +38,11 @@ https://www.youtube.com/watch?v=d3bW9z1-Yv4
 -- Fetch data from MySQL database
 
 - https://www.youtube.com/watch?v=bHFoobciCTM
+
+-- Carousel Bootstrap
+
+https://getbootstrap.com/docs/5.0/components/carousel/
+
+-- Image gallery
+
+- https://mdbootstrap.com/docs/standard/extended/gallery/

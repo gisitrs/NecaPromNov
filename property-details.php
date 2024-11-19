@@ -183,7 +183,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-        <!--<div class="col-lg-4">
+        <div class="col-lg-4">
           <div class="section-heading">
             <h6>| Best Deal</h6>
             <h2>Find Your Best Deal Right Now!</h2>
@@ -209,7 +209,96 @@ https://templatemo.com/tm-591-villa-agency
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <img src="assets/images/deal-01.jpg" alt="">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+    
+    <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
+            
+            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            $counter = 1;
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                    echo "<button type="."button"." data-bs-target="."#carouselExampleIndicators"." data-bs-slide-to=".$counter." ></button>";
+                    $counter++;
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
+  </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+      <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
+            
+            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                echo "<img src="."assets/images/properties/".$row["id"]."/".$row["image"]." class="."d-block".">";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
+      </div>
+      <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
+            
+            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                    echo "<div class="."carousel-item".">
+                            <img src="."assets/images/properties/".$row["id"]."/".$row["image"]." class="."d-block".">
+                          </div>";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
+    <button class="carousel-control-prev" style="margin-left:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" style="margin-right:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
                     </div>
                     <div class="col-lg-3">
                       <h4>All Info About Apartment</h4>
@@ -220,10 +309,11 @@ https://templatemo.com/tm-591-villa-agency
               </div>
             </div>
           </div>
-        </div>-->
+        </div>
       </div>
     </div>
   </div>
+
 
   <div class="section properties">
     <div class="container">
@@ -264,6 +354,33 @@ https://templatemo.com/tm-591-villa-agency
       </div>
     </div>
   </div>
+
+  <!--<div class="lightbox" data-mdb-lightbox-init>
+  <div class="row">
+    <div class="col-lg-6">
+      <img
+        src="assets/images/deal-01.jpg"
+        data-mdb-img="assets/images/deal-01.jpg"
+        alt="Table Full of Spices"
+        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
+      />
+      <img
+        src="assets/images/deal-01.jpg"
+        data-mdb-img="assets/images/deal-01.jpg"
+        alt="Coconut with Strawberries"
+        class="w-100 shadow-1-strong rounded"
+      />
+    </div>
+    <div class="col-lg-6">
+      <img
+        src="assets/images/deal-01.jpg"
+        data-mdb-img="assets/images/deal-01.jpg"
+        alt="Dark Roast Iced Coffee"
+        class="w-100 shadow-1-strong rounded"
+      />
+    </div>
+  </div>
+</div>-->
 
   <footer class="footer-no-gap">
     <div class="container">
