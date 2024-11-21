@@ -71,7 +71,7 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <h1>Villa</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -108,16 +108,16 @@ https://templatemo.com/tm-591-villa-agency
             
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
-            $contactformtitle = "Više o nepokretnosti";
+            $counter = 1;
             
             if ($result-> num_rows > 0)
             {
                while ($row = $result-> fetch_assoc())
                {
                     echo "<div class="."col-lg-12".">
-                              <div class="."section-heading".">
-                                  <h2>".$row["ref"].",".$row["pro_name"]."</h2>
-                              </div>
+                          <div class="."section-heading".">
+                              <h2>".$row["ref"].",".$row["pro_name"]."</h2>
+                          </div>
                           </div>
                           <div class="."col-lg-12".">
                               <div class="."tabs-content".">
@@ -136,45 +136,7 @@ https://templatemo.com/tm-591-villa-agency
                                                       <br>
                                                       <h4>Informacije o nepokretnosti</h4>
                                                       <p>".$row["pro_small_desc"]."</p>
-                                                  </div>
-                                                  <div class="."col-lg-6".">
-                                                      <img src="."assets/images/properties/".$row["id"]."/".$row["image"].">
-                                                  </div>
-                                                  <div class="."col-lg-3".">
-                                                      <div class="."bg-white".">
-                                                         <h3 class="."text-black".">Pošalji pitanje</h3>
-                                                         <form class="."form-contact-agent".">
-                                                            <div class="."form-group".">
-                                                               <label for="."name".">Naslov</label>
-                                                               <input type="."text"." id="."name"." class="."form-control".">
-                                                            </div>
-                                                            <div class="."form-group".">
-                                                               <label for="."name".">Vaše ime</label>
-                                                               <input type="."text"." id="."name"." class="."form-control".">
-                                                            </div>
-                                                            <div class="."form-group".">
-                                                               <label for="."name".">Telefon</label>
-                                                               <input type="."text"." id="."name"." class="."form-control".">
-                                                            </div>
-                                                            <div class="."form-group".">
-                                                               <label for="."email".">Vaš email</label>
-                                                               <input type="."email"." id="."email"." class="."form-control".">
-                                                            </div>
-                                                            <div class="."form-group".">
-                                                               <label for="."phone".">Poruka</label>
-                                                               <input type="."text"." id="."phone"." class="."form-control".">
-                                                            </div>
-                                                            <div class="."form-group".">
-                                                               <input type="."submit"." id="."phone"." class="."btn-primary"." value="."Send Message".">
-                                                            </div>
-                                                          </form>
-                                                       </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                       </div>
-                              </div>    
-                          </div>";
+                                                  </div>";
                }
             }
             else {
@@ -183,65 +145,39 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-        <div class="col-lg-4">
-          <div class="section-heading">
-            <h6>| Best Deal</h6>
-            <h2>Find Your Best Deal Right Now!</h2>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="tabs-content">
-            <div class="row">
-              <div class="nav-wrapper ">
-              </div>              
-              <div class="tab-content" id="myTabContent">
-                <div  id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <div class="info-table">
-                        <ul>
-                          <li>Cena: <span>540 m2</span></li>
-                          <li>Floor number <span>3</span></li>
-                          <li>Number of rooms <span>8</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
-    
-    <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
+        <div class="col-lg-6">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <?php 
+                $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+                if ($conn -> connect_error) 
+                {
+                  die("Connection failed:".$conn-> connect_error);
+                }
             
-            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
-            $result = $conn-> query($sql);
-            $counter = 1;
+                $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+                $result = $conn-> query($sql);
+                $counter = 1;
             
-            if ($result-> num_rows > 0)
-            {
-               while ($row = $result-> fetch_assoc())
-               {
-                    echo "<button type="."button"." data-bs-target="."#carouselExampleIndicators"." data-bs-slide-to=".$counter." ></button>";
+                if ($result-> num_rows > 0)
+                {
+                  while ($row = $result-> fetch_assoc())
+                  {
+                    echo "<button class="."d-block"." type="."button"." data-bs-target="."#carouselExampleIndicators"." data-bs-slide-to=".$counter." ></button>";
                     $counter++;
-               }
-            }
-            else {
-                echo "0 results";
-            }
+                  }
+                }
+                else {
+                 echo "0 results";
+                }
             
-            $conn-> close();
-        ?>
-  </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-      <?php 
+                $conn-> close();
+             ?>
+            </div>
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+           <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
             {
@@ -263,9 +199,9 @@ https://templatemo.com/tm-591-villa-agency
             }
             
             $conn-> close();
-        ?>
-      </div>
-      <?php 
+          ?>
+        </div>
+        <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
             {
@@ -289,23 +225,49 @@ https://templatemo.com/tm-591-villa-agency
             }
             
             $conn-> close();
-        ?>
-    <button class="carousel-control-prev" style="margin-left:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" style="margin-right:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-                    </div>
-                    <div class="col-lg-3">
-                      <h4>All Info About Apartment</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
-                    </div>
-                  </div>
+          ?>
+          <button class="carousel-control-prev" style="margin-left:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" style="margin-right:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="visually-hidden">Next</span>
+          </button>
+          </div>
+          </div>
+          </div>
+           <div class="col-lg-3">
+            <div>
+              <h3 class="text-black">Pošalji pitanje</h3>
+              <form class="form-contact-agent" style="margin-top:20px;">
+                <div class="form-group">
+                  <label for="name">Naslov</label>
+                  <input type="text" id="name" class="form-control">
                 </div>
+                <div class="form-group">
+                  <label for="name">Vaše ime</label>
+                  <input type="text" id="name" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="name">Telefon</label>
+                  <input type="text" id="name" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="email">Vaš email</label>
+                  <input type="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Poruka</label>
+                  <input type="text" id="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="submit" id="phone" class="btn-primary" value="Send Message">
+                </div>
+              </form>
+              </div>
+              </div>
+              </div>
               </div>
             </div>
           </div>
