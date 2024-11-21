@@ -43,7 +43,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <div class="sub-header">
+  <div class="sub-header" style="display:block">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8">
@@ -94,9 +94,15 @@ https://templatemo.com/tm-591-villa-agency
         </div>
     </div>
   </header>
+  
+  <div class="main-banner" style="display:none;">
+     <div class="header-text">
+     </div>
+  </div>
+
   <!-- ***** Header Area End ***** -->
 
-  <div class="section best-deal">
+  <div class="section best-deal" style="margin-top:-30px;">
     <div class="container">
       <div class="row">
         <?php 
@@ -114,7 +120,7 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                    echo "<div class="."col-lg-12".">
+                    echo "<div class="."col-lg-12"."style="."margin-top:-10px;".">
                           <div class="."section-heading".">
                               <h2>".$row["ref"].",".$row["pro_name"]."</h2>
                           </div>
@@ -261,8 +267,8 @@ https://templatemo.com/tm-591-villa-agency
                   <label for="phone">Poruka</label>
                   <input type="text" id="phone" class="form-control">
                 </div>
-                <div class="form-group">
-                  <input type="submit" id="phone" class="btn-primary" value="Send Message">
+                <div class="form-group" style="margin-top: 10px;">
+                  <input type="submit" id="phone" class="btn-primary" value="Pošalji">
                 </div>
               </form>
               </div>
