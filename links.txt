@@ -43,6 +43,8 @@ https://www.youtube.com/watch?v=d3bW9z1-Yv4
 
 https://getbootstrap.com/docs/5.0/components/carousel/
 
--- Image gallery
+-- Image gallery (Lightbox)
 
 - https://mdbootstrap.com/docs/standard/extended/gallery/
+- https://www.youtube.com/watch?v=P_DaJpTeQ84
+- https://trvswgnr.github.io/bs5-lightbox/

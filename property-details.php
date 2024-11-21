@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
 TemplateMo 591 villa agency
@@ -281,9 +281,43 @@ https://templatemo.com/tm-591-villa-agency
       </div>
     </div>
   </div>
+   
+  <div>
+  <div class="container py-5 text-center" >
+   <h2 class="display-6 fw-bold py-5">Galerija</h2>
+   <div class="row">
+   <?php 
+                $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+                if ($conn -> connect_error) 
+                {
+                  die("Connection failed:".$conn-> connect_error);
+                }
+            
+                $sql = "SELECT * FROM vw_getallimages WHERE id =".$_GET['prid'];
+                $result = $conn-> query($sql);
+                $counter = 1;
+            
+                if ($result-> num_rows > 0)
+                {
+                  while ($row = $result-> fetch_assoc())
+                  {
+                    echo "<a class="."col-lg-4"." href="."assets/images/properties/".$row["id"]."/".$row["image"]."?image=".$counter." data-toggle="."lightbox"." data-gallery="."photo_gallery".">
+                              <img src="."assets/images/properties/".$row["id"]."/".$row["image"]."?image=".$counter." class="."img-fluid"." >
+                          </a>";
+                    $counter++;
+                  }
+                }
+                else {
+                 echo "0 results";
+                }
+            
+                $conn-> close();
+             ?>
+    </div>
+ </div>
+</div>
 
-
-  <div class="section properties">
+<div class="section properties">
     <div class="container">
     <div class="section-heading">
         <h2>Povezane nepokretnosti</h2>
@@ -323,33 +357,6 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
 
-  <!--<div class="lightbox" data-mdb-lightbox-init>
-  <div class="row">
-    <div class="col-lg-6">
-      <img
-        src="assets/images/deal-01.jpg"
-        data-mdb-img="assets/images/deal-01.jpg"
-        alt="Table Full of Spices"
-        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
-      />
-      <img
-        src="assets/images/deal-01.jpg"
-        data-mdb-img="assets/images/deal-01.jpg"
-        alt="Coconut with Strawberries"
-        class="w-100 shadow-1-strong rounded"
-      />
-    </div>
-    <div class="col-lg-6">
-      <img
-        src="assets/images/deal-01.jpg"
-        data-mdb-img="assets/images/deal-01.jpg"
-        alt="Dark Roast Iced Coffee"
-        class="w-100 shadow-1-strong rounded"
-      />
-    </div>
-  </div>
-</div>-->
-
   <footer class="footer-no-gap">
     <div class="container">
       <div class="col-lg-12">
@@ -368,6 +375,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>
 </html>
