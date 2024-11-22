@@ -151,6 +151,32 @@ https://templatemo.com/tm-591-villa-agency
           <a id="replacementsfilter">Zamene</a>
         </li>
       </ul>
+      <div class="col-lg-12">
+      <div class="double-slider-box">
+        <h3 class="range-title">Raspon cene</h3>
+        <div class="range-slider">
+           <span class="slider-track"></span>
+           <input type="range" name="min_val" class="min-val" min="0" max="500000" value="10000" oninput="slideMin()">
+           <input type="range" name="max_val" class="max-val" min="0" max="500000" value="350000" oninput="slideMax()">
+           <div class="tooltip1 min-tooltip"></div>
+           <div class="tooltip1 max-tooltip"></div>
+        </div>
+        <div class="input-box">
+           <div class="min-box">
+                <div class="input-wrap">
+                   <span class="input-addon">€</span>
+                   <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                </div>
+           </div>
+           <div class="max-box">
+                <div class="input-wrap">
+                   <span class="input-addon">€</span>
+                   <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                </div>
+           </div>
+        </div>
+        </div>
+    </div>
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
@@ -281,6 +307,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script> 
+  <script src="assets/js/range.js"></script> 
 
   </body>
 </html>
