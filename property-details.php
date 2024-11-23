@@ -72,7 +72,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.php" class="logo">
-                        <h1>Villa</h1>
+                        <h1>Neca</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -366,15 +366,38 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
 
-  <footer class="footer-no-gap">
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
-        
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
-      </div>
+  <!-- Footer Start -->
+  <div class="col-lg-12 container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <a href="index.php" class="logo">
+                        <h1 style="color:#FFF;">Neca Prom D.O.O.</h1>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Adresa</h4>
+                    <p id="indexTextId45" class="mb-2" style="color:#FFF;"><i class="fa fa-map-marker-alt me-3"></i>Svetog Save 19, Sokobanja</p>
+                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
+                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
+                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
+                    <a class="mb-2" href="mailto: petar.krizan.dimnjaci@gmail.com" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>petar.krizan.dimnjaci@gmail.com</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Brzi linkovi</h4>
+                    <ul class="text-light">
+                      <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>
+                      <li><a href="properties.php" style="color:#FFF;">Prodaja</a></li>
+                      <li><a href="rents.php" style="color:#FFF;">Izdavanje</a></li>
+                      <li><a href="vacations.php" style="color:#FFF;">Letovanje</a></li>
+                      <li><a href="excursions.php" style="color:#FFF;">Izleti</a></li>
+                      <li><a href="contact.html" style="color:#FFF;">Kontakt</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
+    <!-- Footer End -->
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

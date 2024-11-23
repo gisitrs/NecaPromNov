@@ -13,7 +13,8 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
             ELSE CAST(`marinkom_jos1`.`jos_osrs_properties`.`price`
                 AS CHAR CHARSET UTF8MB4)
-        END) AS `price`,
+        END) AS `price_text`,
+        `marinkom_jos1`.`jos_osrs_properties`.`price` AS `price`,
         (CASE
             WHEN
                 (`marinkom_jos1`.`jos_osrs_properties`.`pro_type` = 1)
