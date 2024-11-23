@@ -115,32 +115,74 @@ https://templatemo.com/tm-591-villa-agency
   <div class="section properties">
     <div class="container">
     <div class="row">
-      <ul class="properties-filter" style="cursor:pointer">
-      <li>
-          <a id="rlestfilter" class="is_active">Sve nekretnine</a>
+       <ul id="filterButtonsId" class="properties-filter" style="cursor:pointer">
+        <li>
+          <a id="rlestfilter" class="is_active" data-position="0">Sve nekretnine</a>
         </li>
         <li>
-          <a id="housesfilter">Kuće</a>
+          <a id="housesfilter" data-position="1">Kuće</a>
         </li>
         <li>
-          <a id="flatsfilter">Stanovi</a>
+          <a id="flatsfilter" data-position="2">Stanovi</a>
         </li>
         <li>
-          <a id="cottagesfilter">Vikendice</a>
+          <a id="cottagesfilter" data-position="3">Vikendice</a>
         </li>
         <li>
-          <a id="parcelsfilter">Placevi</a>
+          <a id="parcelsfilter" data-position="4">Placevi</a>
         </li>
         <li>
-          <a id="villagesfilter">Seos. domaćinstva</a>
+          <a id="villagesfilter" data-position="5">Seos. domaćinstva</a>
         </li>
         <li>
-          <a id="issuingbfilter">Poslovni prostor</a>
+          <a id="issuingbfilter" data-position="7">Poslovni prostor</a>
         </li>
         <li>
-          <a id="replacementsfilter">Zamene</a>
+          <a id="apartmentsfilter" data-position="11">Izdavanje apartmana</a>
+        </li>
+        <li>
+          <a id="replacementsfilter" data-position="8">Zamene</a>
         </li>
       </ul>
+      <div class="col-lg-8">
+           <div class="double-slider-box">
+              <h3 class="range-title">Raspon cene</h3>
+              <div class="range-slider">
+                 <span class="slider-track"></span>
+                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" oninput="slideMax()">
+                 <div class="tooltip1 min-tooltip"></div>
+                 <div class="tooltip1 max-tooltip"></div>
+              </div>
+              <div class="input-box">
+                 <div class="min-box">
+                   <div class="input-wrap">
+                      <span class="input-addon">€</span>
+                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                   </div>
+                 </div>
+                 <div class="max-box">
+                   <div class="input-wrap">
+                      <span class="input-addon">€</span>
+                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                   </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-lg-3">
+            <select id="sortDropdownId" class="form-select" style="margin-top:20px;">
+               <option value="0">Sortiraj</option>
+               <option value="1">Manja ka većoj</option>
+               <option value="2">Veća ka manjoj</option>
+            </select>
+        </div>
+        <div class="col-lg-1">
+            <button type="button" class="btn btn-primary" style="margin-top:20px;"  onclick="filterProperties()">Filtriraj</button>
+        </div>
+        </div>
+        </div>
+        <div class="row" id="mylist">
       <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
@@ -155,18 +197,14 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                   /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
-                   $result1 = $conn-> query($sql1);*/
-                   /* assets/images/property-01.jpg */
-                   /* assets/images/properties/".$row["image"]. */
-                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
-                            "<div class="."item".">".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
-                                "<p>".$row["pro_small_desc"]."</p>".
-                              "</div>".
-                          "</div>";
+                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"].">".
+                "<div class="."item".">".
+                    "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
+                    "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
+                    "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
+                    "<p>".$row["pro_small_desc"]."</p>".
+                  "</div>".
+              "</div>";
                }
             }
             else {
@@ -175,7 +213,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-      </div>
+        </div>
     </div>
   </div>
 
@@ -197,6 +235,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/range.js"></script> 
 
   </body>
 </html>

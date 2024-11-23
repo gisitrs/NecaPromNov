@@ -74,8 +74,40 @@ function setMaxInput() {
   slideMax();
 }
 
-function testFunction(value){
+function filterProperties(){
      var obj = [];
+
+     var isAllRepSelected = $("#rlestfilter").hasClass('is_active');
+     var selectedPosition = 0;
+
+     if ($("#rlestfilter").hasClass('is_active') === true){
+         selectedPosition = parseInt($("#rlestfilter").data("position"));
+     }
+     else if ($("#housesfilter").hasClass('is_active') === true){
+        selectedPosition = parseInt($("#housesfilter").data("position"));
+     }
+     else if ($("#flatsfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#flatsfilter").data("position"));
+     }
+     else if ($("#cottagesfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#cottagesfilter").data("position"));
+     }
+     else if ($("#parcelsfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#parcelsfilter").data("position"));
+     }
+     else if ($("#villagesfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#villagesfilter").data("position"));
+     }
+     else if ($("#issuingbfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#issuingbfilter").data("position"));
+     }
+     else if ($("#apartmentsfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#apartmentsfilter").data("position"));
+     }
+     else if ($("#replacementsfilter").hasClass('is_active') === true){
+      selectedPosition = parseInt($("#replacementsfilter").data("position"));
+     }
+
 
      $('*[id*=realestate]').each(function(index, value) {
         obj[index] = $(this);
@@ -85,15 +117,36 @@ function testFunction(value){
     var maxValue = parseInt(document.getElementById('maxRangeValue').value);
     var firstElementId = '';
     var secondElementId = '';
+    
+    var value = parseInt(document.getElementById('sortDropdownId').value);
+    var typeA = '';
+    var typeB = '';
 
     obj.sort(function(a, b) {
+        var positionA = $(a).data("position");
+        var positionB = $(b).data("position");
         
-        var contentA = parseInt( $(a).data("position"));
-        var contentB = parseInt( $(b).data("position"));
+        var contentA = parseInt( positionA.split("-")[0]);
+        var contentB = parseInt( positionB.split("-")[0]);
+        typeA = parseInt( positionA.split("-")[1]);
+        typeB = parseInt( positionB.split("-")[1]);
+
         firstElementId = a[0].attributes[0].nodeValue;
         secondElementId = b[0].attributes[0].nodeValue;
-        $("#"+ secondElementId + "").css("display", "block");
-        $("#"+ firstElementId + "").css("display", "block");
+
+        if (isAllRepSelected == true || selectedPosition == typeA){
+          $("#"+ firstElementId + "").css("display", "block");
+        }
+        else {
+          $("#"+ firstElementId + "").css("display", "none");
+        }
+
+        if (isAllRepSelected == true || selectedPosition == typeB){
+          $("#"+ secondElementId + "").css("display", "block");
+        }
+        else {
+          $("#"+ secondElementId + "").css("display", "none");
+        }
 
         if (contentA < minValue || contentA > maxValue){
             $("#"+ firstElementId + "").css("display", "none");
@@ -114,6 +167,6 @@ function testFunction(value){
 
         return sortValue
       });
-
+      
       $("#mylist").prepend(obj);
 }

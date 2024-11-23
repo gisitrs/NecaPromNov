@@ -122,37 +122,37 @@ https://templatemo.com/tm-591-villa-agency
   <div class="section properties">
     <div class="container">
     <div class="row">
-      <ul class="properties-filter" style="cursor:pointer">
+      <ul id="filterButtonsId" class="properties-filter" style="cursor:pointer">
         <li>
-          <a id="rlestfilter" class="is_active">Sve nekretnine</a>
+          <a id="rlestfilter" class="is_active" data-position="0">Sve nekretnine</a>
         </li>
         <li>
-          <a id="housesfilter">Kuće</a>
+          <a id="housesfilter" data-position="1">Kuće</a>
         </li>
         <li>
-          <a id="flatsfilter">Stanovi</a>
+          <a id="flatsfilter" data-position="2">Stanovi</a>
         </li>
         <li>
-          <a id="cottagesfilter">Vikendice</a>
+          <a id="cottagesfilter" data-position="3">Vikendice</a>
         </li>
         <li>
-          <a id="parcelsfilter">Placevi</a>
+          <a id="parcelsfilter" data-position="4">Placevi</a>
         </li>
         <li>
-          <a id="villagesfilter">Seos. domaćinstva</a>
+          <a id="villagesfilter" data-position="5">Seos. domaćinstva</a>
         </li>
         <li>
-          <a id="issuingbfilter">Poslovni prostor</a>
+          <a id="issuingbfilter" data-position="7">Poslovni prostor</a>
         </li>
         <li>
-          <a id="apartmentsfilter">Izdavanje apartmana</a>
+          <a id="apartmentsfilter" data-position="11">Izdavanje apartmana</a>
         </li>
         <li>
-          <a id="replacementsfilter">Zamene</a>
+          <a id="replacementsfilter" data-position="8">Zamene</a>
         </li>
       </ul>
 
-        <div class="col-lg-9">
+        <div class="col-lg-8">
            <div class="double-slider-box">
               <h3 class="range-title">Raspon cene</h3>
               <div class="range-slider">
@@ -179,11 +179,14 @@ https://templatemo.com/tm-591-villa-agency
            </div>
         </div>
         <div class="col-lg-3">
-           <select class="form-control col-3 sort_by" onchange="testFunction(value)">
+            <select id="sortDropdownId" class="form-select" style="margin-top:20px;">
                <option value="0">Sortiraj</option>
                <option value="1">Manja ka većoj</option>
                <option value="2">Veća ka manjoj</option>
             </select>
+        </div>
+        <div class="col-lg-1">
+            <button type="button" class="btn btn-primary" style="margin-top:20px;"  onclick="filterProperties()">Filtriraj</button>
         </div>
         </div>
         </div>
@@ -202,7 +205,7 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"].">".
+                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"].">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
