@@ -48,3 +48,7 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 - https://mdbootstrap.com/docs/standard/extended/gallery/
 - https://www.youtube.com/watch?v=P_DaJpTeQ84
 - https://trvswgnr.github.io/bs5-lightbox/
+
+-- Sortiranje
+
+- https://stackoverflow.com/questions/38933242/how-can-i-rearrange-divs-in-bootstrap?noredirect=1&lq=1

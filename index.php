@@ -151,39 +151,50 @@ https://templatemo.com/tm-591-villa-agency
           <a id="replacementsfilter">Zamene</a>
         </li>
       </ul>
-      <div class="col-lg-12">
-      <div class="double-slider-box">
-        <h3 class="range-title">Raspon cene</h3>
-        <div class="range-slider">
-           <span class="slider-track"></span>
-           <input type="range" name="min_val" class="min-val" min="0" max="500000" value="10000" oninput="slideMin()">
-           <input type="range" name="max_val" class="max-val" min="0" max="500000" value="350000" oninput="slideMax()">
-           <div class="tooltip1 min-tooltip"></div>
-           <div class="tooltip1 max-tooltip"></div>
-        </div>
-        <div class="input-box">
-           <div class="min-box">
-                <div class="input-wrap">
-                   <span class="input-addon">€</span>
-                   <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
-                </div>
+
+        <div class="col-lg-9">
+           <div class="double-slider-box">
+              <h3 class="range-title">Raspon cene</h3>
+              <div class="range-slider">
+                 <span class="slider-track"></span>
+                 <input type="range" name="min_val" class="min-val" min="0" max="500000" value="10000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="500000" value="350000" oninput="slideMax()">
+                 <div class="tooltip1 min-tooltip"></div>
+                 <div class="tooltip1 max-tooltip"></div>
+              </div>
+              <div class="input-box">
+                 <div class="min-box">
+                   <div class="input-wrap">
+                      <span class="input-addon">€</span>
+                      <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                   </div>
+                 </div>
+                 <div class="max-box">
+                   <div class="input-wrap">
+                      <span class="input-addon">€</span>
+                      <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                   </div>
+                 </div>
+              </div>
            </div>
-           <div class="max-box">
-                <div class="input-wrap">
-                   <span class="input-addon">€</span>
-                   <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
-                </div>
-           </div>
+        </div>
+        <div class="col-lg-3">
+           <select class="form-control col-3 sort_by" onchange="testFunction(value)">
+               <option value="0">Sortiraj</option>
+               <option value="1">Manja ka većoj</option>
+               <option value="2">Veća ka manjoj</option>
+            </select>
         </div>
         </div>
-    </div>
+        </div>
+        <div class="row" id="mylist">
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
             {
                die("Connection failed:".$conn-> connect_error);
             }
-            
+
             $sql = "SELECT * FROM vw_getallproperties";
             $result = $conn-> query($sql);
             
@@ -191,15 +202,11 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                   /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
-                   $result1 = $conn-> query($sql1);*/
-                   /* assets/images/property-01.jpg */
-                   /* assets/images/properties/".$row["image"]. */
-                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
+                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"].">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
+                                "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
@@ -211,8 +218,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-      </div>
-    </div>
+        </div>
   </div>
 
   <div class="contact section">

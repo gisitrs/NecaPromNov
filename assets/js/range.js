@@ -73,3 +73,32 @@ function setMaxInput() {
   maxVal.value = priceInputMax.value;
   slideMax();
 }
+
+function testFunction(value){
+     var obj = [];
+
+     $('*[id*=realestate]:visible').each(function(index, value) {
+        obj[index] = $(this);
+    });
+    
+    var firstValue = 0;
+
+    obj.sort(function(a, b) {
+        
+        var contentA = parseInt( $(a).data("position"));
+        var contentB = parseInt( $(b).data("position"));
+        
+        var sortValue = 0;
+
+        if (value == 1){
+            sortValue = contentA < contentB ? -1 : contentA > contentB ? 1 : 0;
+        }
+        else if (value == 2){
+            sortValue = contentA > contentB ? -1 : contentA < contentB ? 1 : 0
+        }
+
+        return sortValue
+      });
+
+      $("#mylist").prepend(obj);
+}
