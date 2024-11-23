@@ -243,38 +243,47 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           </div>
-           <div class="col-lg-3">
-            <div>
-              <h3 class="text-black">Pošalji pitanje</h3>
-              <form class="form-contact-agent" style="margin-top:20px;">
-                <div class="form-group">
-                  <label for="name">Naslov</label>
-                  <input type="text" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="name">Vaše ime</label>
-                  <input type="text" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="name">Telefon</label>
-                  <input type="text" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="email">Vaš email</label>
-                  <input type="email" id="email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="phone">Poruka</label>
-                  <input type="text" id="phone" class="form-control">
-                </div>
-                <div class="form-group" style="margin-top: 10px;">
-                  <input type="submit" id="phone" class="btn-primary" value="Pošalji">
-                </div>
-              </form>
-              </div>
-              </div>
-              </div>
-              </div>
+          <div class="col-lg-3">
+              <div class="contact-content" style="margin-top: 0px;">
+                <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">
+                <div class="row">
+                  <div class="col-lg-12">
+                      <fieldset>
+                         <!--<label for="subject">Naslov</label>-->
+                         <input type="subject" name="subject" id="subject" placeholder="Naslov..." autocomplete="on" >
+                      </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                     <fieldset>
+                        <!--<label for="name">Vaše ime</label>-->
+                        <input type="name" name="name" id="name" placeholder="Vaše ime..." autocomplete="on" required>
+                     </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                     <fieldset>
+                        <!--<label for="phone">Telefon</label>-->
+                        <input type="phone" name="phone" id="phone" placeholder="Telefon..." autocomplete="on" required>
+                     </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                      <fieldset>
+                         <!--<label for="email">Vaš email</label>-->
+                         <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Vaš email..." required="">
+                      </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                      <fieldset>
+                         <!--<label for="message">Poruka</label>-->
+                         <textarea name="message" id="message" placeholder="Poruka"></textarea>
+                      </fieldset>
+                  </div>
+                  <div class="col-lg-12" style="margin-top: 0px;">
+                      <fieldset >
+                         <button type="submit" id="form-submit" class="orange-button">Pošalji</button>
+                      </fieldset>
+                  </div>
+               </div>
+             </form>
             </div>
           </div>
         </div>

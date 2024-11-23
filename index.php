@@ -229,8 +229,7 @@ https://templatemo.com/tm-591-villa-agency
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
-            <h6>| Contact Us</h6>
-            <h2>Get In Touch With Our Agents</h2>
+            <h2>Kontaktirajte nas</h2>
           </div>
         </div>
       </div>
@@ -248,48 +247,55 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                <h6>010-020-0340<br><span>Phone Number</span></h6>
+                <h6>010-020-0340<br><span>Broj telefona</span></h6>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="item email">
                 <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                <h6>info@villa.co<br><span>Business Email</span></h6>
+                <h6>info@villa.co<br><span>Email</span></h6>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-5">
-          <form id="contact-form" action="" method="post">
+          <div class="contact-content" style="margin-top: 0px;">
+            <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="name">Full Name</label>
-                  <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                  <!--<label for="subject">Naslov</label>-->
+                  <input type="subject" name="subject" id="subject" placeholder="Naslov..." autocomplete="on" >
                 </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <label for="email">Email Address</label>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
-                </fieldset>
+                 <fieldset>
+                    <!--<label for="name">Vaše ime</label>-->
+                    <input type="name" name="name" id="name" placeholder="Vaše ime..." autocomplete="on" required>
+                 </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <label for="subject">Subject</label>
-                  <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
-                </fieldset>
+                 <fieldset>
+                    <!--<label for="phone">Telefon</label>-->
+                    <input type="phone" name="phone" id="phone" placeholder="Telefon..." autocomplete="on" required>
+                     </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <label for="message">Message</label>
-                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                </fieldset>
+                  <fieldset>
+                     <!--<label for="email">Vaš email</label>-->
+                     <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Vaš email..." required="">
+                  </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
-                </fieldset>
+                  <fieldset>
+                     <!--<label for="message">Poruka</label>-->
+                     <textarea name="message" id="message" placeholder="Poruka"></textarea>
+                  </fieldset>
+              </div>
+              <div class="col-lg-12" style="margin-top: 0px;">
+                  <fieldset >
+                     <button type="submit" id="form-submit" class="orange-button">Pošalji</button>
+                  </fieldset>
               </div>
             </div>
           </form>
