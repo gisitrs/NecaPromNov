@@ -157,8 +157,8 @@ https://templatemo.com/tm-591-villa-agency
               <h3 class="range-title">Raspon cene</h3>
               <div class="range-slider">
                  <span class="slider-track"></span>
-                 <input type="range" name="min_val" class="min-val" min="0" max="500000" value="10000" oninput="slideMin()">
-                 <input type="range" name="max_val" class="max-val" min="0" max="500000" value="350000" oninput="slideMax()">
+                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" oninput="slideMax()">
                  <div class="tooltip1 min-tooltip"></div>
                  <div class="tooltip1 max-tooltip"></div>
               </div>
@@ -166,13 +166,13 @@ https://templatemo.com/tm-591-villa-agency
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">€</span>
-                      <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
                       <span class="input-addon">€</span>
-                      <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
                    </div>
                  </div>
               </div>

@@ -77,16 +77,31 @@ function setMaxInput() {
 function testFunction(value){
      var obj = [];
 
-     $('*[id*=realestate]:visible').each(function(index, value) {
+     $('*[id*=realestate]').each(function(index, value) {
         obj[index] = $(this);
     });
     
-    var firstValue = 0;
+    var minValue = parseInt(document.getElementById('minRangeValue').value);
+    var maxValue = parseInt(document.getElementById('maxRangeValue').value);
+    var firstElementId = '';
+    var secondElementId = '';
 
     obj.sort(function(a, b) {
         
         var contentA = parseInt( $(a).data("position"));
         var contentB = parseInt( $(b).data("position"));
+        firstElementId = a[0].attributes[0].nodeValue;
+        secondElementId = b[0].attributes[0].nodeValue;
+        $("#"+ secondElementId + "").css("display", "block");
+        $("#"+ firstElementId + "").css("display", "block");
+
+        if (contentA < minValue || contentA > maxValue){
+            $("#"+ firstElementId + "").css("display", "none");
+        }
+
+        if (contentB < minValue || contentB > maxValue){
+            $("#"+ secondElementId + "").css("display", "none");
+        }
         
         var sortValue = 0;
 
