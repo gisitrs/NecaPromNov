@@ -93,63 +93,145 @@ https://templatemo.com/tm-591-villa-agency
         </div>
     </div>
   </header>
-  
+
   <div class="main-banner" style="display:none;">
-     <div class="header-text">
-     </div>
-  </div>
+    <div class="header-text">
+    </div>
+ </div>
 
   <!-- ***** Header Area End ***** -->
-
-  <!--<div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a> / Properties</span>
-          <h3>Properties</h3>
-        </div>
-      </div>
-    </div>
-  </div>-->
 
   <div class="section properties">
     <div class="container">
     <div class="row">
-      <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $sql = "SELECT * FROM vw_getallpropertiesforrent";
-            $result = $conn-> query($sql);
-            
-            if ($result-> num_rows > 0)
-            {
-               while ($row = $result-> fetch_assoc())
-               {
-                   /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
-                   $result1 = $conn-> query($sql1);*/
-                   /* assets/images/property-01.jpg */
-                   /* assets/images/properties/".$row["image"]. */
-                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
-                            "<div class="."item".">".
-                                "<a href="."property-details.html"."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
-                                
-                                "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
-                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
-                                "<p>".$row["pro_small_desc"]."</p>".
-                              "</div>".
-                          "</div>";
-               }
-            }
-            else {
-                echo "0 results";
-            }
-            
-            $conn-> close();
-        ?>
+      <h2>O Sokobanji</h2>
+      <p style="margin-top: 50px;">Raskošna priroda ušuškana Rtnjem, Devicom i Ozrenom, sa termalnim, bistrim, hladnim izvorima, 
+        privlačila je pra čoveka, kao i danas urbanog. Kaže se, ne bez razloga "Sokobanja kraljica turizma". 
+        Potvrdu nalazimo u podacima iz različitih izvora, da su okrepljenje i lek svojim boljkama, 
+        ovde tražili Rimljani, pred značajne bitke, Vizantinci, Nemanjići, sultanovi sinovi. 
+        Danas se Sokobanja, svojom istorijom, spomenicima kulture, termalnim izvorima, vazduhom, 
+        izletištima, izborila za jedno od najznačajnijih turističkih mesta, koje jednostavno morate posetiti.
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-6">
+	             <a href="assets/images/2019/soko_banja_13_518.jpg?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/soko_banja_13_518.jpg?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-6">
+	              <a href="assets/images/2019/s-custom.jpg?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/s-custom.jpg?image=2" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
+      <h2 style="margin-top: 50px;">Ozren i Lepterija</h2>
+      <p style="margin-top: 50px;">
+      Na levoj obali reke Moravice, 1,5 kilometara od Sokobanje, putem koji vodi do Sokograda, 
+      nalazi se izletište "Lepterija". Svojom istorijom,legendama i zbog svog polažaja,Lepterija se 
+      ubraja u najatraktivnija izletišta. Posebnu atrakciju izletišta, predstavlja i lik Bogorodice sa 
+      Isusom u naručju, prirodno izobražen u steni. Na oko 400 metara, uzvodno od Lepterije nalazi se 
+      srednjovekovna tvrđava Sokograd. 
+      <br><br>
+      U neposrednoj blizini staze, koja vodi do Sokograda nalazi se 
+      i izvor pitke vode Rujnik. Planina Ozren sa 1074 metara nadmorske visine, je jedno od najposecenijih 
+      izletista u Sokobanji. Svez vazduh,vodopad Ripaljka,izvori pitkih voda, izletista Kalinovica, Ocno, 
+      Grudno, Vlasina, i predeli izuzetnih odlika, predstavljaju obavezu za sve turiste koji borave u 
+      Sokobanji da posete ovu planinu.
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-6">
+	             <a href="assets/images/2019/ozren-sokobanja-4d858c29-a6d3-4035-81bc-1ca5b041a35-resize-750.jpeg?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/ozren-sokobanja-4d858c29-a6d3-4035-81bc-1ca5b041a35-resize-750.jpeg?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-6">
+	              <a href="assets/images/2019/lepterija_01.jpg?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/lepterija_01.jpg?image=2" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
+      <h2 style="margin-top: 50px;">Izvor reke Moravice i Sesalačka pećina:</h2>
+      <p style="margin-top: 50px;">
+      Izvor reke moravice je prijatno mesto za odmor. Reka izvire na mestu zvanom Vrelo-Istoci u 
+      podnožju planine Device, na 12 kilometara od Sokobanje. Sam izvor predstavlja prirodni fenomen, 
+      jer se na samom početku javlja, u vidu razlivenog rečnog toka,koji nastaje od velikog broja podzemnih 
+      izvora. 
+      <br><br>
+      Sesalačka pećina se nalazi u selu Sesalac i udaljena je od Sokobanje 19 kilometara. 
+      Pećina je osvetljena u dužini od 200 metara i obiluje pećinskim nakitom: stalaktitima, 
+      stalagmitima, travertinskim kadama i tananim draperijama. Kroz nju teče rečica ponornica. 
+      Ispred pećine je uređen prostor za odmor, a u blizini pećine se nalazi i vesštačko jezero.
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-4">
+	             <a href="assets/images/2019/izvor-moravice.jpg?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/izvor-moravice.jpg?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-4">
+	              <a href="assets/images/2019/pecina.jpg?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/pecina.jpg?image=2" class="img-fluid">
+	              </a>
+             </div>
+             <div class="col-4">
+	              <a href="assets/images/2019/seselac.jpg?image=3" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/seselac.jpg?image=3" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
+      <h2 style="margin-top: 50px;">Rtanj</h2>
+      <p style="margin-top: 50px;">
+      Rtanj, 1560 metara nadmorske visine, udaljen od Sokobanje 18 kilometara. 
+      Legenda o ugasenom vulkanu,vatrene lopte, kao retke prirodne pojave,jame,pecine,strmi vrhovi, 
+      endemske biljke, price o vanzemaljcima i druge misterije, privlace veliki broj zaljubljenika u prirodu. na najvisem vrhu planine, nazvanom "Siljak" nalaze se ostaci crkvice-kapele Sv. Djordja. Posebni izazov,svakako predstavlja uspon na sam vrh planine.
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-6">
+	             <a href="assets/images/2019/rtanj.jpg?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/rtanj.jpg?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-6">
+	              <a href="assets/images/2019/rtanj2.jpg?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/rtanj2.jpg?image=2" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
+      <h2 style="margin-top: 50px;">Banja Jošanica i selo Vrmdža</h2>
+      <p style="margin-top: 50px;">
+      Jošanica, selo na obroncima planine Bukovik u dolini Jošaničke reke,16 kilometara udaljeno od 
+      Sokobanje. Bogatstvo termomineralnom vodom,osim u Sokobanji, prisutno je i u Banji Josanici. 
+      Po lekovitosti svojih izvora, ova Banja je bila poznata jos u doba Rimljana, o cemu svedoce 
+      pronadjene vodovodne cevi od opeke. Vode Banje Josanice poticu sa jedinstvenog izvorista, 
+      ali prema izdasnosti i hidrogeoloskim uslovima,njihovo poreklo je razlicito.
+      <br><br>
+      Selo Vrmdza, se nalazi na 12 kilometara od Sokobanje. Smesteno u samom podnozju planine Rtanj. 
+      Selo je poznato po "Latin Gradu", crkvi Svete Trojice, seokom muzeju, ali i po prirodnom jezeru, 
+      koje je udaljeno 3 kilometara od sela. Selo polako postaje gigant u razvoju seoskog turizma na 
+      podrucju Sokobanje.
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-6">
+	             <a href="assets/images/2019/josanica.jpg?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/josanica.jpg?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-6">
+	              <a href="assets/images/2019/josanica1.jpg?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/josanica1.jpg?image=2" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
       </div>
     </div>
   </div>
@@ -194,6 +276,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>
 </html>

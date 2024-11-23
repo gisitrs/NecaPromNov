@@ -101,55 +101,39 @@ https://templatemo.com/tm-591-villa-agency
 
   <!-- ***** Header Area End ***** -->
 
-  <!--<div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a> / Properties</span>
-          <h3>Properties</h3>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
   <div class="section properties">
     <div class="container">
     <div class="row">
-      <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $sql = "SELECT * FROM vw_getallpropertiesforrent";
-            $result = $conn-> query($sql);
-            
-            if ($result-> num_rows > 0)
-            {
-               while ($row = $result-> fetch_assoc())
-               {
-                   /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
-                   $result1 = $conn-> query($sql1);*/
-                   /* assets/images/property-01.jpg */
-                   /* assets/images/properties/".$row["image"]. */
-                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
-                            "<div class="."item".">".
-                                "<a href="."property-details.html"."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
-                                
-                                "<span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span>".
-                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
-                                "<p>".$row["pro_small_desc"]."</p>".
-                              "</div>".
-                          "</div>";
-               }
-            }
-            else {
-                echo "0 results";
-            }
-            
-            $conn-> close();
-        ?>
+      <h2>Letovanja</h2>
+      <p style="margin-top: 50px;">
+      Letujte sa agencijom „Necaprom“, najpovoljniji aranžmani, uređene plaže i tirkizno more.
+      First i last minute aranžmani za Grčku, Tursku, Crnu Goru, Bugarsku. U ponudi imamo i destinacije kao što su Španija, Tunis,Egipat.
+      Posetite najveće i najlepše gradove Evrope, Rim, Budimpeštu, Beč, Bratislavu....
+      </p>
+      <div class="col-12" style="margin-top: 50px;">
+          <div class="row justify-content-center">
+             <div class="col-3">
+	             <a href="assets/images/2019/letovanje1.jfif?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/letovanje1.jfif?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-3">
+	              <a href="assets/images/2019/letovanje2.jfif?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/letovanje2.jfif?image=2" class="img-fluid">
+	              </a>
+             </div>
+             <div class="col-3">
+	             <a href="assets/images/2019/letovanje3.jfif?image=1" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		             <img src="assets/images/2019/letovanje3.jfif?image=1" class="img-fluid">
+	             </a>
+             </div>
+             <div class="col-3">
+	              <a href="assets/images/2019/letovanje4.jfif?image=2" data-toggle="lightbox" data-gallery="hidden-images" class="col-4" style="width: 100%;">
+		              <img src="assets/images/2019/letovanje4.jfif?image=2" class="img-fluid">
+	              </a>
+             </div>
+          </div>
+      </div>
       </div>
     </div>
   </div>
@@ -194,6 +178,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>
 </html>

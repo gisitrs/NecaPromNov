@@ -124,6 +124,8 @@
 	$("a").click(function(){
 		var id = $(this).attr('id');
 
+		if (id != undefined){
+
 	    $('*[id*=filter]:visible').each(function(index, value) {
 		    $("#"+ value.id + "").removeClass("is_active");
 	    });
@@ -168,6 +170,7 @@
 		$('*[id*='+ finalSelectedId + ']:hidden').each(function(index, value) {
 		    $("#"+ value.id + "").show();
 	    });
+	   }
     });
 
 })(window.jQuery);
