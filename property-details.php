@@ -45,7 +45,7 @@ https://templatemo.com/tm-591-villa-agency
 
   <div class="sub-header" style="display:block">
     <div class="container">
-      <div class="row">
+      <div id="firstRowId" class="row">
         <div class="col-lg-8 col-md-8">
           <ul class="info">
             <li><i class="fa fa-envelope"></i> info@company.com</li>
@@ -67,7 +67,7 @@ https://templatemo.com/tm-591-villa-agency
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
+        <div id="secondRowId" class="row">
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
@@ -94,17 +94,77 @@ https://templatemo.com/tm-591-villa-agency
         </div>
     </div>
   </header>
+
+  <!-- ***** Header Area End ***** -->
   
   <div class="main-banner" style="display:none;">
      <div class="header-text">
      </div>
   </div>
 
-  <!-- ***** Header Area End ***** -->
+  <div id='DivIdToPrint' style="display:none;">
+    <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
 
-  <div class="section best-deal" style="margin-top:-30px;">
+            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                   echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"].">".
+                            "<div class="."item".">".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a><br><br><br>".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
+                                "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
+                                "<p>".$row["pro_small_desc"]."</p>".
+                              "</div>".
+                          "</div>";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
+    <div>
+    <?php 
+            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
+            if ($conn -> connect_error) 
+            {
+               die("Connection failed:".$conn-> connect_error);
+            }
+            
+            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                    echo "<div class="."carousel-item".">
+                            <img src="."assets/images/properties/".$row["id"]."/".$row["image"]." class="."d-block".">
+                          </div>";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+          ?>
+    </div>
+</div>
+
+  <div id="printableAreaId" class="section best-deal" style="margin-top:-30px;">
     <div class="container">
-      <div class="row">
+      <div id="thirdRowId" class="row">
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
@@ -242,11 +302,14 @@ https://templatemo.com/tm-591-villa-agency
           </button>
           </div>
           </div>
+          <div>
+              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px;" onclick='printDiv();'>Štampaj</button>
+          </div>
           </div>
           <div class="col-lg-3">
               <div class="contact-content" style="margin-top: 0px;">
                 <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">
-                <div class="row">
+                <div id="fourthRowId" class="row">
                   <div class="col-lg-12">
                       <fieldset>
                          <!--<label for="subject">Naslov</label>-->
@@ -286,15 +349,20 @@ https://templatemo.com/tm-591-villa-agency
              </form>
             </div>
           </div>
+          </div>
         </div>
+        </div>
+        </div>
+      </div>
+      </div>
       </div>
     </div>
   </div>
-   
+
   <div>
   <div class="container py-5 text-center" >
    <h2 class="display-6 fw-bold py-5">Galerija</h2>
-   <div class="row">
+   <div id="fifthRowId" class="row">
    <?php 
                 $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
                 if ($conn -> connect_error) 
@@ -323,7 +391,7 @@ https://templatemo.com/tm-591-villa-agency
                 $conn-> close();
              ?>
     </div>
- </div>
+  </div>
 </div>
 
 <div class="section properties">
@@ -331,7 +399,7 @@ https://templatemo.com/tm-591-villa-agency
     <div class="section-heading">
         <h2>Povezane nepokretnosti</h2>
     </div>
-    <div class="row">
+    <div id="lastRow" class="row">
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 
@@ -367,6 +435,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 
   <!-- Footer Start -->
+  <div class="col-lg-12">
   <div class="col-lg-12 container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
@@ -396,7 +465,7 @@ https://templatemo.com/tm-591-villa-agency
                 </div>
             </div>
         </div>
-    </div>
+  </div>
     <!-- Footer End -->
 
   <!-- Scripts -->
@@ -407,6 +476,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/print.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>

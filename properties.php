@@ -146,7 +146,7 @@ https://templatemo.com/tm-591-villa-agency
       </ul>
       <div class="col-lg-8">
            <div class="double-slider-box">
-              <h3 class="range-title">Raspon cene</h3>
+              <!--<h3 class="range-title">Raspon cene</h3>-->
               <div class="range-slider">
                  <span class="slider-track"></span>
                  <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" oninput="slideMin()">

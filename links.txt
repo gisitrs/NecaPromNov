@@ -57,3 +57,7 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 
 - https://www.youtube.com/watch?v=r4RQ38EoLds
 
+-- Print PDF
+
+- https://stackoverflow.com/questions/33732739/print-a-div-content-using-jquery
+- https://www.youtube.com/watch?v=DV2tAG5E-F0
