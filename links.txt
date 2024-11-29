@@ -3,6 +3,8 @@ GitHub io link: https://gisitrs.github.io/NecaPromNov/
 
 -- https://localhost/NecaProm
 
+-- https://localhost/NecaProm/admin
+
 -- PHP tutorial
 
 https://www.youtube.com/watch?v=d3bW9z1-Yv4
@@ -67,3 +69,7 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Login procedure
 
 - https://www.youtube.com/watch?v=2MpZwFoBPjQ
+
+-- Populating dropdown with PHP
+
+- https://www.youtube.com/watch?v=TNPxG2yrPlM
