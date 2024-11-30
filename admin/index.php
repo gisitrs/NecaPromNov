@@ -20,7 +20,7 @@ if (!isset($_SESSION["user"])) {
     </div>
     <div class="container col-lg-12">
         <?php
-        if (isset($_POST["createProperty"])) {
+        if (isset($_POST["createProperty"])) { 
            $ref = $_POST["ref"];
            $proName = $_POST["fullname"];
            $proAlias = 'Test';
@@ -90,6 +90,11 @@ if (!isset($_SESSION["user"])) {
                die("Something went wrong");
             }
         }
+        
+        if (isset($_POST["goToNewpage"])) {
+            header("Location: form.php");
+        }
+
         ?>
         <?php echo "<form class="."col-lg-12"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
         <!--<form class="col-lg-12" action="index.php?userId=" method="post"> -->
@@ -151,61 +156,15 @@ if (!isset($_SESSION["user"])) {
                    <textarea type="text" class="form-control" name="description1" placeholder="Beleška za agenta:"></textarea>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-lg-9 bg-light mt-4 px-4 p-2 rounded">
-                        <h3 class="text-center text-info pb-2">Upload slika</h3>
-                        <form action="" method="post" enctype="multipart/form-data" id="image_upload">
-                            <div class="form-group">
-                                <div class="form-control">
-                                    <input type="file" name="images[]" class="form-control" id="image" multiple placeholder="Izaberite sliku">
-                                        <label for="image" class="file-label">Izaberite fajl</label>
-                                    </input>
-                                </div>
-                            </div>
-                            <div class="form-btn text-center">
-                                <input type="submit" value="Upload" name="uploadImages" class="btn btn-info btn-block">
-                            </div>
-                            <h5 class="text-center text-success" id="result"></h5>
-                        </form>
-                    </div>
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-6 form-group d-inline-block">
+                    <input type="submit" value="Kreiraj nekretninu" name="createProperty" class="btn btn-primary">
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 mt-4">
-                        <div class="row p-2" id="images_preview">
-                        </div>
-                    </div>
+                <div class="col-lg-6 form-group d-inline-block" style="margin-left: 20px;">
+                    <input type="submit" value="Upload fotografija" name="goToNewpage" class="btn btn-primary"/>
                 </div>
-            </div>
-            <div class="form-btn">
-                <input type="submit" value="Kreiraj nekretninu" name="createProperty" class="btn btn-primary">
             </div>
         </form>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-          $("#image").on('change', function(){
-            var filename = $(this).val();
-            $(".file-label").html(filename);
-          });
-
-          $("image_upload").submit(function(e){
-              e.preventDefault();
-              $.ajax({
-                  url: 'insert.php',
-                  method: 'post',
-                  processData: false,
-                  contentType: false,
-                  cache: false,
-                  data: new FormData(this),
-                  success: function(response){
-                    $("#result").html(response);
-                  }
-              });
-          });
-
-        });
-    </script>
 </body>
 </html>

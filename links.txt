@@ -82,7 +82,10 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 - https://www.youtube.com/watch?v=mr15Xzb1Ook
 - https://www.youtube.com/watch?v=W-LDhPyv478
 
--- Image upload and previe
+-- Image upload and preview
 
 - https://bootstraptemple.com/p/bootstrap-image-upload
 - https://www.youtube.com/watch?app=desktop&v=HqlEqLqvJWg&t=795s
+
+- https://www.youtube.com/watch?v=jbpmcsSD9co
+- https://www.youtube.com/watch?v=_Ks5Kz6bxJg
