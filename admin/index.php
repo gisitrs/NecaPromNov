@@ -35,7 +35,7 @@ if (!isset($_SESSION["user"])) {
            $address = $_POST["address"];
            $metaDesc = $_POST["description1"];
            $created = '2024-11-30';
-           $createdBy = $_GET['userId'];
+           $createdBy = $_GET["userId"];
            $removeDate = '2024-11-30';
 
            $proPdfFile = '';
@@ -49,31 +49,50 @@ if (!isset($_SESSION["user"])) {
            $eclass = '';
 
            $selectedCategoryId = $_POST["propertyCategories"];
-            
-            require_once "database.php";
-            $sql = "INSERT INTO jos_osrs_properties (
-                                                      ref, pro_name, pro_alias, agent_id, company_id, price,
+
+           require_once "database.php";
+           $maxId = "SELECT  MAX(Id) AS MaxId FROM marinkom_jos1.jos_osrs_properties";
+           $resultMaxId = mysqli_query($conn, $maxId);
+           $resultMaxValue = mysqli_fetch_array($resultMaxId, MYSQLI_ASSOC);
+           $newId = $resultMaxValue["MaxId"] + 1;
+
+           $sql = "INSERT INTO jos_osrs_properties (
+                                                      id, ref, pro_name, pro_alias, agent_id, company_id, price,
                                                       pro_small_desc, pro_type, soldOn, address, metadesc,
                                                       created, created_by, remove_date, pro_pdf_file, energy,
                                                       climate, rent_time, square_feet, lot_size, c_class, e_class
                                                     ) 
-                                                    VALUES ( ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?)";
+                                                    VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt,"ssssssssssssssssssssss",$ref, $proName, $proAlias, $agentId, $companyId, $price, 
+                mysqli_stmt_bind_param($stmt,"sssssssssssssssssssssss", $newId, $ref, $proName, $proAlias, $agentId, $companyId, $price, 
                                                    $proSmallDesc, $proType, $soldOn, $address, $metaDesc,
                                                    $created, $createdBy, $removeDate, $proPdfFile, $energy,
                                                    $climate, $rentTime, $squareFeet, $lotSize, $cclass, $eclass);
                 mysqli_stmt_execute($stmt);
-                echo "<div class='alert alert-success'>Nova nekretnina je uspešno kreirana</div>";
+                echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
             }
             else{
                 die("Something went wrong");
             }
+
+            $sql = "INSERT INTO jos_osrs_property_categories (pid, category_id) VALUES (?,?)";
+            $stmt = mysqli_stmt_init($conn);
+            $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+
+            if ($prepareStmt) {
+               mysqli_stmt_bind_param($stmt,"ss", $newId, $selectedCategoryId);
+               mysqli_stmt_execute($stmt);
+               echo "<div class='alert alert-success'>Kategorija ".$selectedCategoryId." je uspešno dodata za novu nepokretnost</div>";
+            }
+            else{
+               die("Something went wrong");
+            }
         }
         ?>
-        <form class="col-lg-12" action="index.php?userId=".$createdBy method="post">
+        <?php echo "<form class="."col-lg-12"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
+        <!--<form class="col-lg-12" action="index.php?userId=" method="post"> -->
             <div class="col-lg-12 d-flex">
                 <div class="col-lg-6 form-group d-inline-block">
                     <input type="text" class="form-control" name="ref" placeholder="Ref:">

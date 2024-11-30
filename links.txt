@@ -81,3 +81,8 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 - https://tailwindcss.com/
 - https://www.youtube.com/watch?v=mr15Xzb1Ook
 - https://www.youtube.com/watch?v=W-LDhPyv478
+
+-- Image upload and previe
+
+- https://bootstraptemple.com/p/bootstrap-image-upload
+- https://www.youtube.com/watch?app=desktop&v=HqlEqLqvJWg&t=795s
