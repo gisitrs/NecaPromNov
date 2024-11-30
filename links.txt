@@ -73,3 +73,11 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Populating dropdown with PHP
 
 - https://www.youtube.com/watch?v=TNPxG2yrPlM
+
+
+
+-- Tailwindcss (new interesting thing)
+
+- https://tailwindcss.com/
+- https://www.youtube.com/watch?v=mr15Xzb1Ook
+- https://www.youtube.com/watch?v=W-LDhPyv478
