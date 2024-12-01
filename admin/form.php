@@ -22,15 +22,39 @@ if (!isset($_SESSION["user"])) {
         if (isset($_POST["submit"])) {
 
             require_once "database.php";
-
-            $dir="upload/";
+            
+            $selectedPropertyId = $_POST["property"];
+            $dir = "../assets/images/properties/".$selectedPropertyId;
+            $dirMedium = $dir."/medium";
+            $dirOriginal = $dir."/original";
+            $dirThumb = $dir."/thumb";
 
             if(!is_dir($dir))
             {
                 mkdir($dir, "0777", true);
+                //echo "New folder created";
             }
 
-            $countimg = 1;
+            if(!is_dir($dirMedium))
+            {
+                mkdir($dirMedium, "0777", true);
+            }
+
+            if(!is_dir($dirOriginal))
+            {
+                mkdir($dirOriginal, "0777", true);
+            }
+
+            if(!is_dir($dirThumb))
+            {
+                mkdir($dirThumb, "0777", true);
+            }
+
+            //$countimg = 1;
+            $maxOrderingId = "SELECT  MAX(ordering) AS MaxOrderingId FROM marinkom_jos1.jos_osrs_photos WHERE pro_id=".$selectedPropertyId;
+            $resultMaxOrderingId = mysqli_query($conn, $maxOrderingId);
+            $resultMaxOrderingValue = mysqli_fetch_array($resultMaxOrderingId, MYSQLI_ASSOC);
+            $countimg = $resultMaxOrderingValue["MaxOrderingId"] + 1;
 
             foreach($_FILES["images"]["name"] as $i=>$name)
             {
@@ -38,13 +62,25 @@ if (!isset($_SESSION["user"])) {
                 $tmpname = $_FILES["images"]["tmp_name"][$i];
     
                 $image_name = $_FILES['images']['tmp_name'][$i];
-                $folder = "upload/";
+                $folder = $dir."/";
                 $image_path = $folder.$_FILES['images']['name'][$i];
                 move_uploaded_file($image_name, $image_path);
 
-                $sql = "INSERT INTO images (path, sort) VALUES (?,?)";
+                $folderMedium = $dirMedium."/";
+                $image_pathMedium = $folderMedium.$_FILES['images']['name'][$i];
+                copy($image_path, $image_pathMedium);
+
+                $folderOriginal = $dirOriginal."/";
+                $image_pathOriginal = $folderOriginal.$_FILES['images']['name'][$i];
+                copy($image_path, $image_pathOriginal);
+
+                $folderThumb = $dirThumb."/";
+                $image_pathThumb = $folderThumb.$_FILES['images']['name'][$i];
+                copy($image_path, $image_pathThumb);
+
+                $sql = "INSERT INTO jos_osrs_photos (pro_id, image, ordering) VALUES (?,?,?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ss", $image_path, $countimg);
+                $stmt->bind_param("sss", $selectedPropertyId, $imagename, $countimg);
                 $stmt->execute();
 
                 $countimg = $countimg + 1;
@@ -74,27 +110,40 @@ if (!isset($_SESSION["user"])) {
         }
 
         ?>
-            <div class="col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-lg-9 bg-light mt-4 px-4 p-2 rounded">
-                        <h3 class="text-center text-info pb-2">Upload slika</h3>
-                        <form action="form.php" enctype="multipart/form-data" method="POST">
-                            <div class="form-control">
-                                <input class="form-control" type="file" name="images[]" multiple="multiple"/>
-                            </div>
-                            <div class="form-btn text-center">
-                                <input class="btn btn-info btn-block mt-4" type="submit" name="submit" value="Upload" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 mt-4">
-                        <div class="row p-2" id="images_preview">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 bg-light mt-4 px-4 p-2 rounded">
+                    <h3 class="text-center text-info pb-2">Upload slika</h3>
+                    <form action="form.php" enctype="multipart/form-data" method="POST">
+                       <div class="col-lg-12 bg-light mt-4 px-4 p-2 rounded justify-content-center">
+                          <select name="property" class="form-select">
+                              <?php 
+                                  require_once "database.php";
+                                  $sql = "SELECT id, pro_name FROM marinkom_jos1.jos_osrs_properties ORDER BY pro_name";
+                                  $result = mysqli_query($conn, $sql);
+                           
+                                   while($rows = $result->fetch_assoc()){
+                                      $propertyName = $rows['pro_name'];
+                                      $propertyId = $rows['id'];
+
+                                      echo "<option value='$propertyId'>$propertyName</option>";
+                                   };
+                               ?>
+                           </select>
+                       </div> 
+                       <div class="form-control mt-4">
+                            <input class="form-control" type="file" name="images[]" multiple="multiple"/>
                         </div>
+                        <div class="form-btn text-center">
+                            <input class="btn btn-info btn-block mt-4" type="submit" name="submit" value="Upload" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 mt-4">
+                    <div class="row p-2" id="images_preview">
                     </div>
                 </div>
             </div>
-        </form>
 </body>
 </html>
