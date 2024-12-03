@@ -95,6 +95,10 @@ if (!isset($_SESSION["user"])) {
             header("Location: form.php");
         }
 
+        if (isset($_POST["goToDatatablePage"])) {
+            header("Location: datatable.php?userId=".$_GET["userId"]);
+        }
+
         ?>
         <?php echo "<form class="."col-lg-12"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
         <!--<form class="col-lg-12" action="index.php?userId=" method="post"> -->
@@ -160,8 +164,11 @@ if (!isset($_SESSION["user"])) {
                 <div class="col-lg-6 form-group d-inline-block">
                     <input type="submit" value="Kreiraj nekretninu" name="createProperty" class="btn btn-primary">
                 </div>
-                <div class="col-lg-6 form-group d-inline-block" style="margin-left: 20px;">
+                <div class="col-lg-3 form-group d-inline-block" style="margin-left: 20px;">
                     <input type="submit" value="Upload fotografija" name="goToNewpage" class="btn btn-primary"/>
+                </div>
+                <div class="col-lg-3 form-group d-inline-block" style="margin-left: 20px;">
+                    <input type="submit" value="Sve nepokretnosti" name="goToDatatablePage" class="btn btn-primary"/>
                 </div>
             </div>
         </form>

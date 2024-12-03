@@ -94,3 +94,14 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Dropdown with search
 
 - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_filter
+
+
+-- ADMIN panel an example
+
+- https://www.youtube.com/watch?v=7XC2paaRmdc
+- https://www.youtube.com/watch?v=UrR8M1ytZF4
+
+-- Table with Add, Edit and Delete buttons
+
+- https://bootsnipp.com/snippets/vNldb#google_vignette
+- https://www.youtube.com/watch?v=JXiHercaaA0 GOOD EXAMPLE
