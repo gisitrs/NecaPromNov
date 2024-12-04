@@ -77,7 +77,7 @@ if (!isset($_SESSION["user"])) {
     table.table td a.edit {
         color: #FFC107;
     }
-    table.table td a.delete {
+    table.table td a.delete a.deleteimages{
         color: #E34724;
     }
     table.table td i {
@@ -114,14 +114,26 @@ if (!isset($_SESSION["user"])) {
       });
     });
 
+// Delete images for row on delete button click
+   $(document).on("click", ".deleteimages", function(){
+      var id = $(this).attr("id");
+      var string = id;
+      $.post("ajax_delete_images.php", { string: string}, function(data) {
+      $("#displaymessage").html(data);
+      });
+    });
+
     // update rec row on edit button click
  $(document).on("click", ".update", function(){
   var id = $(this).attr("id");
-  var string = id;
-        var txtname = $("#txtname").val();
-  var txtdepartment = $("#txtdepartment").val();
-  var txtphone = $("#txtphone").val();
-  $.post("ajax_update.php", { string: string,txtname: txtname, txtdepartment: txtdepartment, txtphone: txtphone}, function(data) {
+  var proId = id;
+  var txtref = $("#txtref").val();
+  var txtname = $("#txtname").val();
+  var txtprice = $("#txtprice").val();
+  var txtaddress = $("#txtaddress").val();
+  var txtsmalldescription = $("#txtsmalldescription").val();
+  var txtmetadesc = $("#txtmetadesc").val();
+  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
    $("#displaymessage").html(data);
   });
     });
@@ -130,12 +142,19 @@ if (!isset($_SESSION["user"])) {
  $(document).on("click", ".edit", function(){  
         $(this).parents("tr").find("td:not(:last-child)").each(function(i){
    if (i=='0'){
-    var idname = 'txtname';
+    var idname = 'txtref';
    }else if (i=='1'){
-    var idname = 'txtdepartment';
+    var idname = 'txtname';
    }else if (i=='2'){
-    var idname = 'txtphone';
-   }else{} 
+    var idname = 'txtprice';
+   }else if (i=='3'){
+    var idname = 'txtaddress'; 
+   } else if (i=='4'){
+    var idname = 'txtsmalldescription';
+   } else if (i=='5'){
+    var idname = 'txtmetadesc';
+   }
+
    $(this).html('<input type="text" name="updaterec" id="' + idname + '" class="form-control" value="' + $(this).text() + '">');
   });  
   $(this).parents("tr").find(".add, .edit").toggle();
@@ -194,9 +213,10 @@ if (!isset($_SESSION["user"])) {
                         <td><?php echo $smalldesc; ?></td>
                         <td><?php echo $metadesc; ?></td>
                         <td>
-       <a class="add" title="Add" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-user-plus"></i></a>
+                            <a class="add" title="Add" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></a>
+                            <a class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-image"></i></a>
                         </td>
                     </tr>   
           <?php } ?>     

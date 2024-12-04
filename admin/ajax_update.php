@@ -1,16 +1,25 @@
 <?php
 include"database.php"; 
-$string  = $_POST['string'];
+$proId  = $_POST['proId'];
+$txtref = $_POST['txtref']; 
 $txtname  = $_POST['txtname'];
-$txtdepartment  = $_POST['txtdepartment'];
-$txtphone  = $_POST['txtphone'];
-
-//echo "<p class='btn btn-info' align='center'>Id = ".$string." druga =".$txtdepartment."</p>";
+$txtprice  = $_POST['txtprice'];
+$txtaddress  = $_POST['txtaddress'];
+$txtsmalldescription  = $_POST['txtsmalldescription'];
+$txtmetadesc  = $_POST['txtmetadesc'];
 
 if ($txtname==''){
  echo "<p class='btn btn-info' align='center'>Please Insert YOUr name</p>";
 }else{
- $sql = "UPDATE marinkom_jos1.jos_osrs_properties SET pro_name='$txtdepartment' WHERE id = '$string' ";
+ $sql = "UPDATE marinkom_jos1.jos_osrs_properties 
+ SET pro_name='$txtname', 
+     ref='$txtref', 
+     price='$txtprice', 
+     address='$txtaddress', 
+     pro_small_desc='$txtsmalldescription',
+     metadesc='$txtmetadesc'
+ WHERE id = '$proId' ";
+ 
  if ($conn->query($sql) === TRUE) {
   echo "Record updated successfully";
  } else {
