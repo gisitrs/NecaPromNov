@@ -105,3 +105,8 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 
 - https://bootsnipp.com/snippets/vNldb#google_vignette
 - https://www.youtube.com/watch?v=JXiHercaaA0 GOOD EXAMPLE
+
+
+-- ANIMATION
+
+- https://www.youtube.com/watch?v=HKapGix6sis

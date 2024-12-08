@@ -6,8 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link href="assets/images/2019/Logo1.png" rel="icon">
 
-    <title>Villa Agency - Real Estate HTML5 Template</title>
+    <title>Neca Prom D.O.O.</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -121,7 +124,7 @@ https://templatemo.com/tm-591-villa-agency
 
   <div class="section properties">
     <div class="container">
-    <div class="row">
+    <div class="row" id="testRowCSS">
       <ul id="filterButtonsId" class="properties-filter" style="cursor:pointer">
         <li>
           <a id="rlestfilter" class="is_active" data-position="0">Sve nekretnine</a>
