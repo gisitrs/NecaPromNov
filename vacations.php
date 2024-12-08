@@ -47,8 +47,8 @@ https://templatemo.com/tm-591-villa-agency
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <ul class="info">
-            <li><i class="fa fa-envelope"></i> info@company.com</li>
-            <li><i class="fa fa-map"></i> Sunny Isles Beach, FL 33160</li>
+            <li><i class="fa fa-envelope" href="mailto: necaprom@ptt.rs"></i> necaprom@ptt.rs</li>
+            <li><i class="fa fa-map"></i> Svetog Save 19, Sokobanja</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
@@ -71,7 +71,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.php" class="logo">
-                        <h1>Neca</h1>
+                        <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -144,7 +144,7 @@ https://templatemo.com/tm-591-villa-agency
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <a href="index.php" class="logo">
-                        <h1 style="color:#FFF;">Neca Prom D.O.O.</h1>
+                        <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -153,7 +153,7 @@ https://templatemo.com/tm-591-villa-agency
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
-                    <a class="mb-2" href="mailto: petar.krizan.dimnjaci@gmail.com" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>petar.krizan.dimnjaci@gmail.com</a>
+                    <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
