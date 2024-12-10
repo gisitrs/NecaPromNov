@@ -56,7 +56,7 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a href="index.php" class="active">Kreiraj nekretninu</a></li>
-                      <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih nepokretnosti</a></li>
+                      <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
                       <li><a href="form.php">Upload fotografija</a></li>
                       <li><a href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
@@ -71,9 +71,15 @@ if (!isset($_SESSION["user"])) {
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-  <!-- ***** Header Area End ***** -->
-  
-  <div class="container col-lg-12">
+
+  <div class="main-banner" style="display:none;">
+    <div class="header-text">
+    </div>
+ </div>
+ 
+ <div class="col-lg-12">
+
+  <div class="col-lg-12">
         <?php
         if (isset($_POST["createProperty"])) { 
            $ref = $_POST["ref"];
@@ -102,9 +108,10 @@ if (!isset($_SESSION["user"])) {
            $lotSize = '0.00';
            $cclass = '';
            $eclass = '';
+           $success = 1;
 
            $selectedCategoryId = $_POST["propertyCategories"];
-
+           
            require_once "database.php";
            $maxId = "SELECT  MAX(Id) AS MaxId FROM marinkom_jos1.jos_osrs_properties";
            $resultMaxId = mysqli_query($conn, $maxId);
@@ -126,10 +133,11 @@ if (!isset($_SESSION["user"])) {
                                                    $created, $createdBy, $removeDate, $proPdfFile, $energy,
                                                    $climate, $rentTime, $squareFeet, $lotSize, $cclass, $eclass);
                 mysqli_stmt_execute($stmt);
-                echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
+                //echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
             }
             else{
                 die("Something went wrong");
+                $success = 0;
             }
 
             $sql = "INSERT INTO jos_osrs_property_categories (pid, category_id) VALUES (?,?)";
@@ -139,35 +147,85 @@ if (!isset($_SESSION["user"])) {
             if ($prepareStmt) {
                mysqli_stmt_bind_param($stmt,"ss", $newId, $selectedCategoryId);
                mysqli_stmt_execute($stmt);
-               echo "<div class='alert alert-success'>Kategorija ".$selectedCategoryId." je uspešno dodata za novu nepokretnost</div>";
+               //echo "<div class='alert alert-success'>Kategorija ".$selectedCategoryId." je uspešno dodata za novu nepokretnost</div>";
             }
             else{
                die("Something went wrong");
+               $success = 0;
+            }
+
+            if ($success = 1){
+                echo "<script>alert("."Uspešno je kreirana ".$proName." nekretnina".")</script>";
             }
         }
         
-        if (isset($_POST["goToNewpage"])) {
+        /*if (isset($_POST["goToNewpage"])) {
             header("Location: form.php");
         }
 
         if (isset($_POST["goToDatatablePage"])) {
             header("Location: datatable.php?userId=".$_GET["userId"]);
-        }
+        }*/
 
         ?>
-        <?php echo "<form class="."col-lg-12"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
-        <!--<form class="col-lg-12" action="index.php?userId=" method="post"> -->
-            <div class="col-lg-12 d-flex">
-                <div class="col-lg-6 form-group d-inline-block">
-                    <input type="text" class="form-control" name="ref" placeholder="Ref:">
-                </div>
-                <div class="col-lg-6 form-group d-inline-block" style="margin-left:20px;">
-                    <input type="text" class="form-control" name="fullname" placeholder="Naziv:">
-                </div>
+    </div>
+  
+    <div class="contact section" style="margin-top: -30px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 offset-lg-12">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="contact-content">
+    <div class="container">
+    <?php echo "<form id="."contact-form"." style="."width: 100%;"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
+      <div class="row">
+      <div class="section-heading text-center">
+            <h2>Kreiraj Nekretninu</h2>
+          </div>
+        <div class="col-lg-6">
+            <div class="contact-content" style="margin-top: 0px;">
+               
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <fieldset>
+                           <input type="name" name="ref" placeholder="Ref:" autocomplete="on" required>
+                        </fieldset>
+                     </div>
+                     <div class="col-lg-12">
+                        <fieldset>
+                           <input type="name" name="fullname" placeholder="Naziv:" autocomplete="on" required>
+                        </fieldset>
+                     </div>
+                     <div class="col-lg-12">
+                        <fieldset>
+                           <input type="phone" name="price" placeholder="Cena:" autocomplete="on" required>
+                        </fieldset>
+                     </div>
+                     <div class="col-lg-12">
+                         <fieldset>
+                           <textarea name="description" placeholder="Opis:"></textarea>
+                         </fieldset>
+                     </div>
+                 </div>
+               </form>
             </div>
-            <div class="col-lg-12 d-flex">
-                <div class="col-lg-6 form-group d-inline-block">
-                    <select name="propertyCategories" class="form-select">
+        </div>
+
+        <div class="col-lg-6">
+          <div class="contact-content" style="margin-top: 0px;">
+            <div class="row">
+              <div class="col-lg-12">
+                 <fieldset>
+                    <input type="phone" name="address" placeholder="Adresa:" autocomplete="on" required>
+                 </fieldset>
+              </div>
+              <div class="col-lg-12">
+                  <fieldset>
+                     <select name="propertyCategories" class="form-select">
                         <?php 
                            require_once "database.php";
                            $sql = "SELECT id, category_name FROM marinkom_jos1.jos_osrs_categories";
@@ -180,10 +238,12 @@ if (!isset($_SESSION["user"])) {
                                echo "<option value='$categoryId'>$categoryName</option>";
                            };
                         ?>
-                    </select>
-                </div>
-                <div class="col-lg-6 form-group d-inline-block" style="margin-left: 20px;">
-                    <select name="propertyTypes" class="form-select">
+                      </select>
+                  </fieldset>
+              </div>
+              <div class="col-lg-12" style="margin-top:35px;">
+                  <fieldset>
+                     <select name="propertyTypes" class="form-select">
                         <?php 
                            require_once "database.php";
                            $sql = "SELECT id, type_name FROM marinkom_jos1.jos_osrs_types";
@@ -196,38 +256,28 @@ if (!isset($_SESSION["user"])) {
                                echo "<option value='$typeId'>$typeName</option>";
                            };
                         ?>
-                    </select>
-                </div>
+                      </select>
+                  </fieldset>
+              </div>
+              <div class="col-lg-12" style="margin-top:35px;">
+                  <fieldset>
+                     <textarea name="description1" placeholder="Beleška za agenta:"></textarea>
+                  </fieldset>
+              </div>
+              <div class="col-lg-12" style="margin-top: 0px;">
+                  <fieldset >
+                     <button type="submit" name="createProperty" class="orange-button">Kreiraj</button>
+                  </fieldset>
+              </div>
             </div>
-            <div class="col-lg-12 d-flex">
-                <div class="col-lg-6 form-group d-inline-block">
-                    <input type="text" class="form-control" name="price" placeholder="Cena:">
-                </div>
-                <div class="col-lg-6 form-group d-inline-block" style="margin-left: 20px;">
-                    <input type="text" class="form-control" name="address" placeholder="Adresa:">
-                </div>
-            </div>
-            <div class="col-lg-12 d-flex">
-                <div class="col-lg-6 form-group d-inline-block">
-                   <textarea type="text" class="form-control" name="description" placeholder="Opis:"></textarea>
-                </div>
-                <div class="col-lg-6 form-group d-inline-block" style="margin-left: 20px;">
-                   <textarea type="text" class="form-control" name="description1" placeholder="Beleška za agenta:"></textarea>
-                </div>
-            </div>
-            <div class="col-lg-12 d-flex">
-                <div class="col-lg-6 form-group d-inline-block">
-                    <input type="submit" value="Kreiraj nekretninu" name="createProperty" class="btn btn-primary">
-                </div>
-                <div class="col-lg-3 form-group d-inline-block" style="margin-left: 20px;">
-                    <input type="submit" value="Upload fotografija" name="goToNewpage" class="btn btn-primary"/>
-                </div>
-                <div class="col-lg-3 form-group d-inline-block" style="margin-left: 20px;">
-                    <input type="submit" value="Sve nepokretnosti" name="goToDatatablePage" class="btn btn-primary"/>
-                </div>
-            </div>
-        </form>
+        </div>
+
+      </div>
+     </form>
     </div>
+  </div> 
+
+</div>
 
 
   <!-- Scripts -->
