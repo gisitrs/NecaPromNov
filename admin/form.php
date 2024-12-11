@@ -6,19 +6,79 @@ if (!isset($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>User Dashboard</title>
-</head>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link href="../assets/images/2019/Logo1.png" rel="icon">
+
+    <title>Neca Prom D.O.O.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  </head>
+
 <body>
-    <div  style="position:absolute; top: 0; right:0;">
-        <a href="logout.php" class="btn btn-warning" >Logout</a>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-        <?php
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                    <a href="index.php" class="logo">
+                        <img src="../assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
+                    </a>
+
+                    <ul class="nav">
+                      <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Kreiraj nekretninu</a></li>
+                      <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
+                      <li><a class="active" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
+                      <li><a href="../index.php">Web site</a></li>
+                      <li><a href="logout.php">Odjavi se</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner" style="display:none;">
+    <div class="header-text">
+    </div>
+ </div>
+
+ <?php
         if (isset($_POST["submit"])) {
 
             require_once "database.php";
@@ -115,7 +175,8 @@ if (!isset($_SESSION["user"])) {
                     <h3 class="text-center text-info pb-2">Upload slika</h3>
                     <form action="form.php" enctype="multipart/form-data" method="POST">
                        <div class="col-lg-12 bg-light mt-4 px-4 p-2 rounded justify-content-center">
-                          <select name="property" class="form-select">
+                           <p>Izaberi nekretninu</p>
+                           <select name="property" class="form-select">
                               <?php 
                                   require_once "database.php";
                                   $sql = "SELECT id, pro_name FROM marinkom_jos1.jos_osrs_properties ORDER BY pro_name";
@@ -130,6 +191,7 @@ if (!isset($_SESSION["user"])) {
                                ?>
                            </select>
                        </div> 
+                       <p style="margin-top: 30px;">Izaberi fotografije</p>
                        <div class="form-control mt-4">
                             <input class="form-control" type="file" name="images[]" multiple="multiple"/>
                         </div>
@@ -145,5 +207,15 @@ if (!isset($_SESSION["user"])) {
                     </div>
                 </div>
             </div>
-</body>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../assets/js/isotope.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/counter.js"></script>
+  <script src="../assets/js/custom.js"></script> 
+
+  </body>
 </html>

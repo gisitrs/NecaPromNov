@@ -6,17 +6,33 @@ if (!isset($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+
+    <!-- Favicon -->
+    <link href="../assets/images/2019/Logo1.png" rel="icon">
+
+    <title>Neca Prom D.O.O.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>User Dashboard</title>
+    
     <style type="text/css">
     body {
         color: #404E67;
@@ -102,6 +118,7 @@ if (!isset($_SESSION["user"])) {
   display: none;
  }
 </style>
+
 <script type="text/javascript">
    // Delete row on delete button click
    $(document).on("click", ".delete", function(){
@@ -163,19 +180,68 @@ if (!isset($_SESSION["user"])) {
     });
 
 </script>
-</head>
+
+  </head>
+
 <body>
-    <div  style="position:absolute; top: 0; right:0;">
-        <a href="logout.php" class="btn btn-warning" >Logout</a>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                    <a href="index.php" class="logo">
+                        <img src="../assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
+                    </a>
+
+                    <ul class="nav">
+                      <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Kreiraj nekretninu</a></li>
+                      <li><a class="active" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
+                      <li><a <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
+                      <li><a href="../index.php">Web site</a></li>
+                      <li><a href="logout.php">Odjavi se</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner" style="display:none;">
+    <div class="header-text">
+    </div>
+ </div>
+
+ <!--<div  style="position:absolute; top: 0; right:0;">
+        <a href="logout.php" class="btn btn-warning" >Logout</a>
+    </div>-->
     <div class="container col-lg-12">
-        <p><h1>Detalji o nekretninama</h1><div id="displaymessage"></div></p>
         <div class="table-wrapper">
             <div class="table-title">
+                <div style="height: 50px;"></div>
                 <div class="row">
-                    <div class="col-sm-8"><h2> Tabelarne vrednosti</h2></div>
+                    <div class="col-sm-8"><h2> Detalji o nekretninama</h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Dodaj novu</button>
+                        <!--<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Dodaj novu</button>-->
                     </div>
                 </div>
             </div>
@@ -224,5 +290,16 @@ if (!isset($_SESSION["user"])) {
             </table>
         </div>
     </div>
-</body>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../assets/js/isotope.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/counter.js"></script>
+  <script src="../assets/js/custom.js"></script> 
+
+  </body>
 </html>

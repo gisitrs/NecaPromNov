@@ -55,9 +55,10 @@ if (!isset($_SESSION["user"])) {
                     </a>
 
                     <ul class="nav">
-                      <li><a href="index.php" class="active">Kreiraj nekretninu</a></li>
+                      <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> class="active">Kreiraj nekretninu</a></li>
                       <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
-                      <li><a href="form.php">Upload fotografija</a></li>
+                      <li><a <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
+                      <li><a href="../index.php">Web site</a></li>
                       <li><a href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
@@ -76,8 +77,6 @@ if (!isset($_SESSION["user"])) {
     <div class="header-text">
     </div>
  </div>
- 
- <div class="col-lg-12">
 
   <div class="col-lg-12">
         <?php
@@ -108,7 +107,6 @@ if (!isset($_SESSION["user"])) {
            $lotSize = '0.00';
            $cclass = '';
            $eclass = '';
-           $success = 1;
 
            $selectedCategoryId = $_POST["propertyCategories"];
            
@@ -137,7 +135,6 @@ if (!isset($_SESSION["user"])) {
             }
             else{
                 die("Something went wrong");
-                $success = 0;
             }
 
             $sql = "INSERT INTO jos_osrs_property_categories (pid, category_id) VALUES (?,?)";
@@ -148,14 +145,10 @@ if (!isset($_SESSION["user"])) {
                mysqli_stmt_bind_param($stmt,"ss", $newId, $selectedCategoryId);
                mysqli_stmt_execute($stmt);
                //echo "<div class='alert alert-success'>Kategorija ".$selectedCategoryId." je uspešno dodata za novu nepokretnost</div>";
+               echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
             }
             else{
                die("Something went wrong");
-               $success = 0;
-            }
-
-            if ($success = 1){
-                echo "<script>alert("."Uspešno je kreirana ".$proName." nekretnina".")</script>";
             }
         }
         
@@ -170,7 +163,7 @@ if (!isset($_SESSION["user"])) {
         ?>
     </div>
   
-    <div class="contact section" style="margin-top: -30px;">
+  <div class="contact section" style="margin-top: -30px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 offset-lg-12">
@@ -276,9 +269,6 @@ if (!isset($_SESSION["user"])) {
      </form>
     </div>
   </div> 
-
-</div>
-
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
