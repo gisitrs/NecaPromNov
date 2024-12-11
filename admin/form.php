@@ -173,7 +173,7 @@ if (!isset($_SESSION["user"])) {
             <div class="row justify-content-center">
                 <div class="col-lg-9 bg-light mt-4 px-4 p-2 rounded">
                     <h3 class="text-center text-info pb-2">Upload slika</h3>
-                    <form action="form.php" enctype="multipart/form-data" method="POST">
+                    <form <?php echo "href="."action.php?userId=".$_GET['userId'] ?> enctype="multipart/form-data" method="POST">
                        <div class="col-lg-12 bg-light mt-4 px-4 p-2 rounded justify-content-center">
                            <p>Izaberi nekretninu</p>
                            <select name="property" class="form-select">
