@@ -110,3 +110,8 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- ANIMATION
 
 - https://www.youtube.com/watch?v=HKapGix6sis
+
+
+-- Confirm delete window
+
+- https://www.youtube.com/watch?v=UerxjlhC8K0

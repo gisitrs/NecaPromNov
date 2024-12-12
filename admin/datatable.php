@@ -122,18 +122,22 @@ if (!isset($_SESSION["user"])) {
 <script type="text/javascript">
    // Delete row on delete button click
    $(document).on("click", ".delete", function(){
-        $(this).parents("tr").remove();
-      $(".add-new").removeAttr("disabled");
+      var id = $(this).attr("id");
+      $('#user_id').val(id);
+      $('#deleteusermodal').modal('show');
+
+      /*$(this).parents("tr").remove();
+      $(".add-new").removeAttr("disabled");*/
       var id = $(this).attr("id");
       var string = id;
-      $.post("ajax_delete.php", { string: string}, function(data) {
+      $.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
       $("#displaymessage").html(data);
       });
     });
 
 // Delete images for row on delete button click
    $(document).on("click", ".deleteimages", function(){
-      var id = $(this).attr("id");
+      var id = $(this).attr("id");
       var string = id;
       $.post("ajax_delete_images.php", { string: string}, function(data) {
       $("#displaymessage").html(data);
@@ -152,6 +156,7 @@ if (!isset($_SESSION["user"])) {
   var txtmetadesc = $("#txtmetadesc").val();
   $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
    $("#displaymessage").html(data);
+   location.reload(true);
   });
     });
     
@@ -288,6 +293,27 @@ if (!isset($_SESSION["user"])) {
           <?php } ?>     
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteusermodal" tabindex="-1" aria-labelledby="deleteusermodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Delete User Data</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                    <input type="text" name="user_id" id="user_id">
+                    <div class="modal-body">
+                        <h4>Are you sure?</h4>
+                    </div>    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" name="delete_data" class="btn btn-danger">Yes | Delete</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
