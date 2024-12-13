@@ -159,6 +159,28 @@ if (!isset($_SESSION["user"])) {
    location.reload(true);
   });
     });
+ 
+ // Catch Filter button
+ $(document).on("click", "#filterDataTableId", function(){
+   //var selectedType = $("#typeSelectId option:selected").text();
+   var typeId = $("#typeSelectId").val();
+   var selectedType = "_" + typeId + "_";
+
+   if (typeId == 0){
+       $('*tr[id*=_]:hidden').each(function(index, value) {
+	       $("#"+ value.id + "").show();
+	   });
+   }
+   else {
+    $('*tr[id*=_]:visible').each(function(index, value) {
+		$("#"+ value.id + "").hide();
+	});
+
+    $('*tr[id*=' + selectedType + ']:hidden').each(function(index, value) {
+	    $("#"+ value.id + "").show();
+	});
+   }
+ });
     
  // Edit row on edit button click
  $(document).on("click", ".edit", function(){  
@@ -249,8 +271,33 @@ if (!isset($_SESSION["user"])) {
                         <!--<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Dodaj novu</button>-->
                     </div>
                 </div>
+                <div class="row col-lg-12">
+                    <div class="col-lg-3">
+                        <fieldset>
+                            <select id="typeSelectId" name="testDT" class="form-select">
+                                <?php 
+                                    require_once "database.php";
+                                    $sql = "SELECT id, type_name FROM marinkom_jos1.vw_getallpropertytypes ORDER BY id";
+                                    $result = mysqli_query($conn, $sql);
+                          
+                                    while($rows = $result->fetch_assoc()){
+                                        $typeName = $rows['type_name'];
+                                        $typeId = $rows['id'];
+
+                                        echo "<option value='$typeId'>$typeName</option>";
+                                    };
+                                ?>    
+                            </select>
+                       </fieldset>
+                   </div>
+                   <div class="col-lg-1">
+                      <fieldset >
+                          <button id="filterDataTableId" type="submit" name="filterProperties" class="orange-button">Filtriraj</button>
+                      </fieldset>
+                   </div>
+               </div>
             </div>
-        <table class="table table-bordered">
+        <table id="propertiesTableId" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Ref</th>
@@ -259,6 +306,7 @@ if (!isset($_SESSION["user"])) {
                         <th>Adresa</th>
                         <th>Opis</th>
                         <th>Beleška za agenta</th>
+                        <th>Tip nekretnine</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -275,14 +323,17 @@ if (!isset($_SESSION["user"])) {
                       $property_address=$row['address']; 
                       $smalldesc=$row['pro_small_desc']; 
                       $metadesc=$row['metadesc']; 
+                      $typeName=$row['type_name'];
+                      $proType=$row['pro_type'];
                 ?>
-                    <tr>
+                    <tr <?php echo "id=".$property_id."_".$proType."_" ?>>
                         <td><?php echo $property_ref; ?></td>
                         <td><?php echo $property_name; ?></td>
                         <td><?php echo $property_price; ?></td>
                         <td><?php echo $property_address; ?></td>
                         <td><?php echo $smalldesc; ?></td>
                         <td><?php echo $metadesc; ?></td>
+                        <td><?php echo $typeName; ?></td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></a>

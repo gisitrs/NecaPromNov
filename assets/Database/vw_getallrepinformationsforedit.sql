@@ -10,6 +10,9 @@ VIEW `marinkom_jos1`.`vw_getallrepinformationsforedit` AS
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
         `marinkom_jos1`.`jos_osrs_properties`.`price` AS `price`,
         `marinkom_jos1`.`jos_osrs_properties`.`address` AS `address`,
-        `marinkom_jos1`.`jos_osrs_properties`.`metadesc` AS `metadesc`
+        `marinkom_jos1`.`jos_osrs_properties`.`metadesc` AS `metadesc`,
+        `marinkom_jos1`.`jos_osrs_types`.`type_name` AS `type_name`,
+        `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`
     FROM
-        `marinkom_jos1`.`jos_osrs_properties`
+        (`marinkom_jos1`.`jos_osrs_properties`
+        LEFT JOIN `marinkom_jos1`.`jos_osrs_types` ON ((`marinkom_jos1`.`jos_osrs_types`.`id` = `marinkom_jos1`.`jos_osrs_properties`.`pro_type`)))
