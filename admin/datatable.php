@@ -130,7 +130,7 @@ if (!isset($_SESSION["user"])) {
 
 <script type="text/javascript">
    // Delete row on delete button click
-   $(document).on("click", ".delete", function(){
+   $(document).on("click", ".delete", function(e){
       var id = $(this).attr("id");
       $('#user_id').val(id);
       $('#deleteusermodal').modal('show');
@@ -139,22 +139,26 @@ if (!isset($_SESSION["user"])) {
       $(".add-new").removeAttr("disabled");*/
       var id = $(this).attr("id");
       var string = id;
-      alert(string);
+      //alert(string);
       /*$.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
       //$("#displaymessage").html(data);
       });*/
+      
+      /*$.post("ajax_delete.php", { string: string }, function(data) {
+           //$("#displaymessage").html(data);
+        });*/
     });
-
-    $(document).on("click", "#closeDeleteDataId", function(){
-        alert('Close clciked');
-    });
 
     $(document).on("click", "#finalDeleteDataId", function(){
         var id = $('#user_id').val();
-        alert('Finalno brisanje za Id ' + id);
-        /*$.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
-          //$("#displaymessage").html(data);
-        });*/
+        var id1 = $('#'+ id +'').attr("id");
+        var string = id1;
+
+        $('#deleteusermodal').modal('hide');
+        $.post("ajax_delete.php", { string: string }, function(data) {
+           //$("#displaymessage").html(data);
+        });
+        $('#'+ id +'').parents("tr").remove();
     });
 
 // Delete images for row on delete button click
@@ -200,7 +204,7 @@ if (!isset($_SESSION["user"])) {
     });
 
   $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
-      $("#displaymessage").html(data);
+      //$("#displaymessage").html(data);
       //location.reload(true);
   });
 
@@ -440,7 +444,7 @@ if (!isset($_SESSION["user"])) {
                     </div>    
                     <div class="modal-footer">
                         <button id="closeDeleteDataId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="finalDeleteDataId" type="submit" name="delete_data" class="btn btn-danger">Yes | Delete</button>
+                        <button id="finalDeleteDataId" type="button" name="delete_data" class="btn btn-danger">Yes | Delete</button>
                     </div>
                 </form>
             </div>
