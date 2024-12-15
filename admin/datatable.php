@@ -114,8 +114,17 @@ if (!isset($_SESSION["user"])) {
  table.table .form-control.error {
   border-color: #f50000;
  }
+
  table.table td .add {
   display: none;
+ }
+
+ table.table td .close {
+    display: none;
+ }
+
+ i {
+   cursor: pointer;
  }
 </style>
 
@@ -130,10 +139,23 @@ if (!isset($_SESSION["user"])) {
       $(".add-new").removeAttr("disabled");*/
       var id = $(this).attr("id");
       var string = id;
-      $.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
-      $("#displaymessage").html(data);
-      });
+      alert(string);
+      /*$.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
+      //$("#displaymessage").html(data);
+      });*/
     });
+
+    $(document).on("click", "#closeDeleteDataId", function(){
+        alert('Close clciked');
+    });
+
+    $(document).on("click", "#finalDeleteDataId", function(){
+        var id = $('#user_id').val();
+        alert('Finalno brisanje za Id ' + id);
+        /*$.post("delete_confirm.php", { string: string, 'confirm_delete_btn':true}, function(data) {
+          //$("#displaymessage").html(data);
+        });*/
+    });
 
 // Delete images for row on delete button click
    $(document).on("click", ".deleteimages", function(){
@@ -154,11 +176,35 @@ if (!isset($_SESSION["user"])) {
   var txtaddress = $("#txtaddress").val();
   var txtsmalldescription = $("#txtsmalldescription").val();
   var txtmetadesc = $("#txtmetadesc").val();
-  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
-   $("#displaymessage").html(data);
-   location.reload(true);
-  });
+  
+  $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
+  $(this).parents("tr").find(".update").removeClass("update").addClass("add");
+  $(this).parents("tr").find(".edit, .add").toggle();
+
+  $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+       if (i=='0'){
+          var value = $('#txtref').val();
+       }else if (i=='1'){
+          var value = $('#txtname').val();
+       }else if (i=='2'){
+          var value = $('#txtprice').val();
+       }else if (i=='3'){
+          var value = $('#txtaddress').val();
+       }else if (i=='4'){
+          var value = $('#txtsmalldescription').val();
+       }else if (i=='5'){
+          var value = $('#txtmetadesc').val();
+       }
+
+       $(this).html(value);
     });
+
+  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
+      $("#displaymessage").html(data);
+      //location.reload(true);
+  });
+
+  });
  
  // Catch Filter button
  $(document).on("click", "#filterDataTableId", function(){
@@ -184,7 +230,7 @@ if (!isset($_SESSION["user"])) {
     
  // Edit row on edit button click
  $(document).on("click", ".edit", function(){  
-        $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+   $(this).parents("tr").find("td:not(:last-child)").each(function(i){
    if (i=='0'){
     var idname = 'txtref';
    }else if (i=='1'){
@@ -199,12 +245,44 @@ if (!isset($_SESSION["user"])) {
     var idname = 'txtmetadesc';
    }
 
-   $(this).html('<input type="text" name="updaterec" id="' + idname + '" class="form-control" value="' + $(this).text() + '">');
+   var oldIdName = idname + '_old';
+
+   if (i != 6){
+    $(this).html('<input type="text" name="updaterec" id="' + idname + '" class="form-control" value="' + $(this).text() + 
+    '"><p style="display:none" id="' + oldIdName + '">' + $(this).text() + '</p>');
+   }
   });  
+
   $(this).parents("tr").find(".add, .edit").toggle();
   $(".add-new").attr("disabled", "disabled");
   $(this).parents("tr").find(".add").removeClass("add").addClass("update");
+  $(this).parents("tr").find(".close").removeClass("close").addClass("exit");
     });
+
+  // Close edit form
+  $(document).on("click", ".exit", function(){ 
+    $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
+    $(this).parents("tr").find(".update").removeClass("update").addClass("add");
+    $(this).parents("tr").find(".edit, .add").toggle();
+
+    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+       if (i=='0'){
+          var value = $('#txtref_old').text();
+       }else if (i=='1'){
+          var value = $('#txtname_old').text();
+       }else if (i=='2'){
+          var value = $('#txtprice_old').text();
+       }else if (i=='3'){
+          var value = $('#txtaddress_old').text();
+       }else if (i=='4'){
+          var value = $('#txtsmalldescription_old').text();
+       }else if (i=='5'){
+          var value = $('#txtmetadesc_old').text();
+       }
+
+       $(this).html(value);
+    });
+  });
 
 </script>
 
@@ -335,10 +413,11 @@ if (!isset($_SESSION["user"])) {
                         <td><?php echo $metadesc; ?></td>
                         <td><?php echo $typeName; ?></td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></a>
-                            <a class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-image"></i></a>
+                            <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
+                            <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
+                            <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
+                            <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-image"></i></div>
+                            <div class="close" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
                         </td>
                     </tr>   
           <?php } ?>     
@@ -360,8 +439,8 @@ if (!isset($_SESSION["user"])) {
                         <h4>Are you sure?</h4>
                     </div>    
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="delete_data" class="btn btn-danger">Yes | Delete</button>
+                        <button id="closeDeleteDataId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="finalDeleteDataId" type="submit" name="delete_data" class="btn btn-danger">Yes | Delete</button>
                     </div>
                 </form>
             </div>
