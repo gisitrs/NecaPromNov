@@ -381,14 +381,15 @@ if (!isset($_SESSION["user"])) {
             </div>
         <table id="propertiesTableId" class="table table-bordered">
                 <thead>
-                    <tr>
-                        <th>Ref</th>
-                        <th>Naziv</th>
-                        <th>Cena</th>
+                    <tr style="width:90%;">
+                        <th style="width:5%;">ID</th>
+                        <th style="width:45%;">Lokacija / Naziv / Ref# / Cena</th>
+                        <!--<th>Cena</th>
                         <th>Adresa</th>
                         <th>Opis</th>
-                        <th>Beleška za agenta</th>
-                        <th>Tip nekretnine</th>
+                        <th>Beleška za agenta</th>-->
+                        <th style="width:40%;">Opis / Beleška</th>
+                        <th style="width:10%;">Tip nekretnine</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -408,15 +409,26 @@ if (!isset($_SESSION["user"])) {
                       $typeName=$row['type_name'];
                       $proType=$row['pro_type'];
                 ?>
-                    <tr <?php echo "id=".$property_id."_".$proType."_" ?>>
-                        <td><?php echo $property_ref; ?></td>
-                        <td><?php echo $property_name; ?></td>
-                        <td><?php echo $property_price; ?></td>
-                        <td><?php echo $property_address; ?></td>
-                        <td><?php echo $smalldesc; ?></td>
-                        <td><?php echo $metadesc; ?></td>
-                        <td><?php echo $typeName; ?></td>
-                        <td>
+                    <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
+                        <td style="width:5%;">
+                           <p><?php echo $property_id; ?></p>
+                        </td>
+                        <td style="width:45%;">
+                            <h4><?php echo $property_name; ?></h4>
+                            <div>
+                                <div>
+                                    <p style="margin-top:10px;"><b>Ref#:</b><?php echo $property_ref; ?></p>
+                                    <p><b>Cena:</b><?php echo $property_price; ?></p>
+                                    <p><b>Adresa:</b><?php echo $property_address; ?></p>
+                                    <p><b>Tip:</b><?php echo $typeName; ?></p>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:40%;">
+                            <p><b>Opis:</b><?php echo $smalldesc; ?></p>
+                            <p style="margin-top:10px;"><b>Beleška agent:</b><?php echo $metadesc; ?></p>
+                        </td>
+                        <td style="width:10%;">
                             <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
                             <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                             <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
