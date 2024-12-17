@@ -178,8 +178,8 @@ if (!isset($_SESSION["user"])) {
   var txtname = $("#txtname").val();
   var txtprice = $("#txtprice").val();
   var txtaddress = $("#txtaddress").val();
-  var txtsmalldescription = $("#txtsmalldescription").text();
-  var txtmetadesc = $("#txtmetadesc").text();
+  var txtsmalldescription = $("#txtsmalldescription").val();
+  var txtmetadesc = $("#txtmetadesc").val();
   var txtType = $("#txttype").text();
   
   $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
@@ -201,16 +201,28 @@ if (!isset($_SESSION["user"])) {
                             '</div>' +
                             '<div>' +
                                 '<p style="display: inline-block;"><b>Adresa:</b></p>' +
-                                '<p id="'+ id +'"_pAddress" style="display: inline-block;">' + txtaddress + '</p>' +
+                                '<p id="'+ id +'_pAddress" style="display: inline-block;">' + txtaddress + '</p>' +
                             '</div>' +
                             '<div>' +
                                 '<p style="display: inline-block;"><b>Tip:</b></p>' +
-                                '<p id="'+ id +'"_pType" style="display: inline-block;">'+ txtType +'</p>' +
+                                '<p id="'+ id +'_pType" style="display: inline-block;">'+ txtType +'</p>' +
                             '</div>' +
                         '</div>' +
                     '</td>' 
                    );
        } 
+       else if (i == 2){
+        $(this).html('<td style="width:40%;">' +
+                         '<div>' +
+                              '<p style="display: inline-block;"><b>Opis:</b></p>' +
+                              '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
+                         '</div>' +
+                         '<div>' +
+                              '<p style="margin-top:10px; "><b>Beleška agent:</b></p>' +
+                              '<p id="'+ id + '_pMetadesc">'+ txtmetadesc +'</p>' +
+                         '</div>' +
+                     '</td>');
+       }
     });
 
   $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
@@ -284,6 +296,7 @@ if (!isset($_SESSION["user"])) {
                             '<div>' +
                                     '<p style="display: inline-block;"><b>Tip:</b></p>' +
                                     '<p id="txttype" style="display: inline-block;">' + txtType + '</p>' +
+                                    '<p style="display:none" id="txttype_old">' + txtType + '</p>' +
                             '</div>' + 
                         '</div>' +
                     '</td>');
@@ -318,27 +331,55 @@ if (!isset($_SESSION["user"])) {
     $(this).parents("tr").find(".update").removeClass("update").addClass("add");
     $(this).parents("tr").find(".edit, .add").toggle();
     
-    var id = $(this).parents("tr").attr("id");
+    var id = $(this).attr("id");
 
-    alert(id);
-
-    /*$(this).parents("tr").find("td:not(:last-child)").each(function(i){
-       if (i=='0'){
-          var value = $('#txtref_old').text();
-       }else if (i=='1'){
-          var value = $('#txtname_old').text();
-       }else if (i=='2'){
-          var value = $('#txtprice_old').text();
-       }else if (i=='3'){
-          var value = $('#txtaddress_old').text();
-       }else if (i=='4'){
-          var value = $('#txtsmalldescription_old').text();
-       }else if (i=='5'){
-          var value = $('#txtmetadesc_old').text();
+    var txtref = $('#txtref_old').text();
+    var txtname = $('#txtname_old').text();
+    var txtprice = $('#txtprice_old').text();
+    var txtaddress = $('#txtaddress_old').text();
+    var txtType = $('#txttype_old').text();
+    var txtsmalldescription = $('#txtsmalldescription_old').text();
+    var txtmetadesc = $('#txtmetadesc_old').text();
+    
+    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+        if (i == 1){
+       $(this).html('<td style="width:45%;">' +
+                       '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
+                       '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
+                            '</div>' + 
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Adresa:</b></p>' +
+                                '<p id="'+ id +'_pAddress" style="display: inline-block;">' + txtaddress + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Tip:</b></p>' +
+                                '<p id="'+ id +'_pType" style="display: inline-block;">'+ txtType +'</p>' +
+                            '</div>' +
+                        '</div>' +
+                    '</td>' 
+                   );
+       } 
+       else if (i == 2){
+        $(this).html('<td style="width:40%;">' +
+                         '<div>' +
+                              '<p style="display: inline-block;"><b>Opis:</b></p>' +
+                              '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
+                         '</div>' +
+                         '<div>' +
+                              '<p style="margin-top:10px; "><b>Beleška agent:</b></p>' +
+                              '<p id="'+ id + '_pMetadesc">'+ txtmetadesc +'</p>' +
+                         '</div>' +
+                     '</td>');
        }
-
-       $(this).html(value);
-    });*/
+    });
+    
   });
 
 </script>
