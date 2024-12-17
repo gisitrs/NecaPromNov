@@ -178,29 +178,39 @@ if (!isset($_SESSION["user"])) {
   var txtname = $("#txtname").val();
   var txtprice = $("#txtprice").val();
   var txtaddress = $("#txtaddress").val();
-  var txtsmalldescription = $("#txtsmalldescription").val();
-  var txtmetadesc = $("#txtmetadesc").val();
+  var txtsmalldescription = $("#txtsmalldescription").text();
+  var txtmetadesc = $("#txtmetadesc").text();
+  var txtType = $("#txttype").text();
   
   $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
   $(this).parents("tr").find(".update").removeClass("update").addClass("add");
   $(this).parents("tr").find(".edit, .add").toggle();
 
   $(this).parents("tr").find("td:not(:last-child)").each(function(i){
-       if (i=='0'){
-          var value = $('#txtref').val();
-       }else if (i=='1'){
-          var value = $('#txtname').val();
-       }else if (i=='2'){
-          var value = $('#txtprice').val();
-       }else if (i=='3'){
-          var value = $('#txtaddress').val();
-       }else if (i=='4'){
-          var value = $('#txtsmalldescription').val();
-       }else if (i=='5'){
-          var value = $('#txtmetadesc').val();
-       }
-
-       $(this).html(value);
+    if (i == 1){
+       $(this).html('<td style="width:45%;">' +
+                       '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
+                       '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
+                            '</div>' + 
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Adresa:</b></p>' +
+                                '<p id="'+ id +'"_pAddress" style="display: inline-block;">' + txtaddress + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Tip:</b></p>' +
+                                '<p id="'+ id +'"_pType" style="display: inline-block;">'+ txtType +'</p>' +
+                            '</div>' +
+                        '</div>' +
+                    '</td>' 
+                   );
+       } 
     });
 
   $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
@@ -234,28 +244,67 @@ if (!isset($_SESSION["user"])) {
     
  // Edit row on edit button click
  $(document).on("click", ".edit", function(){  
+   var id = $(this).attr("id");
+
+   var refValue = $('#' + id + '_pRef').text();
+   var txtNameValue = $('#' + id + '_pName').text();
+   var txtPriceValue = $('#' + id + '_pPrice').text();
+   var txtAddressValue = $('#' + id + '_pAddress').text();
+   var txtType = $('#' + id + '_pType').text();
+   var txtSmallDescriptionValue = $('#' + id + '_pSmalldesc').text();
+   var txtMetadescValue = $('#' + id + '_pMetadesc').text();
+   
    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
-   if (i=='0'){
-    var idname = 'txtref';
-   }else if (i=='1'){
-    var idname = 'txtname';
-   }else if (i=='2'){
-    var idname = 'txtprice';
-   }else if (i=='3'){
-    var idname = 'txtaddress'; 
-   } else if (i=='4'){
-    var idname = 'txtsmalldescription';
-   } else if (i=='5'){
-    var idname = 'txtmetadesc';
-   }
-
-   var oldIdName = idname + '_old';
-
-   if (i != 6){
-    $(this).html('<input type="text" name="updaterec" id="' + idname + '" class="form-control" value="' + $(this).text() + 
-    '"><p style="display:none" id="' + oldIdName + '">' + $(this).text() + '</p>');
-   }
-  });  
+       
+       if (i == 1){
+       $(this).html('<td style="width:45%;">' +
+                        '<div>' +
+                           '<input type="text" name="updaterec" id="txtname" class="form-control" value="' + txtNameValue + '"></input>' +
+                           '<p style="display:none" id="txtname_old">' + txtNameValue + '</p>' + 
+                       '<div>'+ 
+                       '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                    '<input type="text" name="updaterec" id="txtref" ' + 
+                                        'style="display: inline-block; margin-top:10px; width: 60px;" value="'+ refValue + '"></input>' +
+                                 '<p style="display:none" id="txtref_old">' + refValue + '</p>' + 
+                             '</div>' +
+                             '<div>' +
+                                    '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                    '<input type="text" name="updaterec" id="txtprice" ' + 
+                                       'style="display: inline-block; width: 80px;" value="' + txtPriceValue + '"></input>' +
+                                    '<p style="display:none" id="txtprice_old">' + txtPriceValue + '</p>' + 
+                            '</div>' +
+                            '<div>' +
+                                    '<p style="display: inline-block;"><b>Adresa:</b></p>' +
+                                    '<input type="text" name="updaterec" id="txtaddress" ' + 
+                                      'style="display: inline-block; width: 120px;" value="' + txtAddressValue + '"></input>' +
+                                    '<p style="display:none" id="txtaddress_old">' + txtAddressValue + '</p>' + 
+                            '</div>' +
+                            '<div>' +
+                                    '<p style="display: inline-block;"><b>Tip:</b></p>' +
+                                    '<p id="txttype" style="display: inline-block;">' + txtType + '</p>' +
+                            '</div>' + 
+                        '</div>' +
+                    '</td>');
+       } else if(i == 2){
+        $(this).html('<td style="width:40%;">' +
+                          '<div>' +
+                                '<p><b>Opis:</b></p>' +
+                                '<textarea type="text" name="updaterec" id="txtsmalldescription" ' +
+                                 'style="width:100%;">'+ txtSmallDescriptionValue + '</textarea>' +
+                                 '<p style="display:none" id="txtsmalldescription_old">' + txtSmallDescriptionValue + '</p>' + 
+                          '</div>' +
+                          '<div>' +
+                                '<p style="margin-top:10px;"><b>Beleška agent:</b></p>' + 
+                                '<textarea type="text" name="updaterec" id="txtmetadesc" ' + 
+                                'style="width:100%;">' + txtMetadescValue + '</textarea>' +
+                                '<p style="display:none" id="txtmetadesc_old">' + txtMetadescValue + '</p>' +
+                          '</div>' +
+                        '</td>');
+       } 
+    
+  });
 
   $(this).parents("tr").find(".add, .edit").toggle();
   $(".add-new").attr("disabled", "disabled");
@@ -268,8 +317,12 @@ if (!isset($_SESSION["user"])) {
     $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
     $(this).parents("tr").find(".update").removeClass("update").addClass("add");
     $(this).parents("tr").find(".edit, .add").toggle();
+    
+    var id = $(this).parents("tr").attr("id");
 
-    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
+    alert(id);
+
+    /*$(this).parents("tr").find("td:not(:last-child)").each(function(i){
        if (i=='0'){
           var value = $('#txtref_old').text();
        }else if (i=='1'){
@@ -285,7 +338,7 @@ if (!isset($_SESSION["user"])) {
        }
 
        $(this).html(value);
-    });
+    });*/
   });
 
 </script>
@@ -384,10 +437,6 @@ if (!isset($_SESSION["user"])) {
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
                         <th style="width:45%;">Lokacija / Naziv / Ref# / Cena</th>
-                        <!--<th>Cena</th>
-                        <th>Adresa</th>
-                        <th>Opis</th>
-                        <th>Beleška za agenta</th>-->
                         <th style="width:40%;">Opis / Beleška</th>
                         <th style="width:10%;">Tip nekretnine</th>
                     </tr>
@@ -411,22 +460,38 @@ if (!isset($_SESSION["user"])) {
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
                         <td style="width:5%;">
-                           <p><?php echo $property_id; ?></p>
+                           <p <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
                         </td>
                         <td style="width:45%;">
-                            <h4><?php echo $property_name; ?></h4>
+                            <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
                             <div>
                                 <div>
-                                    <p style="margin-top:10px;"><b>Ref#:</b><?php echo $property_ref; ?></p>
-                                    <p><b>Cena:</b><?php echo $property_price; ?></p>
-                                    <p><b>Adresa:</b><?php echo $property_address; ?></p>
-                                    <p><b>Tip:</b><?php echo $typeName; ?></p>
+                                    <p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>
+                                    <p <?php echo "id=".$property_id."_pRef" ?> style="display: inline-block; margin-top:10px;"><?php echo $property_ref; ?></p>
+                                </div>
+                                <div>
+                                    <p style="display: inline-block;"><b>Cena:</b></p>
+                                    <p <?php echo "id=".$property_id."_pPrice" ?> style="display: inline-block;"><?php echo $property_price; ?></p>
+                                </div>
+                                <div>
+                                    <p style="display: inline-block;"><b>Adresa:</b></p>
+                                    <p <?php echo "id=".$property_id."_pAddress" ?> style="display: inline-block;"><?php echo $property_address; ?></p>
+                                </div>
+                                <div>
+                                    <p style="display: inline-block;"><b>Tip:</b></p>
+                                    <p <?php echo "id=".$property_id."_pType" ?> style="display: inline-block;"><?php echo $typeName; ?></p>
                                 </div>
                             </div>
                         </td>
                         <td style="width:40%;">
-                            <p><b>Opis:</b><?php echo $smalldesc; ?></p>
-                            <p style="margin-top:10px;"><b>Beleška agent:</b><?php echo $metadesc; ?></p>
+                            <div>
+                                <p style="display: inline-block;"><b>Opis:</b></p>
+                                <p <?php echo "id=".$property_id."_pSmalldesc" ?> style="display: inline-block;"><?php echo $smalldesc; ?></p>
+                            </div>
+                            <div>
+                                <p style="margin-top:10px; "><b>Beleška agent:</b></p>
+                                <p <?php echo "id=".$property_id."_pMetadesc" ?> ><?php echo $metadesc; ?></p>
+                            </div>
                         </td>
                         <td style="width:10%;">
                             <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
