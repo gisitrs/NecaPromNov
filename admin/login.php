@@ -6,17 +6,52 @@ if (isset($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link href="../assets/images/2019/Logo1.png" rel="icon">
+
+    <title>Neca Prom D.O.O.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 591 villa agency
+
+https://templatemo.com/tm-591-villa-agency
+
+-->
+  </head>
+
 <body>
-    <div class="container">
-        <?php
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <?php
         if (isset($_POST["login"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
@@ -37,19 +72,50 @@ if (isset($_SESSION["user"])) {
                 echo "<div class='alert alert-danger'>Email does not match</div>";
             }
         }
-        ?>
-      <form action="login.php" method="post">
-        <div class="form-group">
-            <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+    ?>
+
+        <div class="contact-content" style="margin-top: 100px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <div class="col-lg-3">
+            </div>
+            <form id="contact-form" action="login.php" method="post" class="col-lg-6">
+              <div class="col-lg-12" style="margin-top: 50px;">
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Unesite email..." autocomplete="on" >
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                      <fieldset>
+                         <input type="password" name="password" id="password"  placeholder="Unesite šifru..." required="">
+                      </fieldset>
+                  </div>
+                  <div class="col-lg-12" style="margin-top: 0px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                      <fieldset >
+                         <button type="submit" name="login" class="orange-button">Login</button>
+                      </fieldset>
+                  </div>
+                  <div style="margin-top:20px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                    <p>Još niste registrovani 
+                        <br>
+                        <a href="registration.php" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                            Sign Up
+                        </a>
+                    </p>
+                  </div>
+              </div>
+          </form>
+          <div class="col-lg-3">
+            </div>
         </div>
-        <div class="form-group">
-            <input type="password" placeholder="Enter Password:" name="password" class="form-control">
-        </div>
-        <div class="form-btn">
-            <input type="submit" value="Login" name="login" class="btn btn-primary">
-        </div>
-      </form>
-     <div><p>Not registered yet <a href="registration.php">Register Here</a></p></div>
-    </div>
-</body>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../assets/js/isotope.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/counter.js"></script>
+  <script src="../assets/js/custom.js"></script> 
+
+  </body>
 </html>
