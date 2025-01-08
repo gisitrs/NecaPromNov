@@ -50,10 +50,11 @@ function setArea() {
   maxTooltip.style.right = 100 - (maxVal.value / sliderMaxValue) * 100 + "%";
   */
   
-  range.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
-  minTooltip.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
   range.style.right = 100 - (maxVal.value / sliderMaxValue) * 100 + "%";
   maxTooltip.style.right = 100 - (maxVal.value / sliderMaxValue) * 100 + "%";
+  range.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
+  //minTooltip.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
+  minTooltip.style.right = 100 - (minVal.value / sliderMaxValue) * 100 + "%";
 }
 
 function setMinInput() {
