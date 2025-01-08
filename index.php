@@ -193,7 +193,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         </div>
         </div>
-        <div class="row" id="mylist">
+        <div class="row" id="mylist" style="margin-top: 20px;">
         <?php 
             $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
             if ($conn -> connect_error) 

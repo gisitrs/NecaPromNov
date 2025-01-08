@@ -214,7 +214,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="margin-top: 20px;">
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -310,7 +310,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           <div class="col-lg-3">
-              <div class="contact-content" style="margin-top: 0px;">
+              <div class="contact-content" style="margin-top: 20px;">
                 <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">
                 <div id="fourthRowId" class="row">
                   <div class="col-lg-12">
