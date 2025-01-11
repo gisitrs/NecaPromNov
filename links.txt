@@ -115,3 +115,7 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Confirm delete window
 
 - https://www.youtube.com/watch?v=UerxjlhC8K0
+
+-- Set charset for PHP 
+
+- https://www.php.net/manual/en/mysqli.set-charset.php

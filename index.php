@@ -212,7 +212,8 @@ https://templatemo.com/tm-591-villa-agency
             {
                die("Connection failed:".$conn-> connect_error);
             }
-
+            
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallproperties";
             $result = $conn-> query($sql);
             

@@ -112,7 +112,8 @@ https://templatemo.com/tm-591-villa-agency
             {
                die("Connection failed:".$conn-> connect_error);
             }
-
+            
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -144,6 +145,7 @@ https://templatemo.com/tm-591-villa-agency
                die("Connection failed:".$conn-> connect_error);
             }
             
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -175,6 +177,7 @@ https://templatemo.com/tm-591-villa-agency
                die("Connection failed:".$conn-> connect_error);
             }
             
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             $counter = 1;
@@ -224,7 +227,8 @@ https://templatemo.com/tm-591-villa-agency
                 {
                   die("Connection failed:".$conn-> connect_error);
                 }
-            
+                
+                $conn->set_charset("utf8mb4");
                 $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
                 $result = $conn-> query($sql);
                 $counter = 1;
@@ -253,6 +257,7 @@ https://templatemo.com/tm-591-villa-agency
                die("Connection failed:".$conn-> connect_error);
             }
             
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -277,6 +282,7 @@ https://templatemo.com/tm-591-villa-agency
                die("Connection failed:".$conn-> connect_error);
             }
             
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -372,7 +378,8 @@ https://templatemo.com/tm-591-villa-agency
                 {
                   die("Connection failed:".$conn-> connect_error);
                 }
-            
+                
+                $conn->set_charset("utf8mb4");
                 $sql = "SELECT * FROM vw_getallimages WHERE id =".$_GET['prid'];
                 $result = $conn-> query($sql);
                 $counter = 1;
@@ -410,6 +417,7 @@ https://templatemo.com/tm-591-villa-agency
                die("Connection failed:".$conn-> connect_error);
             }
             
+            $conn->set_charset("utf8mb4");
             $sql = "SELECT * FROM vw_getallproperties WHERE pro_type = ".$_GET['typeid']." AND id != ".$_GET['prid'];
             $result = $conn-> query($sql);
             
