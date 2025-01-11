@@ -103,26 +103,38 @@ https://templatemo.com/tm-591-villa-agency
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">Toronto, <em>Canada</em></span>
-          <h2>Hurry!<br>Get the Best Villa for you</h2>
+          <span class="category">Sokobanja, <em>Srbija</em></span>
+          <h2>Oglasi!<br>Prodaja, zamena, najam...</h2>
         </div>
       </div>
       <div class="item item-2">
         <div class="header-text">
-          <span class="category">Melbourne, <em>Australia</em></span>
-          <h2>Be Quick!<br>Get the best villa in town</h2>
+          <span class="category">Sokobanja, <em>Srbija</em></span>
+          <h2>Objekti!<br>Kuće, stanovi, vikendice...</h2>
         </div>
       </div>
       <div class="item item-3">
         <div class="header-text">
-          <span class="category">Miami, <em>South Florida</em></span>
-          <h2>Act Now!<br>Get the highest level penthouse</h2>
+           <span class="category">Sokobanja, <em>Srbija</em></span>
+           <h2>Parcele!<br>Placevi, okućnice</h2>
+        </div>
+      </div>
+      <div class="item item-4">
+        <div class="header-text">
+            <span class="category">Sokobanja, <em>Srbija</em></span>
+            <h2>Turizam!<br>Iznajmi apartman</h2>
+        </div>
+      </div>
+      <div class="item item-5">
+        <div class="header-text">
+           <span class="category">Sokobanja, <em>Srbija</em></span>
+           <h2>Izleti!<br>Poseti okolinu</h2>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section properties">
+  <div class="section properties" style="margin-top: 20px;">
     <div class="container">
     <div class="row" id="testRowCSS">
       <ul id="filterButtonsId" class="properties-filter" style="cursor:pointer">

@@ -745,15 +745,23 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/banner-01.jpg);
+  background-image: url(../images/2019/Sokobanja1.jpg);
 }
 
 .main-banner .item-2 {
-  background-image: url(../images/banner-02.jpg);
+  background-image: url(../images/2019/Sokobanja2.jpg);
 }
 
 .main-banner .item-3 {
-  background-image: url(../images/banner-03.jpg);
+  background-image: url(../images/2019/Sokobanja3.jpg);
+}
+
+.main-banner .item-4 {
+  background-image: url(../images/2019/Sokobanja4.jpg);
+}
+
+.main-banner .item-5 {
+  background-image: url(../images/2019/Sokobanja5.jpg);
 }
 
 .main-banner .item span.category {
@@ -773,7 +781,7 @@ Banner Style
 }
 
 .main-banner .item h2 {
-  font-size: 62px;
+  font-size: 52px;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
