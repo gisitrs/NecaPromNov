@@ -2,7 +2,7 @@
 include"database.php"; 
  $id=$_POST['string'];
  
- $sql = "SELECT * FROM marinkom_jos1.jos_osrs_photos WHERE pro_id='$id'";
+ $sql = "SELECT * FROM jos_osrs_photos WHERE pro_id='$id'";
  $result = $conn-> query($sql);
  
  if ($result-> num_rows > 0)
@@ -30,7 +30,7 @@ include"database.php";
     rmdir($mainFolder);
  }
 
- $sql = "delete from marinkom_jos1.jos_osrs_photos where pro_id='$id'";
+ $sql = "delete from jos_osrs_photos where pro_id='$id'";
 
  if ($conn->query($sql) === TRUE) {
     echo "Fotografije uspešno obrisane: ";

@@ -11,7 +11,7 @@ $txtmetadesc  = $_POST['txtmetadesc'];
 if ($txtname==''){
  echo "<p class='btn btn-info' align='center'>Please Insert YOUr name</p>";
 }else{
- $sql = "UPDATE marinkom_jos1.jos_osrs_properties 
+ $sql = "UPDATE jos_osrs_properties 
  SET pro_name='$txtname', 
      ref='$txtref', 
      price='$txtprice', 

@@ -111,7 +111,7 @@ if (!isset($_SESSION["user"])) {
             }
 
             //$countimg = 1;
-            $maxOrderingId = "SELECT  MAX(ordering) AS MaxOrderingId FROM marinkom_jos1.jos_osrs_photos WHERE pro_id=".$selectedPropertyId;
+            $maxOrderingId = "SELECT  MAX(ordering) AS MaxOrderingId FROM jos_osrs_photos WHERE pro_id=".$selectedPropertyId;
             $resultMaxOrderingId = mysqli_query($conn, $maxOrderingId);
             $resultMaxOrderingValue = mysqli_fetch_array($resultMaxOrderingId, MYSQLI_ASSOC);
             $countimg = $resultMaxOrderingValue["MaxOrderingId"] + 1;
@@ -179,7 +179,7 @@ if (!isset($_SESSION["user"])) {
                            <select name="property" class="form-select">
                               <?php 
                                   require_once "database.php";
-                                  $sql = "SELECT id, pro_name FROM marinkom_jos1.jos_osrs_properties ORDER BY pro_name";
+                                  $sql = "SELECT id, pro_name FROM jos_osrs_properties ORDER BY pro_name";
                                   $result = mysqli_query($conn, $sql);
                            
                                    while($rows = $result->fetch_assoc()){

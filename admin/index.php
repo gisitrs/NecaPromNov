@@ -111,7 +111,7 @@ if (!isset($_SESSION["user"])) {
            $selectedCategoryId = $_POST["propertyCategories"];
            
            require_once "database.php";
-           $maxId = "SELECT  MAX(Id) AS MaxId FROM marinkom_jos1.jos_osrs_properties";
+           $maxId = "SELECT  MAX(Id) AS MaxId FROM jos_osrs_properties";
            $resultMaxId = mysqli_query($conn, $maxId);
            $resultMaxValue = mysqli_fetch_array($resultMaxId, MYSQLI_ASSOC);
            $newId = $resultMaxValue["MaxId"] + 1;
@@ -221,7 +221,7 @@ if (!isset($_SESSION["user"])) {
                      <select name="propertyCategories" class="form-select">
                         <?php 
                            require_once "database.php";
-                           $sql = "SELECT id, category_name FROM marinkom_jos1.jos_osrs_categories";
+                           $sql = "SELECT id, category_name FROM jos_osrs_categories";
                            $result = mysqli_query($conn, $sql);
                            
                            while($rows = $result->fetch_assoc()){
@@ -239,7 +239,7 @@ if (!isset($_SESSION["user"])) {
                      <select name="propertyTypes" class="form-select">
                         <?php 
                            require_once "database.php";
-                           $sql = "SELECT id, type_name FROM marinkom_jos1.jos_osrs_types";
+                           $sql = "SELECT id, type_name FROM jos_osrs_types";
                            $result = mysqli_query($conn, $sql);
                            
                            while($rows = $result->fetch_assoc()){

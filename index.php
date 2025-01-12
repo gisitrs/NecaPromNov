@@ -207,13 +207,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         <div class="row" id="mylist" style="margin-top: 20px;">
         <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            require_once "admin/database.php";
             $sql = "SELECT * FROM vw_getallproperties";
             $result = $conn-> query($sql);
             
@@ -384,6 +378,21 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="excursions.php" style="color:#FFF;">Izleti</a></li>
                       <li><a href="contact.html" style="color:#FFF;">Kontakt</a></li>
                     </ul> 
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:-30px; padding-bottom: 25px;">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-3 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Created By <a class="border-bottom" href="https://www.gisit.rs">
+                        <img src="assets/images/2019/GisItLogo.jpg" alt="" style="max-width:100px;">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

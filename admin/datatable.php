@@ -453,7 +453,7 @@ if (!isset($_SESSION["user"])) {
                             <select id="typeSelectId" name="testDT" class="form-select">
                                 <?php 
                                     require_once "database.php";
-                                    $sql = "SELECT id, type_name FROM marinkom_jos1.vw_getallpropertytypes ORDER BY id";
+                                    $sql = "SELECT id, type_name FROM vw_getallpropertytypes ORDER BY id";
                                     $result = mysqli_query($conn, $sql);
                           
                                     while($rows = $result->fetch_assoc()){
@@ -486,7 +486,7 @@ if (!isset($_SESSION["user"])) {
                <?php 
                   //include"dbcon.php"; 
                   require_once "database.php";
-                  $query_pag_data = "SELECT * FROM marinkom_jos1.vw_getallrepinformationsforedit ORDER BY ref DESC";
+                  $query_pag_data = "SELECT * FROM vw_getallrepinformationsforedit ORDER BY ref DESC";
                   $result_pag_data = mysqli_query($conn, $query_pag_data);
                   while($row = mysqli_fetch_assoc($result_pag_data)) {
                       $property_id=$row['id']; 

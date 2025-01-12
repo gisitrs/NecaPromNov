@@ -107,13 +107,7 @@ https://templatemo.com/tm-591-villa-agency
 
   <div id='DivIdToPrint' style="display:none;">
     <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php"; 
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -139,13 +133,7 @@ https://templatemo.com/tm-591-villa-agency
         ?>
     <div>
     <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php";
             $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -171,13 +159,7 @@ https://templatemo.com/tm-591-villa-agency
     <div class="container">
       <div id="thirdRowId" class="row">
         <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php";
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             $counter = 1;
@@ -202,7 +184,7 @@ https://templatemo.com/tm-591-villa-agency
                                                   <div class="."col-lg-3".">
                                                       <div class="."info-table".">
                                                           <ul>
-                                                             <li>Cena: <span>".$row["price"]."</span></li>
+                                                             <li>Cena: <span>".$row["price_text"]."</span></li>
                                                           </ul>
                                                       </div>
                                                       <br>
@@ -222,13 +204,7 @@ https://templatemo.com/tm-591-villa-agency
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <?php 
-                $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-                if ($conn -> connect_error) 
-                {
-                  die("Connection failed:".$conn-> connect_error);
-                }
-                
-                $conn->set_charset("utf8mb4");
+                include"admin/database.php";
                 $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
                 $result = $conn-> query($sql);
                 $counter = 1;
@@ -251,13 +227,7 @@ https://templatemo.com/tm-591-villa-agency
           <div class="carousel-inner">
           <div class="carousel-item active">
            <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php";
             $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -276,13 +246,7 @@ https://templatemo.com/tm-591-villa-agency
           ?>
         </div>
         <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php";
             $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -373,13 +337,7 @@ https://templatemo.com/tm-591-villa-agency
    <h2 class="display-6 fw-bold py-5">Galerija</h2>
    <div id="fifthRowId" class="row">
    <?php 
-                $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-                if ($conn -> connect_error) 
-                {
-                  die("Connection failed:".$conn-> connect_error);
-                }
-                
-                $conn->set_charset("utf8mb4");
+                include"admin/database.php";
                 $sql = "SELECT * FROM vw_getallimages WHERE id =".$_GET['prid'];
                 $result = $conn-> query($sql);
                 $counter = 1;
@@ -411,13 +369,7 @@ https://templatemo.com/tm-591-villa-agency
     </div>
     <div id="lastRow" class="row">
         <?php 
-            $conn = mysqli_connect("127.0.0.1:3306", "root", "WeAreGisTeam2013", "marinkom_jos1");
-            if ($conn -> connect_error) 
-            {
-               die("Connection failed:".$conn-> connect_error);
-            }
-            
-            $conn->set_charset("utf8mb4");
+            include"admin/database.php";
             $sql = "SELECT * FROM vw_getallproperties WHERE pro_type = ".$_GET['typeid']." AND id != ".$_GET['prid'];
             $result = $conn-> query($sql);
             
@@ -429,7 +381,7 @@ https://templatemo.com/tm-591-villa-agency
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<p class="."price"."><b> Cena: ".$row["price"]."</b></p>".
+                                "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
@@ -473,6 +425,21 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="excursions.php" style="color:#FFF;">Izleti</a></li>
                       <li><a href="contact.html" style="color:#FFF;">Kontakt</a></li>
                     </ul> 
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:-30px; padding-bottom: 25px;">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-3 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Created By <a class="border-bottom" href="https://www.gisit.rs">
+                        <img src="assets/images/2019/GisItLogo.jpg" alt="" style="max-width:100px;">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

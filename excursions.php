@@ -268,6 +268,21 @@ https://templatemo.com/tm-591-villa-agency
                 </div>
             </div>
         </div>
+        <div class="container" style="margin-top:-30px; padding-bottom: 25px;">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-3 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Created By <a class="border-bottom" href="https://www.gisit.rs">
+                        <img src="assets/images/2019/GisItLogo.jpg" alt="" style="max-width:100px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Footer End -->
 
