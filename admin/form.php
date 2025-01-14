@@ -33,7 +33,7 @@ if (!isset($_SESSION["user"])) {
 <body>
 
   <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+  <!--<div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -42,7 +42,7 @@ if (!isset($_SESSION["user"])) {
         <span></span>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- ***** Preloader End ***** -->
 
   <header class="header-area header-sticky">
