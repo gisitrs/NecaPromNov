@@ -119,3 +119,34 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Set charset for PHP 
 
 - https://www.php.net/manual/en/mysqli.set-charset.php
+
+
+1.Isključiti zoom in - out na sajtu (Igor)	
+2.Logo uklopiti sa pozadinom (Stefan)	
+3.Zameniti narandžastu boju (Igor)	
+4.Landscape i portrait da ima drugačije slike (Stefan)	
+5. Menjati slike u zavisnosti od ekrana (Igor)	
+6. Tekstovi za carousel slike (Stefan)	
+7.Mapa korektna lokacija (Igor)	https://maps.app.goo.gl/AKZJB1tiod6cvg3V7
+8. Skloniti na stranici za nekretnine email na vrhu (Igor)	
+9. Pripremiti slike za izlete (Stefan)	
+10. Efekat filtriranja nekretnina kakav je bio u originalu (Igor)	
+11. Dugme pretraži staviti pored range-a i na klik se radi filtriranje (Igor)	
+12. Čim se izabere opcija za sortiranje odmah pozvati sortiranje (Igor) ("Po ceni uzlazno", "Po ceni silazno", "Po kvadraturi uzlazno", "Po kvadraturi silazno" )	
+13. Broj telefona dodati link za poziv (Igor)	
+14. Robot staviti pored "Pošalji" dugmeta (Igor)	
+15. U footeru dodati "Kontakt" H3 kao što je "Adresa" (Igor)	
+16. U footeru napisati za Neca Prom sledeći tekst (Igor)	Sadržaj sajta je vlasništvo 4zida.rs. Zabranjeno je njegovo preuzimanje bez dozvole 4zida.rs, zarad komercijalne upotrebe ili u druge svrhe, osim za lične potrebe posetilaca sajta. 4zida.rs je deo Inspira grupe.
+17. "Created By" u drugoj boji DIV i naš logo (Igor)	
+18. "Ref" staviti ispod cene (Igor)	
+19. Naslov, slike, pa Cena, Ref i ostalo na property details (Igor)	
+20. Redosled promeniti na property detail strani Slike Informacije pa poruka (Igor)	
+21. Štampaj i Filtriraj dugmići da budu u boji (Igor)	
+22. Code za Resize slika istražiti (Igor)	
+23. U galeriji dodati Senku slikama (Igor)	
+24. U rangeu staviti korak na 1000 (Igor)	
+25. Kreirati kartice Cena i Kvadratura default-no cena otvorena (Kvadratura kartica - plac i kvadrati za stan) (Igor)	
+26. Testirati upload fotografija (Igor)	
+27. Dodati No Image fotografiju (Igor)	https://www.google.com/search?q=no+photo+image&client=firefox-b-d&sca_esv=15988f96c695c280&udm=2&biw=1920&bih=955&sxsrf=ADLYWIJqAKmnvCevtuQPIHOnUo3X6lU3BQ%3A1737400405027&ei=VaCOZ52pAZ2O9u8PwMmpgAo&ved=0ahUKEwjdp-XvgIWLAxUdh_0HHcBkCqAQ4dUDCBE&uact=5&oq=no+photo+image&gs_lp=EgNpbWciDm5vIHBob3RvIGltYWdlMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESLUvUK4iWOMucAF4AJABAJgBWaABgAmqAQIxNLgBA8gBAPgBAZgCD6ACownCAgYQABgHGB7CAgQQIxgnmAMAiAYBkgcCMTWgB9lP&sclient=img#v
+28. Fotografija ne sme da bude uslov za prikaz nepokretnosti (Igor)	
+29. Dodati remove image ikonicu (Igor)	https://uxwing.com/remove-image-photo-icon/
