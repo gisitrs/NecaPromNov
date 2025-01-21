@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <style>
+        body {touch-action: pan-y;}
+    </style>
 <!--
 
 TemplateMo 591 villa agency
@@ -46,7 +50,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>-->
   <!-- ***** Preloader End ***** -->
 
-  <div class="sub-header" style="display:block">
+  <!--<div class="sub-header" style="display:block">
     <div class="container">
       <div id="firstRowId" class="row">
         <div class="col-lg-8 col-md-8">
@@ -65,7 +69,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -75,7 +79,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.php" class="logo">
-                        <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
+                        <img src="assets/images/2019/Necaprom_transparent.png" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -402,12 +406,12 @@ https://templatemo.com/tm-591-villa-agency
   <div class="col-lg-12 container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
+                <!--<div class="col-lg-4 col-md-6">
                     <a href="index.php" class="logo">
                         <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
+                </div>-->
+                <div class="col-lg-6 col-md-6">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Adresa</h4>
                     <p id="indexTextId45" class="mb-2" style="color:#FFF;"><i class="fa fa-map-marker-alt me-3"></i>Svetog Save 19, Sokobanja</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
@@ -415,7 +419,7 @@ https://templatemo.com/tm-591-villa-agency
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
                     <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
                     <ul class="text-light">
                       <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>
@@ -432,12 +436,12 @@ https://templatemo.com/tm-591-villa-agency
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
+                        &copy; <a href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
                     </div>
                     <div class="col-md-3 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Created By <a class="border-bottom" href="https://www.gisit.rs">
-                        <img src="assets/images/2019/GisItLogo.jpg" alt="" style="max-width:100px;">
+                        Created By <a href="https://www.gisit.rs">
+                        <img src="assets/images/2019/Gisit_transparent.png" alt="" style="max-width:100px;">
                         </a>
                     </div>
                 </div>

@@ -121,14 +121,14 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 - https://www.php.net/manual/en/mysqli.set-charset.php
 
 
-1.Isključiti zoom in - out na sajtu (Igor)	
-2.Logo uklopiti sa pozadinom (Stefan)	
+1. RESENO Isključiti zoom in - out na sajtu (Igor)	
+2.RESENO Logo uklopiti sa pozadinom (Stefan)	
 3.Zameniti narandžastu boju (Igor)	
 4.Landscape i portrait da ima drugačije slike (Stefan)	
 5. Menjati slike u zavisnosti od ekrana (Igor)	
 6. Tekstovi za carousel slike (Stefan)	
-7.Mapa korektna lokacija (Igor)	https://maps.app.goo.gl/AKZJB1tiod6cvg3V7
-8. Skloniti na stranici za nekretnine email na vrhu (Igor)	
+7. RESENO Mapa korektna lokacija (Igor)	https://maps.app.goo.gl/AKZJB1tiod6cvg3V7
+8. RESENO Skloniti na stranici za nekretnine email na vrhu (Igor)	
 9. Pripremiti slike za izlete (Stefan)	
 10. Efekat filtriranja nekretnina kakav je bio u originalu (Igor)	
 11. Dugme pretraži staviti pored range-a i na klik se radi filtriranje (Igor)	
@@ -150,3 +150,13 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 27. Dodati No Image fotografiju (Igor)	https://www.google.com/search?q=no+photo+image&client=firefox-b-d&sca_esv=15988f96c695c280&udm=2&biw=1920&bih=955&sxsrf=ADLYWIJqAKmnvCevtuQPIHOnUo3X6lU3BQ%3A1737400405027&ei=VaCOZ52pAZ2O9u8PwMmpgAo&ved=0ahUKEwjdp-XvgIWLAxUdh_0HHcBkCqAQ4dUDCBE&uact=5&oq=no+photo+image&gs_lp=EgNpbWciDm5vIHBob3RvIGltYWdlMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESLUvUK4iWOMucAF4AJABAJgBWaABgAmqAQIxNLgBA8gBAPgBAZgCD6ACownCAgYQABgHGB7CAgQQIxgnmAMAiAYBkgcCMTWgB9lP&sclient=img#v
 28. Fotografija ne sme da bude uslov za prikaz nepokretnosti (Igor)	
 29. Dodati remove image ikonicu (Igor)	https://uxwing.com/remove-image-photo-icon/
+
+
+
+1. Turn off Zoom in/out link
+
+- https://www.youtube.com/watch?v=bv0L5zTSh2Y
+
+5. Different images for mobile and desktop 
+
+- https://www.youtube.com/watch?v=TH2j0EgTtrE
