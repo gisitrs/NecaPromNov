@@ -108,32 +108,32 @@ https://templatemo.com/tm-591-villa-agency
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">Sokobanja, <em>Srbija</em></span>
-          <h2>Oglasi!<br>Prodaja, zamena, najam...</h2>
+          <span class="category">Kupovina i prodaja nekretnina</span>
+          <h2>Procena vrednosti nekretnina</h2>
         </div>
       </div>
       <div class="item item-2">
         <div class="header-text">
-          <span class="category">Sokobanja, <em>Srbija</em></span>
-          <h2>Objekti!<br>Kuće, stanovi, vikendice...</h2>
+          <span class="category">Zakup nekretnina</span>
+          <h2>Pravna pomoć</h2>
         </div>
       </div>
       <div class="item item-3">
         <div class="header-text">
-           <span class="category">Sokobanja, <em>Srbija</em></span>
-           <h2>Parcele!<br>Placevi, okućnice</h2>
+           <span class="category">Marketing nekretnina</span>
+           <h2>Poreski saveti</h2>
         </div>
       </div>
       <div class="item item-4">
         <div class="header-text">
-            <span class="category">Sokobanja, <em>Srbija</em></span>
-            <h2>Turizam!<br>Iznajmi apartman</h2>
+            <span class="category">Dozvole i licence</em></span>
+            <h2>Saveti o tržištu</h2>
         </div>
       </div>
       <div class="item item-5">
         <div class="header-text">
-           <span class="category">Sokobanja, <em>Srbija</em></span>
-           <h2>Izleti!<br>Poseti okolinu</h2>
+           <!--<span class="category">Sokobanja, <em>Srbija</em></span>-->
+           <h2>Investicioni saveti</h2>
         </div>
       </div>
     </div>
@@ -206,7 +206,7 @@ https://templatemo.com/tm-591-villa-agency
             </select>
         </div>
         <div class="col-lg-1">
-            <button type="button" class="btn btn-primary" style="margin-top:20px;"  onclick="filterProperties()">Filtriraj</button>
+            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #bf6735;"  onclick="filterProperties()">Filtriraj</button>
         </div>
         </div>
         </div>

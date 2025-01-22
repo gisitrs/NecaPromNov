@@ -280,7 +280,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           <div>
-              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px;" onclick='printDiv();'>Štampaj</button>
+              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; background-color: #bf6735;" onclick='printDiv();'>Štampaj</button>
           </div>
           </div>
           <div class="col-lg-3">
