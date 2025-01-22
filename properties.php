@@ -156,8 +156,8 @@ https://templatemo.com/tm-591-villa-agency
               <!--<h3 class="range-title">Raspon cene</h3>-->
               <div class="range-slider">
                  <span class="slider-track"></span>
-                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" oninput="slideMin()">
-                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" oninput="slideMax()">
+                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" step="1000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" step="1000" oninput="slideMax()">
                  <div class="tooltip1 min-tooltip"></div>
                  <div class="tooltip1 max-tooltip"></div>
               </div>

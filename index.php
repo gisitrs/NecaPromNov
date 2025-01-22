@@ -177,8 +177,8 @@ https://templatemo.com/tm-591-villa-agency
               <!--<h3 class="range-title">Raspon cene</h3>-->
               <div class="range-slider">
                  <span class="slider-track"></span>
-                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" oninput="slideMin()">
-                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" oninput="slideMax()">
+                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" step="1000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" step="1000" oninput="slideMax()">
                  <div class="tooltip1 min-tooltip"></div>
                  <div class="tooltip1 max-tooltip"></div>
               </div>
@@ -290,7 +290,8 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                <h6>069/54 53 577<br><span>Broj telefona</span></h6>
+                <!--<h6>069/54 53 577<br><span>Broj telefona</span></h6>-->
+                <a href="tel:0695453577" style="font-size: 16px; color: #000"><b>069/54 53 577</b><br><span style="color:#aaaaaa">Broj telefona</span></a>
               </div>
             </div>
             <div class="col-lg-6">
