@@ -745,33 +745,33 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/2019/Sokobanja11D.jpg);
+  background-image: url(../images/2019/Sokobanja11D.JPG);
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-2 {
-  background-image: url(../images/2019/Sokobanja12D.jpg);
+  background-image: url(../images/2019/Sokobanja12D.JPG);
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-3 {
-  background-image: url(../images/2019/Sokobanja13D.jpg);
+  background-image: url(../images/2019/Sokobanja13D.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-4 {
-  background-image: url(../images/2019/Sokobanja14D.jpg);
+  background-image: url(../images/2019/Sokobanja14D.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-5 {
-  background-image: url(../images/2019/Sokobanja15D.jpg);
+  background-image: url(../images/2019/Sokobanja15D.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
@@ -780,33 +780,33 @@ Banner Style
 @media only screen and (max-width:360px)
 {
   .main-banner .item-1 {
-    background-image: url(../images/2019/Sokobanja11M.jpg);
+    background-image: url(../images/2019/Sokobanja11M.JPG);
     width:100%;
     height: 720px;
   }
 
   .main-banner .item-2 {
-    background-image: url(../images/2019/Sokobanja12M.jpg);
+    background-image: url(../images/2019/Sokobanja12M.JPG);
     width:100%;
     height: 720px;
   }
   
   .main-banner .item-3 {
-    background-image: url(../images/2019/Sokobanja13M.jpg);
+    background-image: url(../images/2019/Sokobanja13M.JPG);
     width:100%;
     height: 720px;
     /*margin-top:70px;*/
   }
   
   .main-banner .item-4 {
-    background-image: url(../images/2019/Sokobanja14M.jpg);
+    background-image: url(../images/2019/Sokobanja14M.JPG);
     /*margin-top:70px;*/
     width:100%;
     height: 720px;
   }
   
   .main-banner .item-5 {
-    background-image: url(../images/2019/Sokobanja15M.jpg);
+    background-image: url(../images/2019/Sokobanja15M.JPG);
     /*margin-top:70px;*/
     width:100%;
     height: 720px;
