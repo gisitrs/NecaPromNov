@@ -114,14 +114,27 @@ function filterProperties(){
         obj[index] = $(this);
     });
     
+    var filterBySquare = 1
+
     var minValue = parseInt(document.getElementById('minRangeValue').value);
     var maxValue = parseInt(document.getElementById('maxRangeValue').value);
+    
+    var minSquareValue = parseInt(document.getElementById('minSquareValue').value);
+    var maxSquareValue = parseInt(document.getElementById('maxSquareValue').value);
+
+    if (isNaN(minSquareValue) || isNaN(maxSquareValue)){
+      filterBySquare = 0;
+    }
+
     var firstElementId = '';
     var secondElementId = '';
     
     var value = parseInt(document.getElementById('sortDropdownId').value);
     var typeA = '';
     var typeB = '';
+
+    var hideValueA = 0;
+    var hideValueB = 0; 
 
     obj.sort(function(a, b) {
         var positionA = $(a).data("position");
@@ -131,6 +144,9 @@ function filterProperties(){
         var contentB = parseInt( positionB.split("-")[0]);
         typeA = parseInt( positionA.split("-")[1]);
         typeB = parseInt( positionB.split("-")[1]);
+
+        squareFeetA = parseInt( positionA.split("-")[2]);
+        squareFeetB = parseInt( positionB.split("-")[2]);
 
         firstElementId = a[0].attributes[0].nodeValue;
         secondElementId = b[0].attributes[0].nodeValue;
@@ -148,32 +164,49 @@ function filterProperties(){
         else {
           $("#"+ secondElementId + "").css("display", "none");
         }
-
+        
+        //Check ContentA visibility
         if (contentA < minValue || contentA > maxValue){
-            $("#"+ firstElementId + "").css("display", "none");
+            hideValueA = 1;
         }
 
+        if (hideValueA == 0 && filterBySquare == 1)
+        {
+          if (squareFeetA < minSquareValue || squareFeetA > maxSquareValue){
+            hideValueA = 0;
+          }
+        }
+        
+        //Check ContentB visibility
         if (contentB < minValue || contentB > maxValue){
-            $("#"+ secondElementId + "").css("display", "none");
+            hideValueB = 1;
+        }
+
+        if (hideValueB == 0 && filterBySquare == 1){
+          if (squareFeetB < minSquareValue || squareFeetB > maxSquareValue){
+            hideValueB = 1;
+          }
+        }
+        
+        if (hideValueA == 1){
+          $("#"+ firstElementId + "").css("display", "none");
+        }
+
+        if (hideValueB == 1){
+          $("#"+ secondElementId + "").css("display", "none");
         }
         
         var sortValue = 0;
 
-        /*if (value == 1){
-            sortValue = contentA < contentB ? -1 : contentA > contentB ? 1 : 0;
-        }
-        else if (value == 2){
-            sortValue = contentA > contentB ? -1 : contentA < contentB ? 1 : 0
-        }*/
+        //Reset variables
+        hideValueA = 0;
+        hideValueB = 0;
 
         return sortValue
       });
       
       $("#mylist").prepend(obj);
 }
-
-/*var sel = document.getElementById('sortDropdownId');
-sel.addEventListener("change", sortProperties());*/
 
 function sortProperties() {
   var obj = [];
@@ -189,8 +222,8 @@ function sortProperties() {
   
    var contentA = parseInt( positionA.split("-")[0]);
    var contentB = parseInt( positionB.split("-")[0]);
-   var contentASquareFeet = parseInt( positionA.split("-")[0]);
-   var contentBSquareFeet = parseInt( positionB.split("-")[0]);
+   var contentASquareFeet = parseInt( positionA.split("-")[2]);
+   var contentBSquareFeet = parseInt( positionB.split("-")[2]);
    typeA = parseInt( positionA.split("-")[1]);
    typeB = parseInt( positionB.split("-")[1]);
   

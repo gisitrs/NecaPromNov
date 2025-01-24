@@ -207,13 +207,13 @@ https://templatemo.com/tm-591-villa-agency
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                      <input id="minSquareValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                      <input id="maxSquareValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
                    </div>
                  </div>
               </div>
@@ -263,7 +263,7 @@ https://templatemo.com/tm-591-villa-agency
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
                                 "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
-                                "<p>".$row["pro_small_desc"]."</p>".
+                                "<p>".$row["pro_small_desc"]." <b>Kvadratura = ".$row["square_feet"]."</b></p>".
                               "</div>".
                           "</div>";
                }
