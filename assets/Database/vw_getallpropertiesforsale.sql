@@ -9,6 +9,7 @@ VIEW `marinkom_jos1`.`vw_getallpropertiesforsale` AS
         `marinkom_jos1`.`jos_osrs_properties`.`pro_name` AS `pro_name`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
+        `marinkom_jos1`.`jos_osrs_properties`.`square_feet` AS `square_feet`,
         (CASE
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
             ELSE CONCAT(FORMAT(`marinkom_jos1`.`jos_osrs_properties`.`price`,

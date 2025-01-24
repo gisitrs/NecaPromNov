@@ -172,7 +172,7 @@ https://templatemo.com/tm-591-villa-agency
         </li>
       </ul>
 
-        <div class="col-lg-4">
+      <div class="col-lg-4">
            <div class="double-slider-box">
               <h4 class="range-title">Raspon cene</h4>
               <br/>
@@ -201,7 +201,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         <div class="col-lg-4">
            <div class="double-slider-box">
-              <h4 class="range-title">Raspon površine</h3>
+              <h4 class="range-title">Površina (obj/plac)</h4>
               <br/>
               <div class="input-box">
                  <div class="min-box">
@@ -217,18 +217,17 @@ https://templatemo.com/tm-591-villa-agency
                    </div>
                  </div>
               </div>
-              <!--<h4 class="range-title">Raspon površine</h3>-->
               <div class="input-box" style="margin-top:20px;">
                  <div class="min-box">
                    <div class="input-wrap">
-                      <span class="input-addon">ar</span>
-                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                      <span class="input-addon">m2</span>
+                      <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
-                      <span class="input-addon">ar</span>
-                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                      <span class="input-addon">m2</span>
+                      <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
                    </div>
                  </div>
               </div>

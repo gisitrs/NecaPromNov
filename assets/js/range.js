@@ -109,7 +109,6 @@ function filterProperties(){
       selectedPosition = parseInt($("#replacementsfilter").data("position"));
      }
 
-
      $('*[id*=realestate]').each(function(index, value) {
         obj[index] = $(this);
     });
@@ -119,11 +118,33 @@ function filterProperties(){
     var minValue = parseInt(document.getElementById('minRangeValue').value);
     var maxValue = parseInt(document.getElementById('maxRangeValue').value);
     
-    var minSquareValue = parseInt(document.getElementById('minSquareValue').value);
-    var maxSquareValue = parseInt(document.getElementById('maxSquareValue').value);
+    var minSquareValueObject = parseInt(document.getElementById('minSquareValue').value);
+    var maxSquareValueObject = parseInt(document.getElementById('maxSquareValue').value);
 
-    if (isNaN(minSquareValue) || isNaN(maxSquareValue)){
-      filterBySquare = 0;
+    var minSquareParcelValue = parseInt(document.getElementById('minSquareParcelValue').value);
+    var maxSquareParcelValue = parseInt(document.getElementById('maxSquareParcelValue').value);
+
+    var minSquareValue = 0;
+    var maxSquareValue = 0;
+
+    if (isNaN(minSquareValueObject))
+    {
+       minSquareValueObject = 0;
+    }
+
+    if (isNaN(maxSquareValueObject))
+    {
+       maxSquareValueObject = 1000000000;
+    }
+
+    if (isNaN(minSquareParcelValue))
+    {
+      minSquareParcelValue = 0;
+    }
+  
+    if (isNaN(maxSquareParcelValue))
+    {
+      maxSquareParcelValue = 1000000000;
     }
 
     var firstElementId = '';
@@ -164,26 +185,48 @@ function filterProperties(){
         else {
           $("#"+ secondElementId + "").css("display", "none");
         }
+
+        if (typeA != 4)
+        {
+          minSquareValue = minSquareValueObject;
+          maxSquareValue = maxSquareValueObject;
+        }
+        else
+        {
+          minSquareValue = minSquareParcelValue;
+          maxSquareValue = maxSquareParcelValue;
+        }
         
         //Check ContentA visibility
-        if (contentA < minValue || contentA > maxValue){
+        if (contentA <= minValue || contentA >= maxValue){
             hideValueA = 1;
         }
 
-        if (hideValueA == 0 && filterBySquare == 1)
+        if (hideValueA == 0)
         {
-          if (squareFeetA < minSquareValue || squareFeetA > maxSquareValue){
+          if (squareFeetA <= minSquareValue || squareFeetA >= maxSquareValue){
             hideValueA = 0;
           }
         }
+
+        if (typeB != 4)
+        {
+            minSquareValue = minSquareValueObject;
+            maxSquareValue = maxSquareValueObject;
+        }
+        else
+        {
+            minSquareValue = minSquareParcelValue;
+            maxSquareValue = maxSquareParcelValue;
+        }
         
         //Check ContentB visibility
-        if (contentB < minValue || contentB > maxValue){
+        if (contentB <= minValue || contentB >= maxValue){
             hideValueB = 1;
         }
 
-        if (hideValueB == 0 && filterBySquare == 1){
-          if (squareFeetB < minSquareValue || squareFeetB > maxSquareValue){
+        if (hideValueB == 0){
+          if (squareFeetB <= minSquareValue || squareFeetB >= maxSquareValue){
             hideValueB = 1;
           }
         }
