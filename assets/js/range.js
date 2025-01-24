@@ -189,33 +189,10 @@ function sortProperties() {
   
    var contentA = parseInt( positionA.split("-")[0]);
    var contentB = parseInt( positionB.split("-")[0]);
+   var contentASquareFeet = parseInt( positionA.split("-")[0]);
+   var contentBSquareFeet = parseInt( positionB.split("-")[0]);
    typeA = parseInt( positionA.split("-")[1]);
    typeB = parseInt( positionB.split("-")[1]);
-
-   /*firstElementId = a[0].attributes[0].nodeValue;
-   secondElementId = b[0].attributes[0].nodeValue;
-
-   if (isAllRepSelected == true || selectedPosition == typeA){
-     $("#"+ firstElementId + "").css("display", "block");
-   }
-   else {
-     $("#"+ firstElementId + "").css("display", "none");
-   }
-
-   if (isAllRepSelected == true || selectedPosition == typeB){
-     $("#"+ secondElementId + "").css("display", "block");
-   }
-   else {
-    $("#"+ secondElementId + "").css("display", "none");
-   }
-
-   if (contentA < minValue || contentA > maxValue){
-      $("#"+ firstElementId + "").css("display", "none");
-   }
-
-   if (contentB < minValue || contentB > maxValue){
-      $("#"+ secondElementId + "").css("display", "none");
-   }*/
   
   var sortValue = 0;
 
@@ -224,6 +201,12 @@ function sortProperties() {
   }
   else if (value == 2){
       sortValue = contentA > contentB ? -1 : contentA < contentB ? 1 : 0
+  }
+  if (value == 3){
+    sortValue = contentASquareFeet < contentBSquareFeet ? -1 : contentASquareFeet > contentBSquareFeet ? 1 : 0;
+  }
+  else if (value == 4){
+    sortValue = contentASquareFeet > contentBSquareFeet ? -1 : contentASquareFeet < contentBSquareFeet ? 1 : 0
   }
 
   return sortValue
