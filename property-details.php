@@ -229,7 +229,7 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                echo "<img src="."assets/images/properties/".$row["id"]."/".$row["image"]." class="."d-block".">";
+                echo "<img src=".$row["image_path"]." class="."d-block".">";
                }
             }
             else {

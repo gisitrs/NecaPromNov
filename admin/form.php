@@ -91,23 +91,23 @@ if (!isset($_SESSION["user"])) {
 
             if(!is_dir($dir))
             {
-                mkdir($dir, "0777", true);
+                mkdir($dir, 0777);
                 //echo "New folder created";
             }
 
             if(!is_dir($dirMedium))
             {
-                mkdir($dirMedium, "0777", true);
+                mkdir($dirMedium, 0777);
             }
 
             if(!is_dir($dirOriginal))
             {
-                mkdir($dirOriginal, "0777", true);
+                mkdir($dirOriginal, 0777);
             }
 
             if(!is_dir($dirThumb))
             {
-                mkdir($dirThumb, "0777", true);
+                mkdir($dirThumb, 0777);
             }
 
             //$countimg = 1;

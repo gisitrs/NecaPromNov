@@ -112,26 +112,26 @@ https://templatemo.com/tm-591-villa-agency
           <span class="category">Procena vrednosti nekretnina</span>
         </div>
       </div>
-      <div class="item item-2" style="margin-top: -60px;">
-        <div class="header-text">
+      <div class="item item-2">
+        <div class="header-text" style="margin-top: -60px;">
           <span class="category">Zakup nekretnina</span><br/>
           <span class="category">Pravna pomoć</span>
         </div>
       </div>
-      <div class="item item-3" style="margin-top: -60px;">
-        <div class="header-text">
+      <div class="item item-3">
+        <div class="header-text" style="margin-top: -60px;">
            <span class="category">Marketing nekretnina</span><br/>
            <span class="category">Poreski saveti</span>
         </div>
       </div>
-      <div class="item item-4" style="margin-top: -60px;">
-        <div class="header-text">
+      <div class="item item-4">
+        <div class="header-text" style="margin-top: -60px;">
             <span class="category">Dozvole i licence</em></span><br/>
             <span class="category">Saveti o tržištu</em></span>
         </div>
       </div>
-      <div class="item item-5" style="margin-top: -60px;">
-        <div class="header-text">
+      <div class="item item-5">
+        <div class="header-text" style="margin-top: -60px;">
            <span class="category">Investicioni saveti</span>
         </div>
       </div>

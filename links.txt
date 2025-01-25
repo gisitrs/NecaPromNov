@@ -160,3 +160,9 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 5. Different images for mobile and desktop 
 
 - https://www.youtube.com/watch?v=TH2j0EgTtrE
+
+-- iOS hard refresh
+
+- javascript:location.reload(true);
+
+- https://apple.stackexchange.com/questions/130140/how-to-force-a-page-refresh-in-chrome-on-ios
