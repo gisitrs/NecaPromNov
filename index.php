@@ -107,33 +107,32 @@ https://templatemo.com/tm-591-villa-agency
   <div class="main-banner">
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
-        <div class="header-text">
-          <span class="category">Kupovina i prodaja nekretnina</span>
-          <h2>Procena vrednosti nekretnina</h2>
+        <div class="header-text" style="margin-top: -60px;">
+          <span class="category">Kupovina i prodaja nekretnina</span><br/>
+          <span class="category">Procena vrednosti nekretnina</span>
         </div>
       </div>
-      <div class="item item-2">
+      <div class="item item-2" style="margin-top: -60px;">
         <div class="header-text">
-          <span class="category">Zakup nekretnina</span>
-          <h2>Pravna pomoć</h2>
+          <span class="category">Zakup nekretnina</span><br/>
+          <span class="category">Pravna pomoć</span>
         </div>
       </div>
-      <div class="item item-3">
+      <div class="item item-3" style="margin-top: -60px;">
         <div class="header-text">
-           <span class="category">Marketing nekretnina</span>
-           <h2>Poreski saveti</h2>
+           <span class="category">Marketing nekretnina</span><br/>
+           <span class="category">Poreski saveti</span>
         </div>
       </div>
-      <div class="item item-4">
+      <div class="item item-4" style="margin-top: -60px;">
         <div class="header-text">
-            <span class="category">Dozvole i licence</em></span>
-            <h2>Saveti o tržištu</h2>
+            <span class="category">Dozvole i licence</em></span><br/>
+            <span class="category">Saveti o tržištu</em></span>
         </div>
       </div>
-      <div class="item item-5">
+      <div class="item item-5" style="margin-top: -60px;">
         <div class="header-text">
-           <!--<span class="category">Sokobanja, <em>Srbija</em></span>-->
-           <h2>Investicioni saveti</h2>
+           <span class="category">Investicioni saveti</span>
         </div>
       </div>
     </div>

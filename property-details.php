@@ -174,7 +174,7 @@ https://templatemo.com/tm-591-villa-agency
                {
                     echo "<div class="."col-lg-12"."style="."margin-top:-10px;".">
                           <div class="."section-heading".">
-                              <h2>".$row["ref"].",".$row["pro_name"]."</h2>
+                              <h2>".$row["pro_name"]."</h2>
                           </div>
                           </div>
                           <div class="."col-lg-12".">
@@ -184,17 +184,7 @@ https://templatemo.com/tm-591-villa-agency
                                       </div> 
                                       <div class="."tab-content"." id="."myTabContent1".">
                                           <div>
-                                              <div class="."row".">
-                                                  <div class="."col-lg-3".">
-                                                      <div class="."info-table".">
-                                                          <ul>
-                                                             <li>Cena: <span>".$row["price_text"]."</span></li>
-                                                          </ul>
-                                                      </div>
-                                                      <br>
-                                                      <h4>Informacije o nepokretnosti</h4>
-                                                      <p>".$row["pro_small_desc"]."</p>
-                                                  </div>";
+                                              <div class="."row".">";
                }
             }
             else {
@@ -283,6 +273,40 @@ https://templatemo.com/tm-591-villa-agency
               <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; background-color: #bf6735;" onclick='printDiv();'>Štampaj</button>
           </div>
           </div>
+          <?php 
+            include"admin/database.php";
+            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $result = $conn-> query($sql);
+            $counter = 1;
+            
+            if ($result-> num_rows > 0)
+            {
+               while ($row = $result-> fetch_assoc())
+               {
+                    echo "<div class="."col-lg-3".">
+                              <div class="."info-table".">
+                                <ul>
+                                  <li>Ref: <span>".$row["ref"]."</span></li>
+                                </ul>
+                              </div>
+                              <br>
+                              <div class="."info-table".">
+                                <ul>
+                                   <li>Cena: <span>".$row["price_text"]."</span></li>
+                                </ul>
+                              </div>
+                              <br>
+                              <h4>Informacije o nepokretnosti</h4>
+                              <p>".$row["pro_small_desc"]."</p>
+                          </div>";
+               }
+            }
+            else {
+                echo "0 results";
+            }
+            
+            $conn-> close();
+        ?>
           <div class="col-lg-3">
               <div class="contact-content" style="margin-top: 20px;">
                 <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">

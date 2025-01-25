@@ -745,68 +745,68 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/2019/Sokobanja11D.JPG);
+  background-image: url(../images/2019/Sokobanja1_Desktop.JPG);
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-2 {
-  background-image: url(../images/2019/Sokobanja12D.JPG);
+  background-image: url(../images/2019/Sokobanja2_Desktop.JPG);
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-3 {
-  background-image: url(../images/2019/Sokobanja13D.JPG);
+  background-image: url(../images/2019/Sokobanja3_Desktop.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-4 {
-  background-image: url(../images/2019/Sokobanja14D.JPG);
+  background-image: url(../images/2019/Sokobanja4_Desktop.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
 }
 
 .main-banner .item-5 {
-  background-image: url(../images/2019/Sokobanja15D.JPG);
+  background-image: url(../images/2019/Sokobanja5_Desktop.JPG);
   /*margin-top:70px;*/
   width:100%;
   height: 768px;
 }
 
-@media only screen and (max-width:360px)
+@media only screen and (max-width:460px)
 {
   .main-banner .item-1 {
-    background-image: url(../images/2019/Sokobanja11M.JPG);
+    background-image: url(../images/2019/Sokobanja1_Mobile.JPG);
     width:100%;
     height: 720px;
   }
 
   .main-banner .item-2 {
-    background-image: url(../images/2019/Sokobanja12M.JPG);
+    background-image: url(../images/2019/Sokobanja2_Mobile.JPG);
     width:100%;
     height: 720px;
   }
   
   .main-banner .item-3 {
-    background-image: url(../images/2019/Sokobanja13M.JPG);
+    background-image: url(../images/2019/Sokobanja3_Mobile.JPG);
     width:100%;
     height: 720px;
     /*margin-top:70px;*/
   }
   
   .main-banner .item-4 {
-    background-image: url(../images/2019/Sokobanja14M.JPG);
+    background-image: url(../images/2019/Sokobanja4_Mobile.JPG);
     /*margin-top:70px;*/
     width:100%;
     height: 720px;
   }
   
   .main-banner .item-5 {
-    background-image: url(../images/2019/Sokobanja15M.JPG);
+    background-image: url(../images/2019/Sokobanja5_Mobile.JPG);
     /*margin-top:70px;*/
     width:100%;
     height: 720px;
