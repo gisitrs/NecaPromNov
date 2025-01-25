@@ -435,15 +435,18 @@ https://templatemo.com/tm-591-villa-agency
                         <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                 </div>-->
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-4">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Adresa</h4>
                     <p id="indexTextId45" class="mb-2" style="color:#FFF;"><i class="fa fa-map-marker-alt me-3"></i>Svetog Save 19, Sokobanja</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Kontakt</h4>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
                     <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-4">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
                     <ul class="text-light">
                       <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>
@@ -460,19 +463,28 @@ https://templatemo.com/tm-591-villa-agency
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="https://www.necaprom.com">www.necaprom.com</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-3 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Created By <a href="https://www.gisit.rs">
-                        <img src="assets/images/2019/Gisit_transparent.png" alt="" style="max-width:100px;">
-                        </a>
+                       Sadržaj sajta je vlasništvo Neca Prom D.O.O. Sokobanja
                     </div>
                 </div>
             </div>
         </div>
   </div>
     <!-- Footer End -->
+
+    <div style="padding-bottom: 15px; padding-top: 15px; background-color: #FFFFFF;">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-9 text-center text-md-end">
+                </div>
+                <div class="col-md-3 text-center">
+                   <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                   <b>Created By</b> <a href="https://www.gisit.rs">
+                   <img src="assets/images/2019/Gisit_transparent.png" alt="" style="max-width:100px;">
+                   </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
