@@ -177,8 +177,11 @@ https://templatemo.com/tm-591-villa-agency
               <br/>
               <div class="range-slider">
                  <span class="slider-track"></span>
-                 <input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" step="1000" oninput="slideMin()">
-                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" step="1000" oninput="slideMax()">
+                 <?php 
+                   include "slider-component.php";
+                 ?>
+                 <!--<input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" step="1000" oninput="slideMin()">
+                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" step="1000" oninput="slideMax()">-->
                  <div class="tooltip1 min-tooltip"></div>
                  <div class="tooltip1 max-tooltip"></div>
               </div>
@@ -374,7 +377,7 @@ https://templatemo.com/tm-591-villa-agency
               </div>
               <div class="col-lg-12" style="margin-top: 0px;">
                   <fieldset >
-                     <button type="submit" id="form-submit" class="orange-button">Pošalji</button>
+                     <button type="submit" id="form-submit" class="orange-button" style="background-color: #bf6735;">Pošalji</button>
                   </fieldset>
               </div>
             </div>

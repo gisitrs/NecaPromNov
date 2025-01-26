@@ -130,7 +130,7 @@ body {
 }
 
 .section {
-  margin-top: 120px;
+  margin-top: 70px;
 }
 
 .section-heading {
@@ -1118,7 +1118,7 @@ Best Deal Style
 
 .best-deal {
   background-color: #fafafa;
-  padding: 100px 0px;
+  padding: 50px 0px;
 }
 
 .best-deal .tab-content img {
@@ -1827,7 +1827,7 @@ body {
     justify-content: center;
   }
   .best-deal .info-table {
-    margin-bottom: 45px;
+    margin-bottom: 0px; /*45px;*/
   }
   .best-deal .tab-content img {
     padding: 0px;

@@ -12,7 +12,7 @@
 
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
-	  var box = $('.header-text').height();
+	  var box = $('.header-text').height() + 250;
 	  var header = $('header').height();
 
 	  if (scroll >= box - header) {

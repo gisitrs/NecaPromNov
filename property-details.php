@@ -172,7 +172,7 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                    echo "<div class="."col-lg-12"."style="."margin-top:-10px;".">
+                    echo "<div class="."col-lg-12"."style="."margin-top: 10px;".">
                           <div class="."section-heading".">
                               <h2>".$row["pro_name"]."</h2>
                           </div>
@@ -193,7 +193,7 @@ https://templatemo.com/tm-591-villa-agency
             
             $conn-> close();
         ?>
-        <div class="col-lg-6" style="margin-top: 20px;">
+        <div class="col-lg-6">
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -270,7 +270,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           <div>
-              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; background-color: #bf6735;" onclick='printDiv();'>Štampaj</button>
+              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; margin-bottom:30px; background-color: #bf6735;" onclick='printDiv();'>Štampaj</button>
           </div>
           </div>
           <?php 
@@ -296,8 +296,8 @@ https://templatemo.com/tm-591-villa-agency
                                 </ul>
                               </div>
                               <br>
-                              <h4>Informacije o nepokretnosti</h4>
-                              <p>".$row["pro_small_desc"]."</p>
+                              <h4 style="."margin-top:20px;".">Informacije o nepokretnosti</h4>
+                              <p style="."margin-bottom:30px;".">".$row["pro_small_desc"]."</p>
                           </div>";
                }
             }
@@ -308,7 +308,7 @@ https://templatemo.com/tm-591-villa-agency
             $conn-> close();
         ?>
           <div class="col-lg-3">
-              <div class="contact-content" style="margin-top: 20px;">
+              <div class="contact-content" style="margin-top:0px;">
                 <form id="contact-form" style="width: 100%;" action="https://formsubmit.co/igor94grozdanic@gmail.com" method="post">
                 <div id="fourthRowId" class="row">
                   <div class="col-lg-12">
@@ -343,7 +343,7 @@ https://templatemo.com/tm-591-villa-agency
                   </div>
                   <div class="col-lg-12" style="margin-top: 0px;">
                       <fieldset >
-                         <button type="submit" id="form-submit" class="orange-button">Pošalji</button>
+                         <button type="submit" id="form-submit" class="orange-button" style="background-color: #bf6735;">Pošalji</button>
                       </fieldset>
                   </div>
                </div>
@@ -361,7 +361,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 
   <div>
-  <div class="container py-5 text-center" >
+  <div class="container text-center" >
    <h2 class="display-6 fw-bold py-5">Galerija</h2>
    <div id="fifthRowId" class="row">
    <?php 
@@ -375,7 +375,7 @@ https://templatemo.com/tm-591-villa-agency
                   while ($row = $result-> fetch_assoc())
                   {
                     echo "<a class="."col-lg-4"." href="."assets/images/properties/".$row["id"]."/".$row["image"]."?image=".$counter." data-toggle="."lightbox"." data-gallery="."photo_gallery".">
-                              <img src="."assets/images/properties/".$row["id"]."/".$row["image"]."?image=".$counter." class="."img-fluid"." >
+                              <img src="."assets/images/properties/".$row["id"]."/".$row["image"]."?image=".$counter." class="."img-fluid1"." >
                           </a>";
                     $counter++;
                   }
