@@ -139,7 +139,8 @@ https://templatemo.com/tm-591-villa-agency
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
+                                "<div><p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
+                                "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p></div><br/><br/>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";

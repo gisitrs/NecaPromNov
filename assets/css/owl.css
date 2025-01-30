@@ -189,6 +189,14 @@
   margin-top: 10px;
   /*margin-left: 60%;*/
   text-align: right;
+  float: right;
+}
+
+.squareFeet {
+  margin-top: 10px;
+  /*margin-left: 60%;*/
+  text-align: left;
+  float: left;
 }
 
 .double-slider-box {

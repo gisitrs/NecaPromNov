@@ -160,8 +160,6 @@ https://templatemo.com/tm-591-villa-agency
                  <?php 
                    include "slider-component.php";
                  ?>
-                 <!--<input type="range" name="min_val" class="min-val" min="0" max="600000" value="10000" step="1000" oninput="slideMin()">
-                 <input type="range" name="max_val" class="max-val" min="0" max="600000" value="350000" step="1000" oninput="slideMax()">-->
                  <div class="tooltip1 min-tooltip"></div>
                  <div class="tooltip1 max-tooltip"></div>
               </div>
@@ -183,8 +181,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         <div class="col-lg-4">
            <div class="double-slider-box">
-              <h4 class="range-title">Površina (obj/plac)</h4>
-              <br/>
+              <h4 class="range-title">Površina objekta</h4>
               <div class="input-box">
                  <div class="min-box">
                    <div class="input-wrap">
@@ -199,7 +196,9 @@ https://templatemo.com/tm-591-villa-agency
                    </div>
                  </div>
               </div>
-              <div class="input-box" style="margin-top:20px;">
+              <br/>
+              <h4 class="range-title">Površina placa</h4>
+              <div class="input-box">
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
@@ -215,19 +214,23 @@ https://templatemo.com/tm-591-villa-agency
               </div>
            </div>
         </div>
-        <div class="col-lg-1">
-            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b;"  onclick="filterProperties()">Filtriraj</button>
-        </div>
-        <div class="col-lg-3">
-            <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
-               <option value="0">Sortiraj</option>
-               <option value="1">Po ceni uzlazno</option>
-               <option value="2">Po ceni silazno</option>
-               <option value="3">Po kvadraturi uzlazno</option>
-               <option value="4">Po kvadraturi silazno</option>
-            </select>
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-primary" style="width: 100%; margin-top:20px; background-color: #36389b;"  onclick="filterProperties()">Filtriraj</button>
         </div>
         </div>
+        </div>
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-4">
+                  <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
+                      <option value="0">Sortiraj</option>
+                      <option value="1">Po ceni uzlazno</option>
+                      <option value="2">Po ceni silazno</option>
+                      <option value="3">Po kvadraturi uzlazno</option>
+                      <option value="4">Po kvadraturi silazno</option>
+                  </select>
+              </div>
+          </div>
         </div>
         <div class="row" id="mylist" style="margin-top: 20px;">
       <?php 
@@ -243,8 +246,9 @@ https://templatemo.com/tm-591-villa-agency
                 "<div class="."item".">".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                    "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
-                    "<p>".$row["pro_small_desc"]." <b>Kvadratura = ".$row["square_feet"]."</b></p>".
+                    "<div><p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
+                    "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p></div><br/><br/>".
+                    "<p>".$row["pro_small_desc"]."</p>".
                   "</div>".
               "</div>";
                }
