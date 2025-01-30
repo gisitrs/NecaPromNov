@@ -171,7 +171,7 @@ body {
 }
 
 .icon-button a i {
-  background-color: #bf6735;
+  background-color: #36389b;
   height: 50px;
   width: 50px;
   text-align: center;
@@ -183,7 +183,7 @@ body {
 }
 
 .icon-button a:hover {
-  color: #bf6735;
+  color: #36389b;
 }
 
 .icon-button a:hover i {
@@ -204,7 +204,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #bf6735;
+  background-color: #36389b;
   color: #fff;
 }
 
@@ -281,7 +281,7 @@ Pre-loader Style
   height: 16px;
   top: 12px;
   left: 15px;
-  background: #bf6735;
+  background: #36389b;
   border-radius: 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -304,7 +304,7 @@ Pre-loader Style
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background: #bf6735;
+  background: #36389b;
   border-radius: 50%;
 }
 
@@ -348,7 +348,7 @@ Header Style
 }
 
 .sub-header ul.social-links li a:hover {
-  background-color: #bf6735;
+  background-color: #36389b;
 }
 
 .sub-header ul.info li {
@@ -367,7 +367,7 @@ Header Style
 
 .sub-header ul.info li i {
   font-size: 20px;
-  color: #bf6735;
+  color: #36389b;
   margin-right: 8px;
 }
 
@@ -474,7 +474,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child a i {
-  background-color: #bf6735;
+  background-color: #36389b;
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -494,16 +494,16 @@ Header Style
 }
 
 .header-area .main-nav .nav li:hover a {
-  color: #bf6735;
+  color: #36389b;
 }
 
 .header-area .main-nav .nav li a.active {
-  color: #bf6735;
+  color: #36389b;
 }
 
 
 .background-header .main-nav .nav li a.active {
-  color: #bf6735;
+  color: #36389b;
 }
 
 .header-area .main-nav .menu-trigger {
@@ -744,11 +744,11 @@ Banner Style
   margin-top: 0px;
 }
 
-.main-banner .item-1 {
+/*.main-banner .item-1 {
   background-image: url(../images/2019/Sokobanja1_Desktop.JPG);
   width:100%;
   height: 768px;
-}
+}*/
 
 .main-banner .item-2 {
   background-image: url(../images/2019/Sokobanja2_Desktop.JPG);
@@ -756,12 +756,12 @@ Banner Style
   height: 768px;
 }
 
-.main-banner .item-3 {
+/*.main-banner .item-3 {
   background-image: url(../images/2019/Sokobanja3_Desktop.JPG);
   /*margin-top:70px;*/
-  width:100%;
+  /*width:100%;
   height: 768px;
-}
+}*/
 
 .main-banner .item-4 {
   background-image: url(../images/2019/Sokobanja4_Desktop.JPG);
@@ -777,13 +777,24 @@ Banner Style
   height: 768px;
 }
 
+.main-banner .item span.category {
+  background-color: #fff;
+  color: #36389b;
+  font-size: 28px;
+  font-weight: 500;
+  /*text-transform: capitalize;*/
+  padding: 6px 15px;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
 @media only screen and (max-width:460px)
 {
-  .main-banner .item-1 {
+  /*.main-banner .item-1 {
     background-image: url(../images/2019/Sokobanja1_Mobile.JPG);
     width:100%;
     height: 720px;
-  }
+  }*/
 
   .main-banner .item-2 {
     background-image: url(../images/2019/Sokobanja2_Mobile.JPG);
@@ -791,12 +802,12 @@ Banner Style
     height: 720px;
   }
   
-  .main-banner .item-3 {
+  /*.main-banner .item-3 {
     background-image: url(../images/2019/Sokobanja3_Mobile.JPG);
     width:100%;
     height: 720px;
     /*margin-top:70px;*/
-  }
+  /*}*/
   
   .main-banner .item-4 {
     background-image: url(../images/2019/Sokobanja4_Mobile.JPG);
@@ -811,22 +822,15 @@ Banner Style
     width:100%;
     height: 720px;
   }
-}
 
-.main-banner .item span.category {
-  background-color: #fff;
-  color: #1e1e1e;
-  font-size: 16px;
-  font-weight: 500;
-  /*text-transform: capitalize;*/
-  padding: 6px 15px;
-  display: inline-block;
-  margin-bottom: 30px;
+  .main-banner .item span.category {
+    font-size: 16px;
+  }
 }
 
 .main-banner .item span.category em {
   font-style: normal;
-  color: #bf6735;
+  color: #36389b;
 }
 
 .main-banner .item h2 {
@@ -855,7 +859,7 @@ Banner Style
 }
 
 .main-banner .owl-dots .active {
-  background-color: #bf6735;
+  background-color: #36389b;
 }
 
 .main-banner .owl-nav {
@@ -916,7 +920,7 @@ Featured Style
   width: 110px;
   height: 110px;
   line-height: 110px;
-  background-color: #bf6735;
+  background-color: #36389b;
   border-radius: 50%;
   text-align: center;
   position: absolute;
@@ -956,7 +960,7 @@ Featured Style
 }
 
 .featured .accordion-button:not(.collapsed) {
-  color: #bf6735;
+  color: #36389b;
   background-color: #fafafa;
   outline: none;
 }
@@ -1053,7 +1057,7 @@ Video Style
   display: inline-block;
   text-align: center;
   line-height: 52px;
-  color: #bf6735;
+  color: #36389b;
   outline: 15px solid rgba(254, 85, 37, 0.5);
   font-size: 18px;
 }
@@ -1095,14 +1099,14 @@ Fun Facts Style
 .fun-facts .counter h2 {
   margin-right: 25px;
   font-size: 40px;
-  color: #bf6735;
+  color: #36389b;
 }
 
 .fun-facts .counter:after {
   position: absolute;
   width: 50px;
   height: 50px;
-  background-color: #bf6735;
+  background-color: #36389b;
   border-radius: 50%;
   content: '';
   right: -25px;
@@ -1138,7 +1142,7 @@ Best Deal Style
 }
 
 .best-deal .tabs-content .nav-tabs .nav-link.active {
-  background-color: #bf6735 !important;
+  background-color: #36389b !important;
   color: #fff;
 }
 
@@ -1221,7 +1225,7 @@ Properties Style
 }
 
 .properties .item span.category {
-  background-color: #f3ad58;
+  background-color: #8082e0;
   font-weight: 500;
   border-radius: 5px;
   font-size: 14px;
@@ -1260,7 +1264,7 @@ Properties Style
 
 .properties .item h6 {
   font-size: 20px;
-  color: #bf6735;
+  color: #36389b;
   margin-top: 6px;
   display: inline-block;
   float: right;
@@ -1385,7 +1389,7 @@ Contact Style
 }
 
 .contact-content #contact-form button:hover {
-  background-color: #bf6735;
+  background-color: #36389b;
 }
 
 
@@ -1494,7 +1498,7 @@ Properties Style
 }
 
 .properties ul.properties-filter li a.is_active {
-  background-color: #bf6735;
+  background-color: #36389b;
   color: #fff;
 }
 
@@ -1503,7 +1507,7 @@ Properties Style
 }
 
 .properties ul.properties-filter li a:hover {
-  color: #bf6735;
+  color: #36389b;
 }
 
 .properties ul.pagination {
@@ -1534,7 +1538,7 @@ Properties Style
 
 .properties ul.pagination li a:hover,
 .properties ul.pagination li a.is_active {
-  background-color: #bf6735;
+  background-color: #36389b;
   color: #fff;
 }
 
@@ -1591,7 +1595,7 @@ Single Page Style
 }
 
 .single-property .accordion-button:not(.collapsed) {
-  color: #bf6735;
+  color: #36389b;
   background-color: #fafafa;
   outline: none;
 }
@@ -1745,7 +1749,7 @@ Contact Page Style
 }
 
 .contact-page #contact-form button:hover {
-  background-color: #bf6735;
+  background-color: #36389b;
 }
 
 

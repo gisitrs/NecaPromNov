@@ -270,7 +270,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           <div>
-              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; margin-bottom:30px; background-color: #bf6735;" onclick='printDiv();'>Štampaj</button>
+              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; margin-bottom:30px; background-color: #36389b;" onclick='printDiv();'>Štampaj</button>
           </div>
           </div>
           <?php 
@@ -343,7 +343,7 @@ https://templatemo.com/tm-591-villa-agency
                   </div>
                   <div class="col-lg-12" style="margin-top: 0px;">
                       <fieldset >
-                         <button type="submit" id="form-submit" class="orange-button" style="background-color: #bf6735;">Pošalji</button>
+                         <button type="submit" id="form-submit" class="orange-button" style="background-color: #36389b;">Pošalji</button>
                       </fieldset>
                   </div>
                </div>
@@ -409,6 +409,7 @@ https://templatemo.com/tm-591-villa-agency
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src="."assets/images/properties/".$row["id"]."/".$row["image"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
+                                "<p class="."price"."><b>Kvadratura: ".$row["square_feet"]." m2</p>".
                                 "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".

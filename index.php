@@ -106,33 +106,37 @@ https://templatemo.com/tm-591-villa-agency
 
   <div class="main-banner">
     <div class="owl-carousel owl-banner">
-      <div class="item item-1">
+      <!--<div class="item item-1">
         <div class="header-text" style="margin-top: -60px;">
           <span class="category">Kupovina i prodaja nekretnina</span><br/>
           <span class="category">Procena vrednosti nekretnina</span>
         </div>
-      </div>
+      </div>-->
       <div class="item item-2">
-        <div class="header-text" style="margin-top: -60px;">
-          <span class="category">Zakup nekretnina</span><br/>
-          <span class="category">Pravna pomoć</span>
+        <div class="header-text" style="margin-top: -120px;">
+          <span class="category" >Kupovina i prodaja nekretnina</span><br/>
+          <span class="category" >Procena vrednosti nekretnina</span><br/>
+          <span class="category" >Zakup nekretnina</span><br/>
         </div>
       </div>
-      <div class="item item-3">
+      <!--<div class="item item-3">
         <div class="header-text" style="margin-top: -60px;">
            <span class="category">Marketing nekretnina</span><br/>
            <span class="category">Poreski saveti</span>
         </div>
-      </div>
+      </div>-->
       <div class="item item-4">
         <div class="header-text" style="margin-top: -60px;">
-            <span class="category">Dozvole i licence</em></span><br/>
-            <span class="category">Saveti o tržištu</em></span>
+            <span class="category" >Pravna pomoć</span><br/>
+            <span class="category" >Marketing nekretnina</span><br/>
+            <span class="category" >Poreski saveti</span>
         </div>
       </div>
       <div class="item item-5">
         <div class="header-text" style="margin-top: -60px;">
-           <span class="category">Investicioni saveti</span>
+           <span class="category" >Dozvole i licence</em></span><br/>
+           <span class="category" >Saveti o tržištu</em></span><br/>
+           <span class="category" >Investicioni saveti</span>
         </div>
       </div>
     </div>
@@ -236,7 +240,7 @@ https://templatemo.com/tm-591-villa-agency
            </div>
         </div>
         <div class="col-lg-1">
-            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #bf6735;"  onclick="filterProperties()">Filtriraj</button>
+            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b;"  onclick="filterProperties()">Filtriraj</button>
         </div>
         <div class="col-lg-3">
             <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
@@ -377,7 +381,7 @@ https://templatemo.com/tm-591-villa-agency
               </div>
               <div class="col-lg-12" style="margin-top: 0px;">
                   <fieldset >
-                     <button type="submit" id="form-submit" class="orange-button" style="background-color: #bf6735;">Pošalji</button>
+                     <button type="submit" id="form-submit" class="orange-button" style="background-color: #36389b;">Pošalji</button>
                   </fieldset>
               </div>
             </div>

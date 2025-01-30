@@ -216,7 +216,7 @@ https://templatemo.com/tm-591-villa-agency
            </div>
         </div>
         <div class="col-lg-1">
-            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #bf6735;"  onclick="filterProperties()">Filtriraj</button>
+            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b;"  onclick="filterProperties()">Filtriraj</button>
         </div>
         <div class="col-lg-3">
             <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
