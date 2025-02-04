@@ -86,7 +86,6 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="index.php">Naslovna</a></li>
                       <li><a href="properties.php" class="active">Prodaja</a></li>
                       <li><a href="rents.php">Izdavanje</a></li>
-                      <li><a href="vacations.php">Letovanje</a></li>
                       <li><a href="excursions.php">Izleti</a></li>
                       <li><a href="contact.html">Kontakt</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
@@ -139,15 +138,15 @@ https://templatemo.com/tm-591-villa-agency
           <a id="parcelsfilter" data-position="4">Placevi</a>
         </li>
         <li>
-          <a id="villagesfilter" data-position="5">Seos. domaćinstva</a>
+          <a id="villagesfilter" data-position="5">Seoska domaćinstva</a>
         </li>
         <li>
           <a id="issuingbfilter" data-position="7">Poslovni prostor</a>
         </li>
-        <li>
+        <li style="display:none;">
           <a id="apartmentsfilter" data-position="11">Izdavanje apartmana</a>
         </li>
-        <li>
+        <li style="display:none;">
           <a id="replacementsfilter" data-position="8">Zamene</a>
         </li>
       </ul>
@@ -288,7 +287,6 @@ https://templatemo.com/tm-591-villa-agency
                     <ul class="text-light">
                       <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>
                       <li><a href="rents.php" style="color:#FFF;">Izdavanje</a></li>
-                      <li><a href="vacations.php" style="color:#FFF;">Letovanje</a></li>
                       <li><a href="excursions.php" style="color:#FFF;">Izleti</a></li>
                       <li><a href="contact.html" style="color:#FFF;">Kontakt</a></li>
                     </ul> 

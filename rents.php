@@ -86,7 +86,6 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="index.php">Naslovna</a></li>
                       <li><a href="properties.php">Prodaja</a></li>
                       <li><a href="rents.php" class="active">Izdavanje</a></li>
-                      <li><a href="vacations.php">Letovanje</a></li>
                       <li><a href="excursions.php">Izleti</a></li>
                       <li><a href="contact.html">Kontakt</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
@@ -181,7 +180,6 @@ https://templatemo.com/tm-591-villa-agency
                     <ul class="text-light">
                       <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>
                       <li><a href="properties.php" style="color:#FFF;">Prodaja</a></li>
-                      <li><a href="vacations.php" style="color:#FFF;">Letovanje</a></li>
                       <li><a href="excursions.php" style="color:#FFF;">Izleti</a></li>
                       <li><a href="contact.html" style="color:#FFF;">Kontakt</a></li>
                     </ul> 
