@@ -79,7 +79,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.php" class="logo">
-                        <img src="assets/images/2019/Necaprom_transparent.png" alt="" style="max-width:250px; margin-top:25px;">
+                        <img src="assets/images/2019/Necaprom_transparent.png" alt="" class="mainLogoImage">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -270,7 +270,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           </div>
           <div>
-              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; margin-bottom:30px; background-color: #36389b;" onclick='printDiv();'>Štampaj</button>
+              <button type="submit" id="printButton" class="btn btn-primary" style="margin-top:30px; margin-bottom:30px; background-color: #36389b; border:none" onclick='printDiv();'>Štampaj</button>
           </div>
           </div>
           <?php 
@@ -343,7 +343,7 @@ https://templatemo.com/tm-591-villa-agency
                   </div>
                   <div class="col-lg-12" style="margin-top: 0px;">
                       <fieldset >
-                         <button type="submit" id="form-submit" class="orange-button" style="background-color: #36389b;">Pošalji</button>
+                         <button type="submit" id="form-submit" class="orange-button" style="background-color: #36389b; border:none">Pošalji</button>
                       </fieldset>
                   </div>
                </div>
@@ -445,7 +445,7 @@ https://templatemo.com/tm-591-villa-agency
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
                     <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
-                    <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:orange;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
+                    <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:#36389b;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
@@ -463,7 +463,7 @@ https://templatemo.com/tm-591-villa-agency
         <div class="container" style="margin-top:-30px; padding-bottom: 25px;">
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-9 text-center text-md-start mb-3 mb-md-0">
+                    <div class="col-md-12 text-center" style="font-size: 11px;">
                        Sadržaj sajta je vlasništvo Neca Prom D.O.O. Sokobanja
                     </div>
                 </div>
@@ -475,9 +475,7 @@ https://templatemo.com/tm-591-villa-agency
     <div style="padding-bottom: 15px; padding-top: 15px; background-color: #FFFFFF;">
         <div class="copyright">
             <div class="row">
-                <div class="col-md-9 text-center text-md-end">
-                </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-12 text-center" style="font-size:11px;">
                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                    <b>Created By</b> <a href="https://www.gisit.rs">
                    <img src="assets/images/2019/Gisit_transparent.png" alt="" style="max-width:100px;">

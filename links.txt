@@ -5,6 +5,8 @@ GitHub io link: https://gisitrs.github.io/NecaPromNov/
 
 -- https://localhost/NecaProm/admin
 
+- javascript:location.reload(true);
+
 -- PHP tutorial
 
 https://www.youtube.com/watch?v=d3bW9z1-Yv4

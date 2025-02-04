@@ -673,7 +673,7 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #ee626b!important;
+    color: #36389b !important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -788,6 +788,11 @@ Banner Style
   margin-bottom: 30px;
 }
 
+.mainLogoImage {
+  max-width:350px;
+  margin-top:25px;
+}
+
 @media only screen and (max-width:460px)
 {
   /*.main-banner .item-1 {
@@ -825,6 +830,11 @@ Banner Style
 
   .main-banner .item span.category {
     font-size: 16px;
+  }
+
+  .mainLogoImage {
+    max-width:250px;
+    margin-top:25px;
   }
 }
 
