@@ -224,6 +224,18 @@ h3.range-title {
   background-color: #36389b;
 }
 
+.slider-track-SF1 {
+  height: 100%;
+  position: absolute;
+  background-color: #36389b;
+}
+
+.slider-track-SF2 {
+  height: 100%;
+  position: absolute;
+  background-color: #36389b;
+}
+
 .range-slider input {
   position: absolute;
   width: 100%;
@@ -280,6 +292,28 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .max-tooltip {
+  right: 50%;
+  transform: translateX(50%) translateY(-100%);
+}
+
+.min-tooltip-sf1 {
+  /*left: 50%;*/
+  transform: translateX(50%) translateY(-100%);
+  z-index: 5;
+}
+
+.max-tooltip-sf1 {
+  right: 50%;
+  transform: translateX(50%) translateY(-100%);
+}
+
+.min-tooltip-sf2 {
+  /*left: 50%;*/
+  transform: translateX(50%) translateY(-100%);
+  z-index: 5;
+}
+
+.max-tooltip-sf2 {
   right: 50%;
   transform: translateX(50%) translateY(-100%);
 }

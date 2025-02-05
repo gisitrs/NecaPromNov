@@ -205,45 +205,65 @@ https://templatemo.com/tm-591-villa-agency
         <div class="col-lg-4">
            <div class="double-slider-box">
               <h4 class="range-title">Površina objekta</h4>
-              <div class="input-box">
-                 <div class="min-box">
-                   <div class="input-wrap">
-                      <span class="input-addon">m2</span>
-                      <input id="minSquareValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
-                   </div>
-                 </div>
-                 <div class="max-box">
-                   <div class="input-wrap">
-                      <span class="input-addon">m2</span>
-                      <input id="maxSquareValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
-                   </div>
-                 </div>
-              </div>
               <br/>
-              <h4 class="range-title">Površina placa</h4>
+              <div class="range-slider">
+                 <span class="slider-track-SF1"></span>
+                 <?php 
+                   include "slider_sf1-component.php";
+                 ?>
+                 <div class="tooltip1 min-tooltip-sf1"></div>
+                 <div class="tooltip1 max-tooltip-sf1"></div>
+              </div>
               <div class="input-box">
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                      <input id="minSquareValue" type="text" name="min_objsf_input" class="input-field min-input-sf1" onchange="setMinInputSF1()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                      <input id="maxSquareValue" type="text" name="max_objsf_input" class="input-field max-input-sf1" onchange="setMaxInputSF1()">
                    </div>
                  </div>
               </div>
            </div>
         </div>
         <div class="col-lg-4">
-            <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b; width:100%; border:none"  onclick="filterProperties()">Filtriraj</button>
-        </div>
-        </div>
+            <div class="double-slider-box">
+                <h4 class="range-title">Površina placa</h4>
+                <br/>
+                <div class="range-slider">
+                    <span class="slider-track-SF2"></span>
+                    <?php 
+                       include "slider_sf2-component.php";
+                    ?>
+                    <div class="tooltip1 min-tooltip-sf2"></div>
+                    <div class="tooltip1 max-tooltip-sf2"></div>
+                </div>
+                <div class="input-box">
+                    <div class="min-box">
+                        <div class="input-wrap">
+                            <span class="input-addon">m2</span>
+                            <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input-sf2" onchange="setMinInputSF2()">
+                        </div>
+                    </div>
+                    <div class="max-box">
+                        <div class="input-wrap">
+                            <span class="input-addon">m2</span>
+                            <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input-sf2" onchange="setMaxInputSF2()">
+                        </div>
+                    </div>
+                </div>
+            </div>  
+         </div>
         </div>
         <div class="container">
           <div class="row">
+            <div class="col-lg-4">
+                <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b; width:100%; border:none"  onclick="filterProperties()">Filtriraj</button>
+            </div>
             <div class="col-lg-4">
                 <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
                     <option value="0">Sortiraj</option>
@@ -255,6 +275,7 @@ https://templatemo.com/tm-591-villa-agency
             </div>
           </div>
         </div>
+
         <div class="row" id="mylist" style="margin-top: 20px;">
         <?php 
             require_once "admin/database.php";

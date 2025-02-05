@@ -1,18 +1,44 @@
 window.onload = function (){
     slideMin();
     slideMax();
+    slideMinSF1();
+    slideMaxSF1();
+    slideMinSF2();
+    slideMaxSF2();
 }
 
 const minVal = document.querySelector(".min-val");
 const maxVal = document.querySelector(".max-val");
+const minValSF1 = document.querySelector(".min-val-sf1");
+const maxValSF1 = document.querySelector(".max-val-sf1");
+const minValSF2 = document.querySelector(".min-val-sf2");
+const maxValSF2 = document.querySelector(".max-val-sf2");
+
 const priceInputMin = document.querySelector(".min-input");
 const priceInputMax = document.querySelector(".max-input");
+const priceInputMinSF1 = document.querySelector(".min-input-sf1");
+const priceInputMaxSF1 = document.querySelector(".max-input-sf1");
+const priceInputMinSF2 = document.querySelector(".min-input-sf2");
+const priceInputMaxSF2 = document.querySelector(".max-input-sf2");
+
 const minTooltip = document.querySelector(".min-tooltip");
 const maxTooltip = document.querySelector(".max-tooltip");
+const minTooltipSF1 = document.querySelector(".min-tooltip-sf1");
+const maxTooltipSF1 = document.querySelector(".max-tooltip-sf1");
+const minTooltipSF2 = document.querySelector(".min-tooltip-sf2");
+const maxTooltipSF2 = document.querySelector(".max-tooltip-sf2");
+
 const minGap = 0;
 const range = document.querySelector(".slider-track");
+const rangeSF1 = document.querySelector(".slider-track-SF1");
+const rangeSF2 = document.querySelector(".slider-track-SF2");
+
 const sliderMinValue = parseInt(minVal.min);
 const sliderMaxValue = parseInt(maxVal.max);
+const sliderMinValueSF1 = parseInt(minValSF1.min);
+const sliderMaxValueSF1 = parseInt(maxValSF1.max);
+const sliderMinValueSF2 = parseInt(minValSF2.min);
+const sliderMaxValueSF2 = parseInt(maxValSF2.max);
 
 function slideMin() {
   let gap = parseInt(maxVal.value) - parseInt(minVal.value);
@@ -36,6 +62,52 @@ function slideMax() {
   setArea();
 }
 
+function slideMinSF1(){
+  let gapSF1 = parseInt(maxValSF1.value) - parseInt(minValSF1.value);
+  if (gapSF1 <= minGap){
+    minValSF1.value = parseInt(maxValSF1.value) - minGap;
+  }
+
+  minTooltipSF1.innerHTML = minValSF1.value + " m2";
+  priceInputMinSF1.value = minValSF1.value;
+
+  setAreaSF1();
+}
+
+function slideMaxSF1() {
+  let gapSF1 = parseInt(maxValSF1.value) - parseInt(minValSF1.value);
+  if (gapSF1 <= minGap){
+    maxValSF1.value = parseInt(minValSF1.value) + minGap;
+  }
+  
+  maxTooltipSF1.innerHTML = maxValSF1.value + " m2";
+  priceInputMaxSF1.value = maxValSF1.value;
+  setAreaSF1();
+}
+
+function slideMinSF2(){
+  let gapSF2 = parseInt(maxValSF2.value) - parseInt(minValSF2.value);
+  if (gapSF2 <= minGap){
+    minValSF2.value = parseInt(maxValSF2.value) - minGap;
+  }
+
+  minTooltipSF2.innerHTML = minValSF2.value + " m2";
+  priceInputMinSF2.value = minValSF2.value;
+
+  setAreaSF2();
+}
+
+function slideMaxSF2() {
+  let gapSF2 = parseInt(maxValSF2.value) - parseInt(minValSF2.value);
+  if (gapSF2 <= minGap){
+    maxValSF2.value = parseInt(minValSF2.value) + minGap;
+  }
+  
+  maxTooltipSF2.innerHTML = maxValSF2.value + " m2";
+  priceInputMaxSF2.value = maxValSF2.value;
+  setAreaSF2();
+}
+
 function setArea() {
   /*range.style.left = `${
     ((minVal.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100
@@ -57,6 +129,22 @@ function setArea() {
   minTooltip.style.right = 100 - (minVal.value / sliderMaxValue) * 100 + "%";
 }
 
+function setAreaSF1() {
+  rangeSF1.style.right = 100 - (maxValSF1.value / sliderMaxValueSF1) * 100 + "%";
+  maxTooltipSF1.style.right = 100 - (maxValSF1.value / sliderMaxValueSF1) * 100 + "%";
+  rangeSF1.style.left = (minValSF1.value * 100 / sliderMaxValueSF1) + "%";
+  //minTooltip.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
+  minTooltipSF1.style.right = 100 - (minValSF1.value / sliderMaxValueSF1) * 100 + "%";
+}
+
+function setAreaSF2() {
+  rangeSF2.style.right = 100 - (maxValSF2.value / sliderMaxValueSF2) * 100 + "%";
+  maxTooltipSF2.style.right = 100 - (maxValSF2.value / sliderMaxValueSF2) * 100 + "%";
+  rangeSF2.style.left = (minValSF2.value * 100 / sliderMaxValueSF2) + "%";
+  //minTooltip.style.left = (minVal.value * 100 / sliderMaxValue) + "%";
+  minTooltipSF2.style.right = 100 - (minValSF2.value / sliderMaxValueSF2) * 100 + "%";
+}
+
 function setMinInput() {
   let minPrice = parseInt(priceInputMin.value);
   if(minPrice < sliderMinValue) {
@@ -73,6 +161,42 @@ function setMaxInput() {
   }
   maxVal.value = priceInputMax.value;
   slideMax();
+}
+
+function setMinInputSF1() {
+  let minPriceSF1 = parseInt(priceInputMinSF1.value);
+  if(minPriceSF1 < sliderMinValueSF1) {
+    priceInputMinSF1.value = sliderMinValueSF1;
+  }
+  minValSF1.value = priceInputMinSF1.value;
+  slideMinSF1();
+}
+
+function setMaxInputSF1() {
+  let maxPriceSF1 = parseInt(priceInputMaxSF1.value);
+  if(maxPriceSF1 > sliderMaxValueSF1) {
+    priceInputMaxSF1.value = sliderMaxValueSF1;
+  }
+  maxValSF1.value = priceInputMaxSF1.value;
+  slideMaxSF1();
+}
+
+function setMinInputSF2() {
+  let minPriceSF2 = parseInt(priceInputMinSF2.value);
+  if(minPriceSF2 < sliderMinValueSF2) {
+    priceInputMinSF2.value = sliderMinValueSF2;
+  }
+  minValSF2.value = priceInputMinSF2.value;
+  slideMinSF2();
+}
+
+function setMaxInputSF2() {
+  let maxPriceSF2 = parseInt(priceInputMaxSF2.value);
+  if(maxPriceSF2 > sliderMaxValueSF2) {
+    priceInputMaxSF2.value = sliderMaxValueSF2;
+  }
+  maxValSF2.value = priceInputMaxSF2.value;
+  slideMaxSF2();
 }
 
 function filterProperties(){
