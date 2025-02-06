@@ -137,10 +137,14 @@ https://templatemo.com/tm-591-villa-agency
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<div><p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
-                                "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p></div><br/><br/>".
-                                "<p>".$row["pro_small_desc"]."</p>".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
+                                "<div>".
+                                     "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
+                                     "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p>".
+                                     "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
+                                "</div>".
+                                "<br/><br/>".
+                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
                }
@@ -164,18 +168,24 @@ https://templatemo.com/tm-591-villa-agency
                         <img src="assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                 </div>-->
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Adresa</h4>
                     <p id="indexTextId45" class="mb-2" style="color:#FFF;"><i class="fa fa-map-marker-alt me-3"></i>Svetog Save 19, Sokobanja</p>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Kontakt</h4>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
-                    <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:#36389b;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
+                    <a href="tel:0638318144" class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/83 18 144 Zoran</a><br/>
+                    <a href="tel:0695453577" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>069/54 53 577 Nemanja</a><br/>
+                    <a href="tel:018884111" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>018/884-111</a><br/>
+                    <a class="mb-2" href="mailto: necaprom19@gmail.com" style="font-size: 16px; color:#36389b; margin-top:10px;"><i class="fa fa-envelope me-3"></i>necaprom19@gmail.com</a>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
+                    <h4 class="text-light mb-4">Broj licence</h4>
+                    <ul class="text-light">
+                      <li><a href="" style="color:#FFF;">976</a></li>
+                    </ul> 
+                </div>
+                <div class="col-lg-3 col-md-3">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
                     <ul class="text-light">
                       <li><a href="index.php" class="active" style="color:#FFF;">Naslovna</a></li>

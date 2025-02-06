@@ -289,10 +289,14 @@ https://templatemo.com/tm-591-villa-agency
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"].">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<div><p class="."price"."><b> Cena: ".$row["price_text"]."</b></p>".
-                                "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p></div><br/><br/>".
-                                "<p>".$row["pro_small_desc"]."</p>".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
+                                "<div>".
+                                    "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
+                                    "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p>".
+                                    "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
+                                "</div>".
+                                "<br/><br/>".
+                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
                }
@@ -313,34 +317,16 @@ https://templatemo.com/tm-591-villa-agency
           <div class="section-heading text-center">
             <h2>Kontaktirajte nas</h2>
           </div>
-          <p style="color:#fff">
-            Sokobanja je jedna od najpopularnijih destinacija u Srbiji, kada je banjski turizam u pitanju. 
-            Smeštena je u jugoistočnoj Srbiji, u kotlini između planina Rtanj i Ozren, a kroz grad protiče 
-            reka Moravica.<br><br>
-
-            Privatni smeštaj je najčešći odabir gostiju u Sokobanji, a iz godine u godinu upravo ovaj vid 
-            smeštaja beleži konstantan porast. Novi apartmani, studija i sobe prve kategorije su sređeni po 
-            najsavremenijim svetskim standardima, tako da u potpunosti zadovoljavaju sve profile gostiju. 
-            Smeštaj u banji se deli na apartmane, studije, sobe prve kategorije, sobe druge kategorije, 
-            kuće i vile za odmor i hotelski smeštaj. <br><br>
-
-            Banja svojim posetiocima u svojoj ponudi nudi veliki broj izletišta, kao što su Lepterija, 
-            Sokograd, vodopad Ripaljka, izvor Moravice i Bovansko jezero. <br><br>
-            
-            Smeštena u prirodnim lepotama koje je okružuju, čist vazduh i prijatna klima tokom većeg dela godine, 
-            kao i izuzetna gostoljubivost domaćina, dobitna su kombinacija i jaki aduti Sokobanja, koja je zbog 
-            svih svojih prirodnih lepota i najlepša banja u Srbiji.<br><br>
-
-            Agencija u prometu I zakupu nepokretnosti “Necaprom” je prva agencija takve delatnosti u Sokobanji, 
+          <p style="color:#fff">Agencija u prometu i zakupu nepokretnosti “Necaprom” je prva agencija takve delatnosti u Sokobanji, 
             osnovana davne 1998. godine. U ponudi je trenutno stotine raznih nepokretnosti, počev od stanova, 
-            kuća, lokala, seoskih domaćinstva, pa do placeva I videndica. Agenti naše agencije su iskusni u svom 
-            poslu I svaki posao dovode do krajnje realizacije. <br><br>
-            
-            Pored posredovanja u prometu nepokretnosti, agencija “Necaprom” ima I svoju menjačnicu, šalter PTT,
-             kao I uslužne delatnosti kopiranja, slanje faksa I štampanje sa USB fleša I diska. <br><br>
-            
-            Usluga I ljubaznost naših radnika je na najvišem nivou, I zbog takvih svari agencija ima svoju dugu tradiciju.<br><br>   
-          </p>
+            kuća, lokala, seoskih domaćinstva, pa do placeva i videndica. Agenti naše agencije su iskusni u svom 
+            poslu i svaki posao dovode do krajnje realizacije. 
+          <br><br>
+          Pored posredovanja u prometu nepokretnosti, agencija “Necaprom” ima i svoju menjačnicu, šalter PTT,
+             kao i uslužne delatnosti kopiranja, slanje faksa i štampanje sa USB fleša i diska. 
+          Usluga i ljubaznost naših radnika je na najvišem nivou, i zbog takvih svari agencija ima svoju dugu tradiciju. 
+        </p>
+        <br/>
         </div>
       </div>
     </div>
@@ -364,7 +350,7 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-lg-6">
               <div class="item email">
                 <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                <a href="mailto: necaprom@ptt.rs" style="font-size: 16px; color: #000"><b>necaprom@ptt.rs</b><br><span style="color:#aaaaaa">Email</span></a>
+                <a href="mailto: necaprom19@gmail.com" style="font-size: 16px; color: #000"><b>necaprom19@gmail.com</b><br><span style="color:#aaaaaa">Email</span></a>
               </div>
             </div>
           </div>
@@ -434,18 +420,24 @@ https://templatemo.com/tm-591-villa-agency
                         <img src="assets/images/2019/Necaprom_transparent.png" alt="" style="max-width:250px; margin-top:25px;">
                     </a>
                 </div>-->
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Adresa</h4>
                     <p id="indexTextId45" class="mb-2" style="color:#FFF;"><i class="fa fa-map-marker-alt me-3"></i>Svetog Save 19, Sokobanja</p>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
                     <h4 id="indexTextId44" class="text-light mb-4" style="color:#FFF;">Kontakt</h4>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/884-111; 069/54 53 577 Nemanja</p>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>018/833-072</p>
-                    <p class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/831-8-144 Zoran</p>
-                    <a class="mb-2" href="mailto: necaprom@ptt.rs" style="font-size: 13px; color:#36389b;"><i class="fa fa-envelope me-3"></i>necaprom@ptt.rs</a>
+                    <a href="tel:0638318144" class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/83 18 144 Zoran</a><br/>
+                    <a href="tel:0695453577" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>069/54 53 577 Nemanja</a><br/>
+                    <a href="tel:018884111" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>018/884-111</a><br/>
+                    <a class="mb-2" href="mailto: necaprom19@gmail.com" style="font-size: 16px; color:#36389b; margin-top:10px;"><i class="fa fa-envelope me-3"></i>necaprom19@gmail.com</a>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-3">
+                    <h4 class="text-light mb-4">Broj licence</h4>
+                    <ul class="text-light">
+                      <li><a href="" style="color:#FFF;">976</a></li>
+                    </ul> 
+                </div>
+                <div class="col-lg-3 col-md-3">
                     <h4 class="text-light mb-4">Brzi linkovi</h4>
                     <ul class="text-light">
                       <li><a href="properties.php" style="color:#FFF;">Prodaja</a></li>

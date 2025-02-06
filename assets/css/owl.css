@@ -185,6 +185,13 @@
   height: 100%;
   width: 100%; }
 
+.ref {
+    margin-top: 20px;
+    /*margin-left: 60%;*/
+    text-align: left;
+    float: left;
+}
+
 .price {
   margin-top: 10px;
   /*margin-left: 60%;*/
