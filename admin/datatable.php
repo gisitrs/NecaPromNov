@@ -177,6 +177,8 @@ if (!isset($_SESSION["user"])) {
   var txtref = $("#txtref").val();
   var txtname = $("#txtname").val();
   var txtprice = $("#txtprice").val();
+  var txtSquareFeet = $("#txtSquareFeet").val();
+  var txtLandArea = $("#txtLandArea").val();
   var txtaddress = $("#txtaddress").val();
   var txtsmalldescription = $("#txtsmalldescription").val();
   var txtmetadesc = $("#txtmetadesc").val();
@@ -195,6 +197,14 @@ if (!isset($_SESSION["user"])) {
                                 '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
                             '</div>' + 
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                '<p id="'+ id + '_pSquareFeet" style="display: inline-block;">' + txtSquareFeet + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Površina placa (ar):</b></p>' +
+                                '<p id="'+ id + '_pLandArea" style="display: inline-block;">' + txtLandArea + '</p>' +
+                            '</div>' +
                             '<div>' +
                                 '<p style="display: inline-block;"><b>Cena:</b></p>' +
                                 '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
@@ -225,7 +235,7 @@ if (!isset($_SESSION["user"])) {
        }
     });
 
-  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
+  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtSquareFeet: txtSquareFeet, txtLandArea: txtLandArea, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
       //$("#displaymessage").html(data);
       //location.reload(true);
   });
@@ -261,6 +271,8 @@ if (!isset($_SESSION["user"])) {
    var refValue = $('#' + id + '_pRef').text();
    var txtNameValue = $('#' + id + '_pName').text();
    var txtPriceValue = $('#' + id + '_pPrice').text();
+   var txtSquareFeetValue = $('#' + id + '_pSquareFeet').text();
+   var txtLandAreaValue = $('#' + id + '_pLandArea').text();
    var txtAddressValue = $('#' + id + '_pAddress').text();
    var txtType = $('#' + id + '_pType').text();
    var txtSmallDescriptionValue = $('#' + id + '_pSmalldesc').text();
@@ -281,6 +293,18 @@ if (!isset($_SESSION["user"])) {
                                         'style="display: inline-block; margin-top:10px; width: 60px;" value="'+ refValue + '"></input>' +
                                  '<p style="display:none" id="txtref_old">' + refValue + '</p>' + 
                              '</div>' +
+                             '<div>' +
+                                    '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                    '<input type="text" name="updaterec" id="txtSquareFeet" ' + 
+                                       'style="display: inline-block; width: 80px;" value="' + txtSquareFeetValue + '"></input>' +
+                                    '<p style="display:none" id="txtSquareFeet_old">' + txtSquareFeetValue + '</p>' + 
+                            '</div>' +
+                            '<div>' +
+                                    '<p style="display: inline-block;"><b>Površina placa (ar):</b></p>' +
+                                    '<input type="text" name="updaterec" id="txtLandArea" ' + 
+                                       'style="display: inline-block; width: 80px;" value="' + txtLandAreaValue + '"></input>' +
+                                    '<p style="display:none" id="txtLandArea_old">' + txtLandAreaValue + '</p>' + 
+                            '</div>' +
                              '<div>' +
                                     '<p style="display: inline-block;"><b>Cena:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtprice" ' + 
@@ -336,6 +360,8 @@ if (!isset($_SESSION["user"])) {
     var txtref = $('#txtref_old').text();
     var txtname = $('#txtname_old').text();
     var txtprice = $('#txtprice_old').text();
+    var txtSquareFeet = $('#txtSquareFeet_old').text();
+    var txtLandArea = $('#txtLandArea_old').text();
     var txtaddress = $('#txtaddress_old').text();
     var txtType = $('#txttype_old').text();
     var txtsmalldescription = $('#txtsmalldescription_old').text();
@@ -347,9 +373,17 @@ if (!isset($_SESSION["user"])) {
                        '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
                             '<div>' +
-                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>' +
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
                             '</div>' + 
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                '<p id="'+ id + '_pSquareFeet" style="display: inline-block;">' + txtSquareFeet + '</p>' +
+                            '</div>' +
+                            '<div>' +
+                                '<p style="display: inline-block;"><b>Površina placa (ar):</b></p>' +
+                                '<p id="'+ id + '_pLandArea" style="display: inline-block;">' + txtLandArea + '</p>' +
+                            '</div>' +
                             '<div>' +
                                 '<p style="display: inline-block;"><b>Cena:</b></p>' +
                                 '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
@@ -477,9 +511,9 @@ if (!isset($_SESSION["user"])) {
                 <thead>
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
-                        <th style="width:45%;">Lokacija / Naziv / Ref# / Cena</th>
+                        <th style="width:45%;">Naziv / Broj nepokretnosti / Kvadratura / Površina / Cena / Lokacija / Tip </th>
                         <th style="width:40%;">Opis / Beleška</th>
-                        <th style="width:10%;">Tip nekretnine</th>
+                        <th style="width:10%;">Akcije</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -498,6 +532,8 @@ if (!isset($_SESSION["user"])) {
                       $metadesc=$row['metadesc']; 
                       $typeName=$row['type_name'];
                       $proType=$row['pro_type'];
+                      $squareFeet=$row['square_feet'];
+                      $landArea=$row['land_area'];
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
                         <td style="width:5%;">
@@ -507,8 +543,16 @@ if (!isset($_SESSION["user"])) {
                             <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
                             <div>
                                 <div>
-                                    <p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>
+                                    <p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>
                                     <p <?php echo "id=".$property_id."_pRef" ?> style="display: inline-block; margin-top:10px;"><?php echo $property_ref; ?></p>
+                                </div>
+                                <div>
+                                    <p style="display: inline-block;"><b>Kvadratura (m2):</b></p>
+                                    <p <?php echo "id=".$property_id."_pSquareFeet" ?> style="display: inline-block;"><?php echo $squareFeet; ?></p>
+                                </div>
+                                <div>
+                                    <p style="display: inline-block;"><b>Površina placa (ar):</b></p>
+                                    <p <?php echo "id=".$property_id."_pLandArea" ?> style="display: inline-block;"><?php echo $landArea; ?></p>
                                 </div>
                                 <div>
                                     <p style="display: inline-block;"><b>Cena:</b></p>

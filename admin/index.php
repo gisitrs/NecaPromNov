@@ -73,10 +73,10 @@ if (!isset($_SESSION["user"])) {
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner" style="display:none;">
+  <!--<div class="main-banner" style="display:none;">
     <div class="header-text">
     </div>
- </div>
+  </div>-->
 
   <div class="col-lg-12">
         <?php
@@ -93,6 +93,8 @@ if (!isset($_SESSION["user"])) {
            $soldOn = '2024-11-30';
 
            $address = $_POST["address"];
+           $squarefeet = $_POST["squarefeet"];
+           $landarea = $_POST["landarea"];
            $metaDesc = $_POST["description1"];
            $created = '2024-11-30';
            $createdBy = $_GET["userId"];
@@ -103,12 +105,12 @@ if (!isset($_SESSION["user"])) {
            $climate = '0.00';
            $rentTime = '';
 
-           $squareFeet = '0.00';
+           //$squareFeet = '0.00';
            $lotSize = '0.00';
            $cclass = '';
            $eclass = '';
 
-           $selectedCategoryId = $_POST["propertyCategories"];
+           //$selectedCategoryId = $_POST["propertyCategories"];
            
            require_once "database.php";
            $maxId = "SELECT  MAX(Id) AS MaxId FROM jos_osrs_properties";
@@ -120,24 +122,26 @@ if (!isset($_SESSION["user"])) {
                                                       id, ref, pro_name, pro_alias, agent_id, company_id, price,
                                                       pro_small_desc, pro_type, soldOn, address, metadesc,
                                                       created, created_by, remove_date, pro_pdf_file, energy,
-                                                      climate, rent_time, square_feet, lot_size, c_class, e_class
+                                                      climate, rent_time, lot_size, c_class, e_class, 
+                                                      square_feet, land_area
                                                     ) 
-                                                    VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?)";
+                                                    VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt,"sssssssssssssssssssssss", $newId, $ref, $proName, $proAlias, $agentId, $companyId, $price, 
+                mysqli_stmt_bind_param($stmt,"ssssssssssssssssssssssss", $newId, $ref, $proName, $proAlias, $agentId, $companyId, $price, 
                                                    $proSmallDesc, $proType, $soldOn, $address, $metaDesc,
                                                    $created, $createdBy, $removeDate, $proPdfFile, $energy,
-                                                   $climate, $rentTime, $squareFeet, $lotSize, $cclass, $eclass);
+                                                   $climate, $rentTime, $lotSize, $cclass, $eclass,
+                                                   $squarefeet, $landarea);
                 mysqli_stmt_execute($stmt);
-                //echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
+                echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
             }
             else{
                 die("Something went wrong");
             }
 
-            $sql = "INSERT INTO jos_osrs_property_categories (pid, category_id) VALUES (?,?)";
+            /*$sql = "INSERT INTO jos_osrs_property_categories (pid, category_id) VALUES (?,?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
 
@@ -149,7 +153,7 @@ if (!isset($_SESSION["user"])) {
             }
             else{
                die("Something went wrong");
-            }
+            }*/
         }
         
         /*if (isset($_POST["goToNewpage"])) {
@@ -179,14 +183,23 @@ if (!isset($_SESSION["user"])) {
       <div class="section-heading text-center">
             <h2>Kreiraj Nekretninu</h2>
           </div>
+          <p>Broj nepokretnosti</p>
         <div class="col-lg-6">
             <div class="contact-content" style="margin-top: 0px;">
                
                   <div class="row">
                      <div class="col-lg-12">
-                        <fieldset>
-                           <input type="name" name="ref" placeholder="Ref:" autocomplete="on" required>
-                        </fieldset>
+                        <?php
+                          require_once "database.php";
+                          $maxRefId = "SELECT  MAX(ref) AS MaxRefId FROM jos_osrs_properties";
+                          $resultMaxId = mysqli_query($conn, $maxRefId);
+                          $resultMaxValue = mysqli_fetch_array($resultMaxId, MYSQLI_ASSOC);
+                          $newRef = $resultMaxValue["MaxRefId"] + 1;
+                           
+                          echo "<fieldset>".
+                                    "<input type="."name"." name="."ref"." autocomplete="."on"." required value=".$newRef.">".
+                               "</fieldset>"
+                        ?>
                      </div>
                      <div class="col-lg-12">
                         <fieldset>
@@ -218,8 +231,8 @@ if (!isset($_SESSION["user"])) {
               </div>
               <div class="col-lg-12">
                   <fieldset>
-                     <select name="propertyCategories" class="form-select">
-                        <?php 
+                     <!--<select name="propertyCategories" class="form-select">
+                        
                            require_once "database.php";
                            $sql = "SELECT id, category_name FROM jos_osrs_categories";
                            $result = mysqli_query($conn, $sql);
@@ -230,11 +243,17 @@ if (!isset($_SESSION["user"])) {
 
                                echo "<option value='$categoryId'>$categoryName</option>";
                            };
-                        ?>
-                      </select>
+                        
+                      </select>-->
+                      <input type="phone" name="squarefeet" placeholder="Kvadratura (m2):" autocomplete="on">
                   </fieldset>
               </div>
-              <div class="col-lg-12" style="margin-top:35px;">
+              <div class="col-lg-12">
+                  <fieldset>
+                      <input type="phone" name="landarea" placeholder="Površina placa (ar):" autocomplete="on">
+                  </fieldset>
+              </div>
+              <div class="col-lg-12">
                   <fieldset>
                      <select name="propertyTypes" class="form-select">
                         <?php 
@@ -252,9 +271,9 @@ if (!isset($_SESSION["user"])) {
                       </select>
                   </fieldset>
               </div>
-              <div class="col-lg-12" style="margin-top:35px;">
+              <div class="col-lg-12" style="margin-top:10px;">
                   <fieldset>
-                     <textarea name="description1" placeholder="Beleška za agenta:"></textarea>
+                     <textarea name="description1" placeholder="Beleška za agenta:" style="height: 100px;"></textarea>
                   </fieldset>
               </div>
               <div class="col-lg-12" style="margin-top: 0px;">
