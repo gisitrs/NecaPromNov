@@ -91,7 +91,7 @@ function slideMinSF2(){
     minValSF2.value = parseInt(maxValSF2.value) - minGap;
   }
 
-  minTooltipSF2.innerHTML = minValSF2.value + " m2";
+  minTooltipSF2.innerHTML = minValSF2.value + " ari";
   priceInputMinSF2.value = minValSF2.value;
 
   setAreaSF2();
@@ -103,7 +103,7 @@ function slideMaxSF2() {
     maxValSF2.value = parseInt(minValSF2.value) + minGap;
   }
   
-  maxTooltipSF2.innerHTML = maxValSF2.value + " m2";
+  maxTooltipSF2.innerHTML = maxValSF2.value + " ari";
   priceInputMaxSF2.value = maxValSF2.value;
   setAreaSF2();
 }
@@ -289,9 +289,20 @@ function filterProperties(){
         var contentB = parseInt( positionB.split("-")[0]);
         typeA = parseInt( positionA.split("-")[1]);
         typeB = parseInt( positionB.split("-")[1]);
+        
+        if (typeA == 4){
+          squareFeetA = parseInt( positionA.split("-")[3]);
+        }
+        else {
+          squareFeetA = parseInt( positionA.split("-")[2]);
+        }
 
-        squareFeetA = parseInt( positionA.split("-")[2]);
-        squareFeetB = parseInt( positionB.split("-")[2]);
+        if (typeB == 4){
+          squareFeetB = parseInt( positionB.split("-")[3]);
+        }
+        else {
+          squareFeetB = parseInt( positionB.split("-")[2]);
+        }
 
         firstElementId = a[0].attributes[0].nodeValue;
         secondElementId = b[0].attributes[0].nodeValue;
@@ -393,6 +404,14 @@ function sortProperties() {
    var contentBSquareFeet = parseInt( positionB.split("-")[2]);
    typeA = parseInt( positionA.split("-")[1]);
    typeB = parseInt( positionB.split("-")[1]);
+
+   if (typeA == 4){
+    contentASquareFeet = parseInt( positionA.split("-")[3]);
+   }
+
+   if (typeB == 4){
+    contentBSquareFeet = parseInt( positionB.split("-")[3]);
+   }
   
   var sortValue = 0;
 

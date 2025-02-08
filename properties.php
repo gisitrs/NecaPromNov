@@ -222,13 +222,13 @@ https://templatemo.com/tm-591-villa-agency
                 <div class="input-box">
                     <div class="min-box">
                         <div class="input-wrap">
-                            <span class="input-addon">m2</span>
+                            <span class="input-addon">ar</span>
                             <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input-sf2" onchange="setMinInputSF2()">
                         </div>
                     </div>
                     <div class="max-box">
                         <div class="input-wrap">
-                            <span class="input-addon">m2</span>
+                            <span class="input-addon">ar</span>
                             <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input-sf2" onchange="setMaxInputSF2()">
                         </div>
                     </div>
@@ -263,13 +263,20 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"].">".
+                if ($row["pro_type"] == 4){
+                  $areaText = "Površina: ".$row["land_area"]." ari";
+                 }
+                 else {
+                  $areaText = "Kvadratura: ".$row["square_feet_text"]." m2";
+                 }  
+
+                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area"].">".
                 "<div class="."item".">".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                     "<div>".
                           "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
-                          "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p>".
+                          "<p class="."squareFeet"."><b>".$areaText."</b></p>".
                           "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
                     "</div>".
                     "<br/><br/>".

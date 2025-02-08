@@ -10,6 +10,8 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
         `marinkom_jos1`.`jos_osrs_properties`.`square_feet` AS `square_feet`,
+        `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`,
+        FLOOR(`marinkom_jos1`.`jos_osrs_properties`.`square_feet`) AS `square_feet_text`,
         (CASE
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
             ELSE CONCAT(FORMAT(`marinkom_jos1`.`jos_osrs_properties`.`price`,
@@ -59,15 +61,28 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
                 CONCAT(CAST(marinkom_jos1.jos_osrs_properties.id AS CHAR CHARSET UTF8MB4),
                         'replacementrealestate')
             WHEN
+                (marinkom_jos1.jos_osrs_properties.pro_type = 9)
+            THEN
+                CONCAT(CAST(marinkom_jos1.jos_osrs_properties.id AS CHAR CHARSET UTF8MB4),
+                        'togetherbuildingrealestate')
+            WHEN
                 (marinkom_jos1.jos_osrs_properties.pro_type = 11)
             THEN
                 CONCAT(CAST(marinkom_jos1.jos_osrs_properties.id AS CHAR CHARSET UTF8MB4),
                         'apartmentrealestate')
             ELSE 'other'
         END) AS typeId,
-        marinkom_jos1.jos_osrs_photos.image AS image
+        (CASE
+            WHEN (marinkom_jos1.vw_getallpropertieswithimages.image IS NULL) THEN 'NoImage'
+            ELSE marinkom_jos1.vw_getallpropertieswithimages.image
+        END) AS image,
+        (CASE
+            WHEN (marinkom_jos1.vw_getallpropertieswithimages.image IS NULL) THEN 'assets/images/2019/nopropertyphoto.png'
+            ELSE CONCAT('assets/images/properties/',
+                    CAST(marinkom_jos1.jos_osrs_properties.id AS CHAR CHARSET UTF8MB4),
+                    '/',
+                    CONVERT( marinkom_jos1.vw_getallpropertieswithimages.image USING UTF8MB4))
+        END) AS image_path
     FROM
         (marinkom_jos1.jos_osrs_properties
-        LEFT JOIN marinkom_jos1.jos_osrs_photos ON ((marinkom_jos1.jos_osrs_photos.pro_id = marinkom_jos1.jos_osrs_properties.id)))
-    WHERE
-        (marinkom_jos1.jos_osrs_photos.ordering = 1)
+        LEFT JOIN marinkom_jos1.vw_getallpropertieswithimages ON ((marinkom_jos1.vw_getallpropertieswithimages.id = marinkom_jos1.jos_osrs_properties.id)))
