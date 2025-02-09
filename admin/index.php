@@ -45,6 +45,13 @@ if (!isset($_SESSION["user"])) {
   </div>-->
   <!-- ***** Preloader End ***** -->
 
+  <!--<script type="text/javascript">
+       window.onbeforeunload = function() {
+         var text = "Leave sajt";
+         return text;
+       }
+  </script>-->
+
   <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
@@ -58,7 +65,7 @@ if (!isset($_SESSION["user"])) {
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> class="active">Kreiraj nekretninu</a></li>
                       <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
                       <li><a <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
-                      <li><a href="website.php">Web site</a></li>
+                      <li><a href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Web site</a></li>
                       <li><a href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
@@ -297,6 +304,6 @@ if (!isset($_SESSION["user"])) {
   <script src="../assets/js/owl-carousel.js"></script>
   <script src="../assets/js/counter.js"></script>
   <script src="../assets/js/custom.js"></script> 
-
+  <script src="customAdmin.js"></script> 
   </body>
 </html>

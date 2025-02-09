@@ -126,6 +126,15 @@ if (!isset($_SESSION["user"])) {
  i {
    cursor: pointer;
  }
+ 
+ .parent { 
+    width: 50%; 
+} 
+.child { 
+    float: left; 
+    width: 50%; 
+} 
+
 </style>
 
 <script type="text/javascript">
@@ -148,6 +157,10 @@ if (!isset($_SESSION["user"])) {
            //$("#displaymessage").html(data);
         });*/
     });
+
+    $(document).on("click", "#finalLeaveAdminId", function(){
+        
+    });
 
     $(document).on("click", "#finalDeleteDataId", function(){
         var id = $('#user_id').val();
@@ -308,13 +321,13 @@ if (!isset($_SESSION["user"])) {
                              '<div>' +
                                     '<p style="display: inline-block;"><b>Cena:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtprice" ' + 
-                                       'style="display: inline-block; width: 80px;" value="' + txtPriceValue + '"></input>' +
+                                       'style="display: inline-block; width: 200px;" value="' + txtPriceValue + '"></input>' +
                                     '<p style="display:none" id="txtprice_old">' + txtPriceValue + '</p>' + 
                             '</div>' +
                             '<div>' +
                                     '<p style="display: inline-block;"><b>Adresa:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtaddress" ' + 
-                                      'style="display: inline-block; width: 120px;" value="' + txtAddressValue + '"></input>' +
+                                      'style="display: inline-block; width: 320px;" value="' + txtAddressValue + '"></input>' +
                                     '<p style="display:none" id="txtaddress_old">' + txtAddressValue + '</p>' + 
                             '</div>' +
                             '<div>' +
@@ -448,7 +461,7 @@ if (!isset($_SESSION["user"])) {
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Kreiraj nekretninu</a></li>
                       <li><a class="active" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
                       <li><a <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
-                      <li><a href="website.php">Web site</a></li>
+                      <li><a href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Web site</a></li>
                       <li><a href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
@@ -579,11 +592,15 @@ if (!isset($_SESSION["user"])) {
                             </div>
                         </td>
                         <td style="width:10%;">
-                            <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
+                            <div class="parent">
+                                <div class="child">
+                                    <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
+                                </div>
+                                <div class="close" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
+                            </div>
                             <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                             <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
                             <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
-                            <div class="close" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
                         </td>
                     </tr>   
           <?php } ?>     
@@ -596,17 +613,38 @@ if (!isset($_SESSION["user"])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Delete User Data</h1>
+                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Brisanje nepokretnosti</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="post">
-                    <input type="text" name="user_id" id="user_id">
+                    <input type="text" name="user_id" id="user_id" style="display: none;">
                     <div class="modal-body">
-                        <h4>Are you sure?</h4>
+                        <h4>Da li ste sigurni da želite da obrišete ovu nepokretnost?</h4>
                     </div>    
                     <div class="modal-footer">
-                        <button id="closeDeleteDataId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="finalDeleteDataId" type="button" name="delete_data" class="btn btn-danger">Yes | Delete</button>
+                        <button id="closeDeleteDataId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+                        <button id="finalDeleteDataId" type="button" name="delete_data" class="btn btn-danger">Da | Obriši</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="leaveadminusermodal" tabindex="-1" aria-labelledby="leaveadminusermodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="leaveadminusermodalLabel">Brisanje nepokretnosti</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                    <input type="text" name="user_id" id="user_id" style="display: none;">
+                    <div class="modal-body">
+                        <h4>Da li ste sigurni da želite da obrišete ovu nepokretnost?</h4>
+                    </div>    
+                    <div class="modal-footer">
+                        <button id="closeLeaveAdminId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+                        <button id="finalLeaveAdminId" type="button" name="delete_data" class="btn btn-danger">Da | Obriši</button>
                     </div>
                 </form>
             </div>
@@ -622,6 +660,7 @@ if (!isset($_SESSION["user"])) {
   <script src="../assets/js/owl-carousel.js"></script>
   <script src="../assets/js/counter.js"></script>
   <script src="../assets/js/custom.js"></script> 
+  <script src="customAdmin.js"></script> 
 
   </body>
 </html>

@@ -58,7 +58,7 @@ if (!isset($_SESSION["user"])) {
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Kreiraj nekretninu</a></li>
                       <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
                       <li><a class="active" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
-                      <li><a href="website.php">Web site</a></li>
+                      <li><a href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Web site</a></li>
                       <li><a href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
@@ -179,14 +179,15 @@ if (!isset($_SESSION["user"])) {
                            <select name="property" class="form-select">
                               <?php 
                                   require_once "database.php";
-                                  $sql = "SELECT id, pro_name FROM jos_osrs_properties ORDER BY pro_name";
+                                  $sql = "SELECT id, pro_name, ref FROM jos_osrs_properties ORDER BY pro_name";
                                   $result = mysqli_query($conn, $sql);
                            
                                    while($rows = $result->fetch_assoc()){
                                       $propertyName = $rows['pro_name'];
                                       $propertyId = $rows['id'];
+                                      $refValue = $rows['ref'];
 
-                                      echo "<option value='$propertyId'>$propertyName</option>";
+                                      echo "<option value='$propertyId'>".$refValue.", ".$propertyName."</option>";
                                    };
                                ?>
                            </select>
@@ -216,6 +217,6 @@ if (!isset($_SESSION["user"])) {
   <script src="../assets/js/owl-carousel.js"></script>
   <script src="../assets/js/counter.js"></script>
   <script src="../assets/js/custom.js"></script> 
-
+  <script src="customAdmin.js"></script> 
   </body>
 </html>
