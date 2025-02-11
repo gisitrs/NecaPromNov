@@ -118,12 +118,19 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
+                   if ($row["pro_type"] == 4){
+                      $areaText = "Površina: ".$row["land_area"]." ari";
+                   }
+                   else {
+                      $areaText = "Kvadratura: ".$row["square_feet_text"]." m2";
+                  }    
+
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"].">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a><br><br><br>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                                 "<div>".
-                                    "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Kvadratura: ".$row["square_feet_text"]." m2&nbsp;&nbsp;&nbsp;&nbsp;<b>Cena: ".$row["price_text"]."</b></p>".
+                                    "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."&nbsp;&nbsp;&nbsp;&nbsp;</b><b>".$areaText." m2&nbsp;&nbsp;&nbsp;&nbsp;<b>Cena: ".$row["price_text"]."</b></p>".
                                 "</div>".
                                 "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
                               "</div>".
@@ -239,11 +246,11 @@ https://templatemo.com/tm-591-villa-agency
             $conn-> close();
           ?>
           <button class="carousel-control-prev" style="margin-left:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="carousel-control-prev-icon" aria-hidden="true"style="background-color: #767676; border-radius:50%; "></span>
            <span class="visually-hidden">Previous</span>
           </button>
           <button class="carousel-control-next" style="margin-right:10%;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #767676; border-radius:50%; "></span>
            <span class="visually-hidden">Next</span>
           </button>
           </div>
@@ -262,6 +269,15 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
+                   if ($row["pro_type"] == 4){
+                       $areaText = "Površina: ";
+                       $areaValue = "<span>".$row["land_area"]." ari</span>";
+                   }
+                   else {
+                      $areaText = "Kvadratura: ";
+                      $areaValue = "<span>".$row["square_feet_text"]." m2</span>";
+                   }
+
                     echo "<div class="."col-lg-3".">
                               <div class="."info-table".">
                                 <ul>
@@ -271,7 +287,7 @@ https://templatemo.com/tm-591-villa-agency
                               <br>
                               <div class="."info-table".">
                                 <ul>
-                                   <li>Kvadratura: <span>".$row["square_feet_text"]." m2</span></li>
+                                   <li>".$areaText.$areaValue."</span></li>
                                 </ul>
                               </div>
                               <br>
@@ -390,11 +406,18 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
+                   if ($row["pro_type"] == 4){
+                     $areaText = "Površina: ".$row["land_area"]." ari";
+                   }
+                   else {
+                     $areaText = "Kvadratura: ".$row["square_feet_text"]." m2";
+                   }  
+
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<div><p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m2</b></p>".
+                                "<div><p class="."squareFeet"."><b>".$areaText."</b></p>".
                                 "<p class="."price"."><b> Cena: ".$row["price_text"]."</b></p></div><br/><br/>".
                                 "<p>".$row["pro_small_desc"]."</p>".
                               "</div>".
