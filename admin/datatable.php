@@ -157,11 +157,7 @@ if (!isset($_SESSION["user"])) {
            //$("#displaymessage").html(data);
         });*/
     });
-
-    $(document).on("click", "#finalLeaveAdminId", function(){
-        
-    });
-
+   
     $(document).on("click", "#finalDeleteDataId", function(){
         var id = $('#user_id').val();
         var id1 = $('#'+ id +'').attr("id");
@@ -172,6 +168,34 @@ if (!isset($_SESSION["user"])) {
            //$("#displaymessage").html(data);
         });
         $('#'+ id +'').parents("tr").remove();
+    });
+    
+    $(document).on("click", ".archive", function(e){
+      var id = $(this).attr("id");
+      $('#user_id').val(id);
+      $('#archiveusermodal').modal('show');
+
+      /*var id = $(this).attr("id");
+      var string = id;*/
+    });
+
+    $(document).on("click", "#finalArchiveId", function(){
+        var txtprice = $('#soldprice_id').val();
+        var txtdate = $('#solddate_id').val();
+        //var soldPrice1 = $('#'+ soldPrice +'').attr("id");
+
+        var id = $('#user_id').val();
+        var id1 = $('#'+ id +'').attr("id");
+        var proId = id1;
+        
+        //$('#archiveusermodal').modal('hide');
+        //alert("Cena " + txtprice + " Datum " + txtdate + " id " + proId);
+
+        $.post("archive_update.php", { proId: proId, txtprice: txtprice, txtdate: txtdate }, function(data) {
+           $("#displaymessage").html(data);
+        })
+
+        $('#archiveusermodal').modal('hide');
     });
 
 // Delete images for row on delete button click
@@ -514,6 +538,7 @@ if (!isset($_SESSION["user"])) {
                        </fieldset>
                    </div>
                    <div class="col-lg-1">
+                      <p id="displaymessage" style="display: none;"></p>
                       <fieldset >
                           <button id="filterDataTableId" type="submit" name="filterProperties" class="orange-button">Filtriraj</button>
                       </fieldset>
@@ -601,6 +626,7 @@ if (!isset($_SESSION["user"])) {
                             <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                             <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
                             <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                            <div class="archive" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
                         </td>
                     </tr>   
           <?php } ?>     
@@ -630,21 +656,23 @@ if (!isset($_SESSION["user"])) {
         </div>
     </div>
 
-    <div class="modal fade" id="leaveadminusermodal" tabindex="-1" aria-labelledby="leaveadminusermodalLabel" aria-hidden="true">
+    <div class="modal fade" id="archiveusermodal" tabindex="-1" aria-labelledby="archiveusermodalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="leaveadminusermodalLabel">Brisanje nepokretnosti</h1>
+                    <h1 class="modal-title fs-5" id="leaveadminusermodalLabel">Arhiviranje nepokretnosti</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="post">
                     <input type="text" name="user_id" id="user_id" style="display: none;">
                     <div class="modal-body">
-                        <h4>Da li ste sigurni da želite da obrišete ovu nepokretnost?</h4>
+                        <h4>Unesite datum kada je prodata i cenu za koju je prodata nepokretnost</h4>
                     </div>    
-                    <div class="modal-footer">
-                        <button id="closeLeaveAdminId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
-                        <button id="finalLeaveAdminId" type="button" name="delete_data" class="btn btn-danger">Da | Obriši</button>
+                    <p style="display: inline-block; margin-left: 10px;">Cena prodaje</p><input type="text" name="user_id" id="soldprice_id" style="width:200px; display: inline-block; margin-left: 50px;"><br/>
+                    <p style="display: inline-block; margin-left: 10px;">Datum prodaje</p><input type="date" name="date_id" id="solddate_id" value="<?php echo date('Y-m-d'); ?>" style="width:200px; display: inline-block; margin-left: 42px;">
+                    <div class="modal-footer" style="margin-top: 10px;">
+                        <button id="closeLeaveAdminId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
+                        <button id="finalArchiveId" type="button" name="delete_data" class="btn btn-danger">Snimi promene</button>
                     </div>
                 </form>
             </div>

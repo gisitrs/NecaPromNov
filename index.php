@@ -190,13 +190,13 @@ https://templatemo.com/tm-591-villa-agency
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">€</span>
-                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                      <input id="minRangeValue" type="text" name="min_input" class="input-field min-input" style="font-size: 16px;" onchange="setMinInput()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
                       <span class="input-addon">€</span>
-                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                      <input id="maxRangeValue" type="text" name="max_input" class="input-field max-input" style="font-size: 16px;" onchange="setMaxInput()">
                    </div>
                  </div>
               </div>
@@ -218,13 +218,13 @@ https://templatemo.com/tm-591-villa-agency
                  <div class="min-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="minSquareValue" type="text" name="min_objsf_input" class="input-field min-input-sf1" onchange="setMinInputSF1()">
+                      <input id="minSquareValue" type="text" name="min_objsf_input" class="input-field min-input-sf1" style="font-size: 16px;" onchange="setMinInputSF1()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
                       <span class="input-addon">m2</span>
-                      <input id="maxSquareValue" type="text" name="max_objsf_input" class="input-field max-input-sf1" onchange="setMaxInputSF1()">
+                      <input id="maxSquareValue" type="text" name="max_objsf_input" class="input-field max-input-sf1" style="font-size: 16px;" onchange="setMaxInputSF1()">
                    </div>
                  </div>
               </div>
@@ -246,13 +246,13 @@ https://templatemo.com/tm-591-villa-agency
                     <div class="min-box">
                         <div class="input-wrap">
                             <span class="input-addon">ar</span>
-                            <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input-sf2" onchange="setMinInputSF2()">
+                            <input id="minSquareParcelValue" type="text" name="min_input" class="input-field min-input-sf2" style="font-size: 16px;" onchange="setMinInputSF2()">
                         </div>
                     </div>
                     <div class="max-box">
                         <div class="input-wrap">
                             <span class="input-addon">ar</span>
-                            <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input-sf2" onchange="setMaxInputSF2()">
+                            <input id="maxSquareParcelValue" type="text" name="max_input" class="input-field max-input-sf2" style="font-size: 16px;" onchange="setMaxInputSF2()">
                         </div>
                     </div>
                 </div>

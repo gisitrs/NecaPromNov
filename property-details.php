@@ -25,6 +25,11 @@
 
     <style>
         body {touch-action: pan-y;}
+
+        header, footer {
+          display: none:
+        }
+        
     </style>
 <!--
 

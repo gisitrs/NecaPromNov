@@ -136,3 +136,7 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 - javascript:location.reload(true);
 
 - https://apple.stackexchange.com/questions/130140/how-to-force-a-page-refresh-in-chrome-on-ios
+
+-- Remove input zoom in for iPhones
+
+-https://defensivecss.dev/tip/input-zoom-safari/

@@ -94,7 +94,7 @@ https://templatemo.com/tm-591-villa-agency
                          <button type="submit" name="login" class="orange-button">Login</button>
                       </fieldset>
                   </div>
-                  <div style="margin-top:20px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                  <div style="margin-top:20px; display: none; flex-direction: row; align-items: center; justify-content: center;">
                     <p>Još niste registrovani 
                         <br>
                         <a href="registration.php" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">

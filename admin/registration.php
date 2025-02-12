@@ -135,7 +135,7 @@ https://templatemo.com/tm-591-villa-agency
                          <input type="password" name="repeat_password" id="repeatpassword"  placeholder="Potvrdite šifru..." required="">
                       </fieldset>
                   </div>
-                  <div class="col-lg-12" style="margin-top: 0px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                  <div class="col-lg-12" style="margin-top: 0px; display: none; flex-direction: row; align-items: center; justify-content: center;">
                       <fieldset >
                          <button type="submit" name="submit" class="orange-button">Register</button>
                       </fieldset>
