@@ -12,7 +12,9 @@ VIEW `marinkom_jos1`.`vw_getallrepinformationsforedit` AS
         `marinkom_jos1`.`jos_osrs_properties`.`address` AS `address`,
         `marinkom_jos1`.`jos_osrs_properties`.`metadesc` AS `metadesc`,
         `marinkom_jos1`.`jos_osrs_types`.`type_name` AS `type_name`,
-        `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`
+        `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
+        `marinkom_jos1`.`jos_osrs_properties`.`square_feet` AS `square_feet`,
+        `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`
     FROM
         (`marinkom_jos1`.`jos_osrs_properties`
         LEFT JOIN `marinkom_jos1`.`jos_osrs_types` ON ((`marinkom_jos1`.`jos_osrs_types`.`id` = `marinkom_jos1`.`jos_osrs_properties`.`pro_type`)))

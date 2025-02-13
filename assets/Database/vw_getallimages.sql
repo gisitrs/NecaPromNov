@@ -72,7 +72,15 @@ VIEW `marinkom_jos1`.`vw_getallimages` AS
                         'apartmentrealestate')
             ELSE 'other'
         END) AS `typeId`,
-        `marinkom_jos1`.`jos_osrs_photos`.`image` AS `image`
+        `marinkom_jos1`.`jos_osrs_photos`.`image` AS `image`,
+        (CASE
+            WHEN (`marinkom_jos1`.`jos_osrs_photos`.`image` IS NULL) THEN 'assets/images/2019/nopropertyphoto.png'
+            ELSE CONCAT('assets/images/properties/',
+                    CAST(`marinkom_jos1`.`jos_osrs_properties`.`id`
+                        AS CHAR CHARSET UTF8MB4),
+                    '/',
+                    CONVERT( `marinkom_jos1`.`jos_osrs_photos`.`image` USING UTF8MB4))
+        END) AS `image_path`
     FROM
         (`marinkom_jos1`.`jos_osrs_properties`
         LEFT JOIN `marinkom_jos1`.`jos_osrs_photos` ON ((`marinkom_jos1`.`jos_osrs_photos`.`pro_id` = `marinkom_jos1`.`jos_osrs_properties`.`id`)))
