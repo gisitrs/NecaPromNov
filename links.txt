@@ -140,3 +140,6 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -- Remove input zoom in for iPhones
 
 -https://defensivecss.dev/tip/input-zoom-safari/
+
+
+---- POZDRAV KOLEGAAA
