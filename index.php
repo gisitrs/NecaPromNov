@@ -217,13 +217,13 @@ https://templatemo.com/tm-591-villa-agency
               <div class="input-box">
                  <div class="min-box">
                    <div class="input-wrap">
-                      <span class="input-addon">m2</span>
+                      <span class="input-addon">m<sup>2</sup></span>
                       <input id="minSquareValue" type="text" name="min_objsf_input" class="input-field min-input-sf1" style="font-size: 16px;" onchange="setMinInputSF1()">
                    </div>
                  </div>
                  <div class="max-box">
                    <div class="input-wrap">
-                      <span class="input-addon">m2</span>
+                      <span class="input-addon">m<sup>2</sup></span>
                       <input id="maxSquareValue" type="text" name="max_objsf_input" class="input-field max-input-sf1" style="font-size: 16px;" onchange="setMaxInputSF1()">
                    </div>
                  </div>
@@ -287,10 +287,12 @@ https://templatemo.com/tm-591-villa-agency
                while ($row = $result-> fetch_assoc())
                {
                    if ($row["pro_type"] == 4){
-                    $areaText = "Površina: ".$row["land_area"]." ari";
+                    //$areaText = $row["land_area"]." ar";
+                    $areaText = "Površina: ".$row["land_area"]." ar";
                    }
                    else {
-                    $areaText = "Kvadratura: ".$row["square_feet_text"]." m2";
+                    //$areaText = $row["square_feet_text"]." m<sup>2</sup>";
+                    $areaText = "Kvadratura: ".$row["square_feet_text"]." m<sup>2</sup>";
                    }   
 
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area"].">".
@@ -298,9 +300,12 @@ https://templatemo.com/tm-591-villa-agency
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                                 "<div>".
-                                    "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
-                                    "<p class="."squareFeet"."><b>".$areaText."</b></p>".
-                                    "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
+                                  //"<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px;"."><p class="."ref"."><b>".$row["ref"]."</b></p><br/>".
+                                  //"<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px;"."><p class="."ref"."><b>".$areaText."</b></p><br/>".
+                                  //"<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px;"."><p class="."ref"."><b>".$row["price_text"]."</b></p><br/>".
+                                  "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
+                                  "<p class="."squareFeet"."><b>".$areaText."</b></p>".
+                                  "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
                                 "</div>".
                                 "<br/><br/>".
                                 "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
@@ -436,12 +441,12 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="tel:0638318144" class="mb-2" style="color:#FFF;"><i class="fa fa-phone-alt me-3"></i>063/83 18 144 Zoran</a><br/>
                     <a href="tel:0695453577" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>069/54 53 577 Nemanja</a><br/>
                     <a href="tel:018884111" class="mb-2" style="color:#FFF; margin-top:10px;"><i class="fa fa-phone-alt me-3"></i>018/884-111</a><br/>
-                    <a class="mb-2" href="mailto: necaprom19@gmail.com" style="font-size: 16px; color:#36389b; margin-top:10px;"><i class="fa fa-envelope me-3"></i>necaprom19@gmail.com</a>
+                    <a class="mb-2" href="mailto: necaprom19@gmail.com" style="font-size: 16px; color:#9fa1f5; margin-top:10px;"><i class="fa fa-envelope me-3"></i>necaprom19@gmail.com</a>
                 </div>
                 <div class="col-lg-3 col-md-3">
-                    <h4 class="text-light mb-4">Broj licence</h4>
+                    <h4 class="text-light mb-4">Licenca</h4>
                     <ul class="text-light">
-                      <li><a href="" style="color:#FFF;">976</a></li>
+                      <li><a href="" style="color:#FFF;">Broj licence: 976</a></li>
                     </ul> 
                 </div>
                 <div class="col-lg-3 col-md-3">
