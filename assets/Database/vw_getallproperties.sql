@@ -11,6 +11,10 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
         `marinkom_jos1`.`jos_osrs_properties`.`square_feet` AS `square_feet`,
         `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`,
+        ROUND(`marinkom_jos1`.`jos_osrs_properties`.`land_area`,
+                1) AS `land_area_text`,
+        ROUND(`marinkom_jos1`.`jos_osrs_properties`.`land_area`,
+                0) AS `land_area_roundtext`,
         FLOOR(`marinkom_jos1`.`jos_osrs_properties`.`square_feet`) AS `square_feet_text`,
         (CASE
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
@@ -86,3 +90,5 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
     FROM
         (marinkom_jos1.jos_osrs_properties
         LEFT JOIN marinkom_jos1.vw_getallpropertieswithimages ON ((marinkom_jos1.vw_getallpropertieswithimages.id = marinkom_jos1.jos_osrs_properties.id)))
+    WHERE
+        (marinkom_jos1.jos_osrs_properties.pro_type NOT IN (8 , 11))

@@ -68,7 +68,7 @@ function slideMinSF1(){
     minValSF1.value = parseInt(maxValSF1.value) - minGap;
   }
 
-  minTooltipSF1.innerHTML = minValSF1.value + " m2";
+  minTooltipSF1.innerHTML = minValSF1.value + " m<sup>2</sup>";
   priceInputMinSF1.value = minValSF1.value;
 
   setAreaSF1();
@@ -80,7 +80,7 @@ function slideMaxSF1() {
     maxValSF1.value = parseInt(minValSF1.value) + minGap;
   }
   
-  maxTooltipSF1.innerHTML = maxValSF1.value + " m2";
+  maxTooltipSF1.innerHTML = maxValSF1.value + " m<sup>2</sup>";
   priceInputMaxSF1.value = maxValSF1.value;
   setAreaSF1();
 }
@@ -91,7 +91,7 @@ function slideMinSF2(){
     minValSF2.value = parseInt(maxValSF2.value) - minGap;
   }
 
-  minTooltipSF2.innerHTML = minValSF2.value + " ari";
+  minTooltipSF2.innerHTML = minValSF2.value + " ar";
   priceInputMinSF2.value = minValSF2.value;
 
   setAreaSF2();
@@ -103,7 +103,7 @@ function slideMaxSF2() {
     maxValSF2.value = parseInt(minValSF2.value) + minGap;
   }
   
-  maxTooltipSF2.innerHTML = maxValSF2.value + " ari";
+  maxTooltipSF2.innerHTML = maxValSF2.value + " ar";
   priceInputMaxSF2.value = maxValSF2.value;
   setAreaSF2();
 }

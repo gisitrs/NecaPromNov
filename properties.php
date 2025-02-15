@@ -242,6 +242,8 @@ https://templatemo.com/tm-591-villa-agency
                 <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b; width:100%; border:none"  onclick="filterProperties()">Filtriraj</button>
             </div>
             <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
                 <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
                     <option value="0">Sortiraj</option>
                     <option value="1">Po ceni uzlazno</option>
@@ -263,21 +265,37 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
-                if ($row["pro_type"] == 4){
-                  $areaText = "Površina: ".$row["land_area"]." ar";
-                 }
-                 else {
-                  $areaText = "Kvadratura: ".$row["square_feet_text"]." m<sup>2</sup>";
-                 }  
+                  if ($row["pro_type"] == 4){
+                     if (explode('.',$row["land_area_text"])[1] <> '0'){
+                        $areaText = $row["land_area_text"]." a";
+                     }
+                     else {
+                        $areaText = $row["land_area_roundtext"]." a";
+                     }
+                  }
+                  else {
+                      $areaText = $row["square_feet_text"]." m<sup>2</sup>";
+                  } 
 
-                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area"].">".
+                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area_text"].">".
                 "<div class="."item".">".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
-                    "<div>".
+                    /*"<div>".
                           "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
                           "<p class="."squareFeet"."><b>".$areaText."</b></p>".
                           "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
+                    "</div>".*/
+                    "<div class="."parent".">".
+                        "<div class="."child"." style="."width:25%".">".
+                            "<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                        "</div>".
+                        "<div class="."child"." style="."width:30%".">".
+                            "<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                        "</div>".
+                        "<div class="."child"." style="."width:45%;".">".
+                            "<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                        "</div>".
                     "</div>".
                     "<br/><br/>".
                     "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".

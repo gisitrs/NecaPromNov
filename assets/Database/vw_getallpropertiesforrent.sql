@@ -10,6 +10,10 @@ VIEW `marinkom_jos1`.`vw_getallpropertiesforrent` AS
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
         `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`,
+        ROUND(`marinkom_jos1`.`jos_osrs_properties`.`land_area`,
+                1) AS `land_area_text`,
+        ROUND(`marinkom_jos1`.`jos_osrs_properties`.`land_area`,
+                0) AS `land_area_roundtext`,
         FLOOR(`marinkom_jos1`.`jos_osrs_properties`.`square_feet`) AS `square_feet_text`,
         (CASE
             WHEN (`marinkom_jos1`.`jos_osrs_properties`.`price` = 0) THEN 'Na upit!'
