@@ -402,6 +402,8 @@ function sortProperties() {
    var contentB = parseInt( positionB.split("-")[0]);
    var contentASquareFeet = parseInt( positionA.split("-")[2]);
    var contentBSquareFeet = parseInt( positionB.split("-")[2]);
+   var isFeaturedA = parseInt( positionA.split("-")[4]);
+   var isFeaturedB = parseInt( positionB.split("-")[4]);
    typeA = parseInt( positionA.split("-")[1]);
    typeB = parseInt( positionB.split("-")[1]);
 
@@ -416,16 +418,36 @@ function sortProperties() {
   var sortValue = 0;
 
   if (value == 1){
-      sortValue = contentA < contentB ? -1 : contentA > contentB ? 1 : 0;
+      if (contentA === contentB){
+          sortValue = isFeaturedA < isFeaturedB ? 1 : isFeaturedA >= isFeaturedB ? -1 : 0;
+      }
+      else {
+          sortValue = contentA < contentB ? -1 : contentA > contentB ? 1 : 0;
+      }
   }
   else if (value == 2){
-      sortValue = contentA > contentB ? -1 : contentA < contentB ? 1 : 0
+      if (contentA === contentB){
+          sortValue = isFeaturedA >= isFeaturedB ? -1 : isFeaturedA < isFeaturedB ? 1 : 0;
+      }
+      else {
+          sortValue = contentA > contentB ? -1 : contentA < contentB ? 1 : 0;
+      }
   }
   if (value == 3){
-    sortValue = contentASquareFeet < contentBSquareFeet ? -1 : contentASquareFeet > contentBSquareFeet ? 1 : 0;
+      if (contentASquareFeet === contentBSquareFeet) {
+          sortValue = isFeaturedA < isFeaturedB ? 1 : isFeaturedA >= isFeaturedB ? -1 : 0;
+      }
+      else {
+          sortValue = contentASquareFeet < contentBSquareFeet ? -1 : contentASquareFeet > contentBSquareFeet ? 1 : 0;
+      }
   }
   else if (value == 4){
-    sortValue = contentASquareFeet > contentBSquareFeet ? -1 : contentASquareFeet < contentBSquareFeet ? 1 : 0
+      if (contentASquareFeet === contentBSquareFeet) {
+          sortValue = isFeaturedA >= isFeaturedB ? -1 : isFeaturedA <= isFeaturedB ? 1 : 0;
+      }
+      else {
+          sortValue = contentASquareFeet > contentBSquareFeet ? -1 : contentASquareFeet < contentBSquareFeet ? 1 : 0;
+      }
   }
 
   return sortValue

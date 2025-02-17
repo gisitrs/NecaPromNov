@@ -150,9 +150,14 @@ https://templatemo.com/tm-591-villa-agency
           <a id="replacementsfilter" data-position="8">Zamene</a>
         </li>
       </ul>
+      
+      <button type="button" class="collapsible" onclick="collapseDivs()">Opcije za filtriranje 
+        <img id="collapseArrowId" src="assets/images/2019/arrow-down.jpg" style="width:20px; backgrpound-color:#FFFFFF;">
+        </img>
+      </button>
 
       <div class="col-lg-4">
-           <div class="double-slider-box">
+           <div class="double-slider-box content1">
               <h4 class="range-title">Raspon cene</h4>
               <br/>
               <div class="range-slider">
@@ -180,7 +185,7 @@ https://templatemo.com/tm-591-villa-agency
            </div>
         </div>
         <div class="col-lg-4">
-           <div class="double-slider-box">
+           <div class="double-slider-box content1">
               <h4 class="range-title">Površina objekta</h4>
               <br/>
               <div class="range-slider">
@@ -208,7 +213,7 @@ https://templatemo.com/tm-591-villa-agency
            </div>
         </div>
         <div class="col-lg-4">
-            <div class="double-slider-box">
+            <div class="double-slider-box content1">
                 <h4 class="range-title">Površina placa</h4>
                 <br/>
                 <div class="range-slider">
@@ -238,10 +243,10 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 content1">
                 <button type="button" class="btn btn-primary" style="margin-top:20px; background-color: #36389b; width:100%; border:none"  onclick="filterProperties()">Filtriraj</button>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 content1">
             </div>
             <div class="col-lg-4">
                 <select id="sortDropdownId" onchange="sortProperties()" class="form-select" style="margin-top:20px;">
@@ -277,7 +282,7 @@ https://templatemo.com/tm-591-villa-agency
                       $areaText = $row["square_feet_text"]." m<sup>2</sup>";
                   } 
 
-                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area_text"].">".
+                echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area_text"]."-".$row["isFeatured"].">".
                 "<div class="."item".">".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                     "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
@@ -298,7 +303,7 @@ https://templatemo.com/tm-591-villa-agency
                         "</div>".
                     "</div>".
                     "<br/><br/>".
-                    "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
+                    "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
                   "</div>".
               "</div>";
                }

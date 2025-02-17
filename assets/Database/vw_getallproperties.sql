@@ -6,6 +6,7 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
     SELECT 
         `marinkom_jos1`.`jos_osrs_properties`.`id` AS `id`,
         `marinkom_jos1`.`jos_osrs_properties`.`ref` AS `ref`,
+        `marinkom_jos1`.`jos_osrs_properties`.`isFeatured` AS `isFeatured`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_name` AS `pro_name`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_small_desc` AS `pro_small_desc`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
@@ -92,3 +93,4 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
         LEFT JOIN marinkom_jos1.vw_getallpropertieswithimages ON ((marinkom_jos1.vw_getallpropertieswithimages.id = marinkom_jos1.jos_osrs_properties.id)))
     WHERE
         (marinkom_jos1.jos_osrs_properties.pro_type NOT IN (8 , 11))
+    ORDER BY marinkom_jos1.jos_osrs_properties.isFeatured DESC

@@ -144,7 +144,7 @@ https://templatemo.com/tm-591-villa-agency
                                      "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
                                 "</div>".
                                 "<br/><br/>".
-                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
+                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
                               "</div>".
                           "</div>";
                }

@@ -174,3 +174,27 @@
     });
 
 })(window.jQuery);
+
+function collapseDivs(){
+	var coll = document.getElementsByClassName("content1");
+	var i;
+	var isCollapsed = 1; 
+
+    for (i = 0; i < coll.length; i++) {
+	   var element = coll[i];
+       if (element.style.display === "block") {
+		  element.style.display = "none";
+       } else {
+		  element.style.display = "block";
+		  isCollapsed = 0;
+       }
+  };
+
+  var arrowImage = document.getElementById("collapseArrowId");
+  if (isCollapsed === 1){
+	arrowImage.src="assets/images/2019/arrow-down.jpg";
+  }
+  else {
+	arrowImage.src="assets/images/2019/arrow-up.jpg";
+  }
+}
