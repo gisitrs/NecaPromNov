@@ -174,11 +174,13 @@ https://templatemo.com/tm-591-villa-agency
         </li>
       </ul>
       
-      <button type="button" class="collapsible" onclick="collapseDivs()">Opcije za filtriranje 
-        <img id="collapseArrowId" src="assets/images/2019/arrow-down.jpg" style="width:20px; backgrpound-color:#FFFFFF;">
-        </img>
-      </button>
-      
+      <div class="col-lg-12" style="margin-top: -50px;">
+          <button type="button" class="collapsible" onclick="collapseDivs()">Opcije za filtriranje 
+              <img id="collapseArrowId" src="assets/images/2019/arrow-down.jpg" style="width:20px; backgrpound-color:#FFFFFF;">
+              </img>
+          </button>
+      </div>
+
       <div class="col-lg-4">
            <div class="double-slider-box content1">
               <h4 class="range-title">Raspon cene</h4>
