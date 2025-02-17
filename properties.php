@@ -158,6 +158,11 @@ https://templatemo.com/tm-591-villa-agency
           </button>
       </div>
 
+      <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
+         <img id="collapseArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
+         </img>
+      </button>
+
       <div class="col-lg-4">
            <div class="double-slider-box content1">
               <h4 class="range-title">Raspon cene</h4>

@@ -113,6 +113,11 @@ https://templatemo.com/tm-591-villa-agency
      </div>
   </div>
 
+  <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
+         <img id="collapseArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
+         </img>
+      </button>
+
   <div id='DivIdToPrint' style="display:none;">
     <?php 
             include"admin/database.php"; 

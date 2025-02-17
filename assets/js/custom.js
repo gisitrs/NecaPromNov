@@ -198,3 +198,11 @@ function collapseDivs(){
 	arrowImage.src="assets/images/2019/arrow-up.jpg";
   }
 }
+
+$("#btnScrollToTop").on("click", function(){
+    window.scrollTo({
+        top: 0,
+		left: 0,
+		behaviour: "smooth"
+	});
+});

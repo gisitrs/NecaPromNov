@@ -1929,3 +1929,13 @@ body {
 .content1 {
   display: none;
 }
+
+#btnScrollToTop {
+  position: fixed;
+  right: 15px;
+  bottom: 40px;
+  width:  0px;
+  height: 0px;
+  border: none;
+  z-index: 3;
+}

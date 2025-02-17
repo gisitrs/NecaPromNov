@@ -173,6 +173,11 @@ https://templatemo.com/tm-591-villa-agency
           <a id="replacementsfilter" data-position="8">Zamene</a>
         </li>
       </ul>
+
+      <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
+         <img id="collapseArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
+         </img>
+      </button>
       
       <div class="col-lg-12" style="margin-top: -50px;">
           <button type="button" class="collapsible" onclick="collapseDivs()">Opcije za filtriranje 

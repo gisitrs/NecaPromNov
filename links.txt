@@ -142,4 +142,6 @@ https://getbootstrap.com/docs/5.0/components/carousel/
 -https://defensivecss.dev/tip/input-zoom-safari/
 
 
----- POZDRAV KOLEGAAA
+--Arrow for scrolling to top
+
+- https://www.youtube.com/watch?v=FK5DEa1Hvco
