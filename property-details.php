@@ -114,7 +114,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 
   <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
-         <img id="collapseArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
+         <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
          </img>
       </button>
 
@@ -452,7 +452,7 @@ https://templatemo.com/tm-591-villa-agency
                                     "</div>".
                                 "</div>".
                                 "<br/><br/>".                            
-                                "<p>".$row["pro_small_desc"]."</p>".
+                                "<p>".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
                               "</div>".
                           "</div>";
                }
