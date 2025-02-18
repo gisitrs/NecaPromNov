@@ -2,7 +2,7 @@ CREATE
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
     SQL SECURITY DEFINER
-VIEW `marinkom_jos1`.`vw_getallrepinformationsforedit` AS
+VIEW `marinkom_jos1`.`vw_getallsoldrepinformations` AS
     SELECT 
         `marinkom_jos1`.`jos_osrs_properties`.`id` AS `id`,
         `marinkom_jos1`.`jos_osrs_properties`.`ref` AS `ref`,
@@ -14,9 +14,11 @@ VIEW `marinkom_jos1`.`vw_getallrepinformationsforedit` AS
         `marinkom_jos1`.`jos_osrs_types`.`type_name` AS `type_name`,
         `marinkom_jos1`.`jos_osrs_properties`.`pro_type` AS `pro_type`,
         `marinkom_jos1`.`jos_osrs_properties`.`square_feet` AS `square_feet`,
-        `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`
+        `marinkom_jos1`.`jos_osrs_properties`.`land_area` AS `land_area`,
+        `marinkom_jos1`.`jos_osrs_properties`.`price_original` AS `price_original`,
+        `marinkom_jos1`.`jos_osrs_properties`.`soldOn` AS `soldOn`
     FROM
         (`marinkom_jos1`.`jos_osrs_properties`
         LEFT JOIN `marinkom_jos1`.`jos_osrs_types` ON ((`marinkom_jos1`.`jos_osrs_types`.`id` = `marinkom_jos1`.`jos_osrs_properties`.`pro_type`)))
     WHERE
-        (`marinkom_jos1`.`jos_osrs_properties`.`isSold` = 0)
+        (`marinkom_jos1`.`jos_osrs_properties`.`isSold` = 1)

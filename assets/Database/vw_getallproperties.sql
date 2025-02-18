@@ -92,5 +92,6 @@ VIEW `marinkom_jos1`.`vw_getallproperties` AS
         (marinkom_jos1.jos_osrs_properties
         LEFT JOIN marinkom_jos1.vw_getallpropertieswithimages ON ((marinkom_jos1.vw_getallpropertieswithimages.id = marinkom_jos1.jos_osrs_properties.id)))
     WHERE
-        (marinkom_jos1.jos_osrs_properties.pro_type NOT IN (8 , 11))
+        ((marinkom_jos1.jos_osrs_properties.pro_type NOT IN (8 , 11))
+            AND (marinkom_jos1.jos_osrs_properties.isSold = 0))
     ORDER BY marinkom_jos1.jos_osrs_properties.isFeatured DESC

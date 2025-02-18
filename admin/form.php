@@ -56,10 +56,11 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Kreiraj nekretninu</a></li>
-                      <li><a <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Lista svih Nekretnina</a></li>
-                      <li><a class="active" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
-                      <li><a href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Web site</a></li>
-                      <li><a href="logout.php">Odjavi se</a></li>
+                      <li><a style="margin-left: -20px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
+                      <li><a class="active" style="margin-left: -20px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
+                      <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
+                      <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>

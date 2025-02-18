@@ -196,7 +196,6 @@ if (!isset($_SESSION["user"])) {
         })
 
         $('#archiveusermodal').modal('hide');
-        $('#'+ id +'').parents("tr").remove();
     });
 
 // Delete images for row on delete button click
@@ -484,8 +483,8 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Kreiraj nekretninu</a></li>
-                      <li><a style="margin-left: -20px;" class="active" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
+                      <li><a style="margin-left: -20px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve nekretnine</a></li>
+                      <li><a class="active" style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -20px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
                       <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
                       <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
@@ -552,15 +551,15 @@ if (!isset($_SESSION["user"])) {
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
                         <th style="width:45%;">Naziv / Broj nepokretnosti / Kvadratura / Površina / Cena / Lokacija / Tip </th>
-                        <th style="width:40%;">Opis / Beleška</th>
-                        <th style="width:10%;">Akcije</th>
+                        <th style="width:35%;">Opis / Beleška</th>
+                        <th style="width:15%;">Datum prodaje</th>
                     </tr>
                 </thead>
                 <tbody>
                <?php 
                   //include"dbcon.php"; 
                   require_once "database.php";
-                  $query_pag_data = "SELECT * FROM vw_getallrepinformationsforedit ORDER BY ref DESC";
+                  $query_pag_data = "SELECT * FROM vw_getallsoldrepinformations ORDER BY ref DESC";
                   $result_pag_data = mysqli_query($conn, $query_pag_data);
                   while($row = mysqli_fetch_assoc($result_pag_data)) {
                       $property_id=$row['id']; 
@@ -574,6 +573,8 @@ if (!isset($_SESSION["user"])) {
                       $proType=$row['pro_type'];
                       $squareFeet=$row['square_feet'];
                       $landArea=$row['land_area'];
+                      $priceOriginal = $row['price_original'];
+                      $soldOn = $row['soldOn'];
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
                         <td style="width:5%;">
@@ -596,7 +597,9 @@ if (!isset($_SESSION["user"])) {
                                 </div>
                                 <div>
                                     <p style="display: inline-block;"><b>Cena:</b></p>
-                                    <p <?php echo "id=".$property_id."_pPrice" ?> style="display: inline-block;"><?php echo $property_price; ?></p>
+                                    <p <?php echo "id=".$property_id."_pPrice" ?> style="display: inline-block;"><?php echo $property_price; ?> €</p>
+                                    <p style="display: inline-block; margin-left:10px;"><b>Cena za koju je prodata:</b></p>
+                                    <p <?php echo "id=".$property_id."_pOriginalPrice" ?> style="display: inline-block;"><?php echo $priceOriginal;?> €</p>
                                 </div>
                                 <div>
                                     <p style="display: inline-block;"><b>Adresa:</b></p>
@@ -608,7 +611,7 @@ if (!isset($_SESSION["user"])) {
                                 </div>
                             </div>
                         </td>
-                        <td style="width:40%;">
+                        <td style="width:35%;">
                             <div>
                                 <p style="display: inline-block;"><b>Opis:</b></p>
                                 <p <?php echo "id=".$property_id."_pSmalldesc" ?> style="display: inline-block;"><?php echo $smalldesc; ?></p>
@@ -618,17 +621,16 @@ if (!isset($_SESSION["user"])) {
                                 <p <?php echo "id=".$property_id."_pMetadesc" ?> ><?php echo $metadesc; ?></p>
                             </div>
                         </td>
-                        <td style="width:10%;">
-                            <div class="parent">
-                                <div class="child">
-                                    <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
-                                </div>
-                                <div class="close" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
+                        <td style="width:15%;">
+                            <div>
+                                <p <?php echo "id=".$property_id."_pSoldOn" ?> ><b><?php echo $soldOn; ?></b></p>
+                                <!--<div class="add" title="Edit" data-toggle="tooltip" id=" php echo $property_id; "><i class="fa fa-check"></i></div>-->
                             </div>
-                            <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
-                            <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
-                            <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
-                            <div class="archive" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
+                                <!--<div class="close" title="Exit" data-toggle="tooltip" id=" echo $property_id; "><i class="fa fa-close"></i></div> -->
+                            <!--<div class="edit" title="Edit" data-toggle="tooltip" id=" echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
+                            <div class="delete" title="Delete" data-toggle="tooltip" id="< echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
+                            <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                            <div class="archive" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div> -->
                         </td>
                     </tr>   
           <?php } ?>     
