@@ -8,7 +8,8 @@ $txtSquareFeet  = $_POST['txtSquareFeet'];
 $txtLandArea  = $_POST['txtLandArea'];
 $txtaddress  = $_POST['txtaddress'];
 $txtsmalldescription  = $_POST['txtsmalldescription'];
-$txtmetadesc  = $_POST['txtmetadesc'];
+$txtmetadesc  = $_POST['txtmetadesc']; 
+$isFeaturedValue  = $_POST['isFeaturedValue']; 
 
 if ($txtname==''){
  echo "<p class='btn btn-info' align='center'>Please Insert YOUr name</p>";
@@ -21,7 +22,8 @@ if ($txtname==''){
      land_area='$txtLandArea',
      address='$txtaddress', 
      pro_small_desc='$txtsmalldescription',
-     metadesc='$txtmetadesc'
+     metadesc='$txtmetadesc',
+     isFeatured='$isFeaturedValue'
  WHERE id = '$proId' ";
  
  if ($conn->query($sql) === TRUE) {

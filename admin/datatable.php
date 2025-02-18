@@ -213,6 +213,7 @@ if (!isset($_SESSION["user"])) {
   var id = $(this).attr("id");
   var proId = id;
   var txtref = $("#txtref").val();
+  var isFeatured = $('#txtisfeatured').is(":checked");
   var txtname = $("#txtname").val();
   var txtprice = $("#txtprice").val();
   var txtSquareFeet = $("#txtSquareFeet").val();
@@ -221,6 +222,13 @@ if (!isset($_SESSION["user"])) {
   var txtsmalldescription = $("#txtsmalldescription").val();
   var txtmetadesc = $("#txtmetadesc").val();
   var txtType = $("#txttype").text();
+  var isChecked = 'checked';
+  var isFeaturedValue = 1;
+  
+  if (isFeatured == 0){
+    isChecked = '';
+    isFeaturedValue = 0;
+  }
   
   $(this).parents("tr").find(".exit").removeClass("exit").addClass("close");
   $(this).parents("tr").find(".update").removeClass("update").addClass("add");
@@ -229,8 +237,12 @@ if (!isset($_SESSION["user"])) {
   $(this).parents("tr").find("td:not(:last-child)").each(function(i){
     if (i == 1){
        $(this).html('<td style="width:45%;">' +
-                       '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
+                       '<h4 style="display: inline-block;" id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
+                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isFeaturedValue + '"></input>' +
+                            '</div>' + 
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
@@ -273,8 +285,8 @@ if (!isset($_SESSION["user"])) {
        }
     });
 
-  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtSquareFeet: txtSquareFeet, txtLandArea: txtLandArea, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc }, function(data) {
-      //$("#displaymessage").html(data);
+  $.post("ajax_update.php", { proId: proId,txtref: txtref, txtname: txtname, txtprice: txtprice, txtSquareFeet: txtSquareFeet, txtLandArea: txtLandArea, txtaddress:txtaddress, txtsmalldescription:txtsmalldescription, txtmetadesc:txtmetadesc, isFeaturedValue:isFeaturedValue }, function(data) {
+      $("#displaymessage").html(data);
       //location.reload(true);
   });
 
@@ -307,6 +319,7 @@ if (!isset($_SESSION["user"])) {
    var id = $(this).attr("id");
 
    var refValue = $('#' + id + '_pRef').text();
+   var isFeatured = $('#' + id + '_pIsFeatured').val();
    var txtNameValue = $('#' + id + '_pName').text();
    var txtPriceValue = $('#' + id + '_pPrice').text();
    var txtSquareFeetValue = $('#' + id + '_pSquareFeet').text();
@@ -315,6 +328,11 @@ if (!isset($_SESSION["user"])) {
    var txtType = $('#' + id + '_pType').text();
    var txtSmallDescriptionValue = $('#' + id + '_pSmalldesc').text();
    var txtMetadescValue = $('#' + id + '_pMetadesc').text();
+   var isChecked = 'checked';
+
+   if (isFeatured == '0'){
+      isChecked = '';
+   }
    
    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
        
@@ -325,6 +343,12 @@ if (!isset($_SESSION["user"])) {
                            '<p style="display:none" id="txtname_old">' + txtNameValue + '</p>' + 
                        '<div>'+ 
                        '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
+                                    '<input type="checkbox" name="updaterec" id="txtisfeatured" value="' + isFeatured +  
+                                        '" style="display: inline-block; margin-top:10px; width: 20px;"' + isChecked + '></input>' +
+                                 '<p style="display:none" id="txtisfeatured_old">' + isFeatured + '</p>' + 
+                             '</div>' +
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtref" ' + 
@@ -396,6 +420,7 @@ if (!isset($_SESSION["user"])) {
     var id = $(this).attr("id");
 
     var txtref = $('#txtref_old').text();
+    var isfeatured = $('#txtisfeatured_old').text();
     var txtname = $('#txtname_old').text();
     var txtprice = $('#txtprice_old').text();
     var txtSquareFeet = $('#txtSquareFeet_old').text();
@@ -404,12 +429,21 @@ if (!isset($_SESSION["user"])) {
     var txtType = $('#txttype_old').text();
     var txtsmalldescription = $('#txtsmalldescription_old').text();
     var txtmetadesc = $('#txtmetadesc_old').text();
+    var isChecked = 'checked';
+
+    if (isfeatured == 0){
+        isChecked = '';
+    }
     
     $(this).parents("tr").find("td:not(:last-child)").each(function(i){
         if (i == 1){
        $(this).html('<td style="width:45%;">' +
                        '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
+                            '<div>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
+                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isfeatured + '"></input>' +
+                            '</div>' + 
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>' +
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
@@ -574,14 +608,19 @@ if (!isset($_SESSION["user"])) {
                       $proType=$row['pro_type'];
                       $squareFeet=$row['square_feet'];
                       $landArea=$row['land_area'];
+                      $isFeatured=$row['isFeatured'];
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
                         <td style="width:5%;">
-                           <p <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
+                           <p style="display: inline-block;" <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
                         </td>
                         <td style="width:45%;">
                             <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
                             <div>
+                                <div>
+                                    <p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>
+                                    <input <?php echo "id=".$property_id."_pIsFeatured" ?> type="checkbox" style="display: inline-block; margin-top:10px;" <?php echo "value=".$isFeatured."" ?> disabled <?php echo ($isFeatured == 1 ? 'checked' : '');?>></input>
+                                </div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>
                                     <p <?php echo "id=".$property_id."_pRef" ?> style="display: inline-block; margin-top:10px;"><?php echo $property_ref; ?></p>

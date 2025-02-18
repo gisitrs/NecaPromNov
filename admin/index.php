@@ -107,6 +107,7 @@ if (!isset($_SESSION["user"])) {
            $created = '2024-11-30';
            $createdBy = $_GET["userId"];
            $removeDate = '2024-11-30';
+           $isfeatured = $_POST["isfeatured"];
 
            $proPdfFile = '';
            $energy = '0.00';
@@ -117,6 +118,16 @@ if (!isset($_SESSION["user"])) {
            $lotSize = '0.00';
            $cclass = '';
            $eclass = '';
+
+           if ($landarea == ""){
+              $landarea = 0.0;
+           }
+
+           if ($squarefeet == ""){
+              $squarefeet = 0.0;
+           }
+
+           //echo "<div class='alert alert-success'>land are = ".$landarea."</div>";
 
            //$selectedCategoryId = $_POST["propertyCategories"];
            
@@ -131,17 +142,17 @@ if (!isset($_SESSION["user"])) {
                                                       pro_small_desc, pro_type, soldOn, address, metadesc,
                                                       created, created_by, remove_date, pro_pdf_file, energy,
                                                       climate, rent_time, lot_size, c_class, e_class, 
-                                                      square_feet, land_area
+                                                      square_feet, land_area, isFeatured
                                                     ) 
-                                                    VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ?)";
+                                                    VALUES ( ?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt,"ssssssssssssssssssssssss", $newId, $ref, $proName, $proAlias, $agentId, $companyId, $price, 
+                mysqli_stmt_bind_param($stmt,"sssssssssssssssssssssssss", $newId, $ref, $proName, $proAlias, $agentId, $companyId, $price, 
                                                    $proSmallDesc, $proType, $soldOn, $address, $metaDesc,
                                                    $created, $createdBy, $removeDate, $proPdfFile, $energy,
                                                    $climate, $rentTime, $lotSize, $cclass, $eclass,
-                                                   $squarefeet, $landarea);
+                                                   $squarefeet, $landarea, $isfeatured);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Nova nekretnina ".$proName." je uspešno kreirana</div>";
             }
@@ -223,6 +234,15 @@ if (!isset($_SESSION["user"])) {
                          <fieldset>
                            <textarea name="description" placeholder="Opis:"></textarea>
                          </fieldset>
+                     </div>
+                     <div class="col-lg-4">
+                         <div style="display: inline-block;">
+                             <label for="isFeatured" style="margin-left: 15px; margin-bottom: 10px;">Istakni</label>
+                         </div>
+                         <div style="display: inline-block;">
+                             <input type="hidden" id="isFeatured" name="isfeatured" style="margin-left:20px; width:30px; height:30px;" value="0">
+                             <input checked type="checkbox" id="isFeatured" name="isfeatured" style="margin-left:20px; width:30px; height:30px;" value="1">
+                         </div>
                      </div>
                  </div>
                </form>
