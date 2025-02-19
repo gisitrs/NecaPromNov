@@ -85,11 +85,11 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.php" class="active">Naslovna</a></li>
-                      <li><a href="properties.php">Prodaja</a></li>
-                      <li><a href="rents.php">Izdavanje</a></li>
-                      <li><a href="excursions.php">Izleti</a></li>
-                      <li><a href="contact.html">Kontakt</a></li>
+                      <li><a href="index.php" class="active" style="font-size: 18px">Naslovna</a></li>
+                      <li><a href="properties.php" style="font-size: 18px">Prodaja</a></li>
+                      <li><a href="rents.php" style="font-size: 18px">Izdavanje</a></li>
+                      <li><a href="excursions.php" style="font-size: 18px">Izleti</a></li>
+                      <li><a href="contact.html" style="font-size: 18px">Kontakt</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -376,6 +376,11 @@ https://templatemo.com/tm-591-villa-agency
               <div class="item phone">
                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
                 <!--<h6>069/54 53 577<br><span>Broj telefona</span></h6>-->
+                <a href="tel:0638318144" style="font-size: 16px; color: #000"><b>063/83 18 144</b><br><span style="color:#aaaaaa">Broj telefona</span></a>
+                <br>
+                <br>
+                <br>
+                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
                 <a href="tel:0695453577" style="font-size: 16px; color: #000"><b>069/54 53 577</b><br><span style="color:#aaaaaa">Broj telefona</span></a>
               </div>
             </div>
