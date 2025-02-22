@@ -135,6 +135,68 @@ if (!isset($_SESSION["user"])) {
     width: 50%; 
 } 
 
+#tdId1 {
+    width: 5%; 
+}
+
+#tdId2 {
+    width: 45%;
+}
+
+#tdId3 {
+    width: 35%;
+}
+
+#tdId4 {
+    width: 15%;
+}
+
+@media (max-width: 650px){
+    th {
+        display: none;
+    }
+
+    td {
+        display: block;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #tdId1, #tdId2, #tdId3, #tdId4 {
+        width: 100%;
+        border: 2px solid black;
+    }
+
+    #tdId1 {
+        background-color: #a3a3a3;
+    }
+
+    #tdId4 {
+        margin-bottom: 10px;
+        height: 90px;
+    }
+
+    #PropertyNameHeaderId, #DivDescriptionId {
+        margin-top: 15px;
+    }
+
+    /*td:first-child {
+        padding-top: 2rem;
+    }
+
+    td:last-child {
+        padding-top: 2rem;
+    }*/
+
+    td::before {
+        content: attr(data-cell) ":";
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-top: 10px;
+    }
+}
+
 </style>
 
 <script type="text/javascript">
@@ -577,11 +639,11 @@ if (!isset($_SESSION["user"])) {
                       $soldOn = $row['soldOn'];
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
-                        <td style="width:5%;">
+                        <td Id="tdId1" data-cell="ID">
                            <p <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
                         </td>
-                        <td style="width:45%;">
-                            <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
+                        <td Id="tdId2" data-cell="Osnovni podaci">
+                            <h4 Id="PropertyNameHeaderId" <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
                             <div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>
@@ -611,8 +673,8 @@ if (!isset($_SESSION["user"])) {
                                 </div>
                             </div>
                         </td>
-                        <td style="width:35%;">
-                            <div>
+                        <td Id="tdId3" data-cell="Opis / Beleška">
+                            <div id="DivDescriptionId">
                                 <p style="display: inline-block;"><b>Opis:</b></p>
                                 <p <?php echo "id=".$property_id."_pSmalldesc" ?> style="display: inline-block;"><?php echo $smalldesc; ?></p>
                             </div>
@@ -621,7 +683,7 @@ if (!isset($_SESSION["user"])) {
                                 <p <?php echo "id=".$property_id."_pMetadesc" ?> ><?php echo $metadesc; ?></p>
                             </div>
                         </td>
-                        <td style="width:15%;">
+                        <td Id="tdId4" data-cell="Datum prodaje">
                             <div>
                                 <p <?php echo "id=".$property_id."_pSoldOn" ?> ><b><?php echo $soldOn; ?></b></p>
                                 <!--<div class="add" title="Edit" data-toggle="tooltip" id=" php echo $property_id; "><i class="fa fa-check"></i></div>-->

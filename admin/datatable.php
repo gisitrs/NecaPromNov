@@ -128,12 +128,74 @@ if (!isset($_SESSION["user"])) {
  }
  
  .parent { 
-    width: 50%; 
+    width: 100%; 
 } 
 .child { 
     float: left; 
-    width: 50%; 
+    width: 20%; 
 } 
+
+#tdId1 {
+    width: 5%; 
+}
+
+#tdId2 {
+    width: 45%;
+}
+
+#tdId3 {
+    width: 35%;
+}
+
+#tdId4 {
+    width: 15%;
+}
+
+@media (max-width: 650px){
+    th {
+        display: none;
+    }
+
+    td {
+        display: block;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #tdId1, #tdId2, #tdId3, #tdId4 {
+        width: 100%;
+        border: 2px solid black;
+    }
+
+    #tdId1 {
+        background-color: #a3a3a3;
+    }
+
+    #tdId4 {
+        margin-bottom: 10px;
+        height: 90px;
+    }
+
+    #PropertyNameHeaderId, #DivDescriptionId {
+        margin-top: 15px;
+    }
+
+    /*td:first-child {
+        padding-top: 2rem;
+    }
+
+    td:last-child {
+        padding-top: 2rem;
+    }*/
+
+    td::before {
+        content: attr(data-cell) ":";
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-top: 10px;
+    }
+}
 
 </style>
 
@@ -280,7 +342,7 @@ if (!isset($_SESSION["user"])) {
 
   $(this).parents("tr").find("td:not(:last-child)").each(function(i){
     if (i == 1){
-       $(this).html('<td style="width:45%;">' +
+       $(this).html('<td Id="tdId2">' +
                        '<h4 style="display: inline-block;" id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
                             '<div>' +
@@ -316,7 +378,7 @@ if (!isset($_SESSION["user"])) {
                    );
        } 
        else if (i == 2){
-        $(this).html('<td style="width:40%;">' +
+        $(this).html('<td Id="tdId3">' +
                          '<div>' +
                               '<p style="display: inline-block;"><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
@@ -381,7 +443,7 @@ if (!isset($_SESSION["user"])) {
    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
        
        if (i == 1){
-       $(this).html('<td style="width:45%;">' +
+       $(this).html('<td Id="tdId2">' +
                         '<div>' +
                            '<input type="text" name="updaterec" id="txtname" class="form-control" value="' + txtNameValue + '"></input>' +
                            '<p style="display:none" id="txtname_old">' + txtNameValue + '</p>' + 
@@ -420,7 +482,7 @@ if (!isset($_SESSION["user"])) {
                             '<div>' +
                                     '<p style="display: inline-block;"><b>Adresa:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtaddress" ' + 
-                                      'style="display: inline-block; width: 320px;" value="' + txtAddressValue + '"></input>' +
+                                      'style="display: inline-block; width: 100%;" value="' + txtAddressValue + '"></input>' +
                                     '<p style="display:none" id="txtaddress_old">' + txtAddressValue + '</p>' + 
                             '</div>' +
                             '<div>' +
@@ -431,7 +493,7 @@ if (!isset($_SESSION["user"])) {
                         '</div>' +
                     '</td>');
        } else if(i == 2){
-        $(this).html('<td style="width:40%;">' +
+        $(this).html('<td Id="tdId3">' +
                           '<div>' +
                                 '<p><b>Opis:</b></p>' +
                                 '<textarea type="text" name="updaterec" id="txtsmalldescription" ' +
@@ -481,7 +543,7 @@ if (!isset($_SESSION["user"])) {
     
     $(this).parents("tr").find("td:not(:last-child)").each(function(i){
         if (i == 1){
-       $(this).html('<td style="width:45%;">' +
+       $(this).html('<td Id="tdId2">' +
                        '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
                             '<div>' +
@@ -517,7 +579,7 @@ if (!isset($_SESSION["user"])) {
                    );
        } 
        else if (i == 2){
-        $(this).html('<td style="width:40%;">' +
+        $(this).html('<td Id="tdId3">' +
                          '<div>' +
                               '<p style="display: inline-block;"><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
@@ -630,8 +692,8 @@ if (!isset($_SESSION["user"])) {
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
                         <th style="width:45%;">Naziv / Broj nepokretnosti / Kvadratura / Površina / Cena / Lokacija / Tip </th>
-                        <th style="width:40%;">Opis / Beleška</th>
-                        <th style="width:10%;">Akcije</th>
+                        <th style="width:35%;">Opis / Beleška</th>
+                        <th style="width:15%;">Akcije</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -655,12 +717,14 @@ if (!isset($_SESSION["user"])) {
                       $isFeatured=$row['isFeatured'];
                 ?>
                     <tr <?php echo "id=".$property_id."_".$proType."_" ?> style="width:90%;">
-                        <td style="width:5%;">
+                        <td id="tdId1" data-cell="ID">
                            <p style="display: inline-block;" <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
                         </td>
-                        <td style="width:45%;">
-                            <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
-                            <div>
+                        <td id="tdId2" data-cell="Osnovni podaci">
+                                <div id="PropertyNameHeaderId">
+                                    <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
+                                </div>
+                                <div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>
                                     <input <?php echo "id=".$property_id."_pIsFeatured" ?> type="checkbox" style="display: inline-block; margin-top:10px;" <?php echo "value=".$isFeatured."" ?> disabled <?php echo ($isFeatured == 1 ? 'checked' : '');?>></input>
@@ -691,8 +755,8 @@ if (!isset($_SESSION["user"])) {
                                 </div>
                             </div>
                         </td>
-                        <td style="width:40%;">
-                            <div>
+                        <td id="tdId3" data-cell="Opis / Beleška">
+                            <div Id="DivDescriptionId">
                                 <p style="display: inline-block;"><b>Opis:</b></p>
                                 <p <?php echo "id=".$property_id."_pSmalldesc" ?> style="display: inline-block;"><?php echo $smalldesc; ?></p>
                             </div>
@@ -701,17 +765,21 @@ if (!isset($_SESSION["user"])) {
                                 <p <?php echo "id=".$property_id."_pMetadesc" ?> ><?php echo $metadesc; ?></p>
                             </div>
                         </td>
-                        <td style="width:10%;">
+                        <td id="tdId4" data-cell="Akcije">
                             <div class="parent">
                                 <div class="child">
                                     <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
                                 </div>
-                                <div class="close" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
+                                <div class="close child" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
+                                <div class="edit child" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
+                                <div class="delete child" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
+                                <div class="deleteimages child" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                                <div class="archive child" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
                             </div>
-                            <div class="edit" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
-                            <div class="delete" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
-                            <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
-                            <div class="archive" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
+                            <!--<div class="edit" title="Edit" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
+                            <div class="delete" title="Delete" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
+                            <div class="deleteimages" title="Delete Image" data-toggle="tooltip" id="<php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                            <div class="archive" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>-->
                         </td>
                     </tr>   
           <?php } ?>     
