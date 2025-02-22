@@ -311,13 +311,13 @@ https://templatemo.com/tm-591-villa-agency
                                          "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                                          "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                                          "<div class="."parent".">".
-                                             "<div class="."child"." style="."width:25%".">".
+                                             "<div class="."child"." style="."width:33%".">".
                                                  "<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
                                              "</div>".
-                                             "<div class="."child"." style="."width:30%".">".
+                                             "<div class="."child"." style="."width:33%".">".
                                                  "<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
                                              "</div>".
-                                             "<div class="."child"." style="."width:45%;".">".
+                                             "<div class="."child"." style="."width:34%;".">".
                                                  "<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
                                              "</div>".
                                          "</div>".

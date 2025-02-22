@@ -135,6 +135,17 @@ https://templatemo.com/tm-591-villa-agency
             {
                while ($row = $result-> fetch_assoc())
                {
+                if ($row["pro_type"] == 4){
+                  if (explode('.',$row["land_area_text"])[1] <> '0'){
+                    $areaText = $row["land_area_text"]." a";
+                  }
+                  else {
+                    $areaText = $row["land_area_roundtext"]." a";
+                  }
+                }
+                else {
+                  $areaText = $row["square_feet_text"]." m<sup>2</sup>";
+                } 
                    /*$sql1 = "SELECT [image] FROM marinkom_jos1.jos_osrs_photos WHERE pro_id =".$row["id"]."  AND ordering = 1"; 
                    $result1 = $conn-> query($sql1);*/
                    /* assets/images/property-01.jpg */
@@ -143,10 +154,21 @@ https://templatemo.com/tm-591-villa-agency
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
-                                "<div>".
+                                /*"<div>".
                                      "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
                                      "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m<sup>2</sup></b></p>".
                                      "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
+                                "</div>".*/
+                                "<div class="."parent".">".
+                                  "<div class="."child"." style="."width:33%".">".
+                                    "<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                                  "</div>".
+                                  "<div class="."child"." style="."width:33%".">".
+                                    "<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                                  "</div>".
+                                  "<div class="."child"." style="."width:34%;".">".
+                                    "<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                                  "</div>".
                                 "</div>".
                                 "<br/><br/>".
                                 "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
