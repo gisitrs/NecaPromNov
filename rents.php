@@ -106,7 +106,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 
   <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
-      <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
+      <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png">
       </img>
   </button>
 
@@ -153,21 +153,29 @@ https://templatemo.com/tm-591-villa-agency
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
-                                /*"<div>".
+                                "<div style="."text-align:center".">".
+                                  "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
+                                "</div>".
+                                  /*"<div>".
                                      "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."</b></p><br/><br/>".
                                      "<p class="."squareFeet"."><b>Kvadratura: ".$row["square_feet_text"]." m<sup>2</sup></b></p>".
                                      "<p class="."price"."><b>Cena: ".$row["price_text"]."</b></p>".
                                 "</div>".*/
                                 "<div class="."parent".">".
-                                  "<div class="."child"." style="."width:33%".">".
-                                    "<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                                  "<div style="."text-align:center".">".
+                                      "<div class="."child"." style="."width:33%".">".
+                                          "<img src="."assets/images/icon-house-numbering.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                                      "</div>".
                                   "</div>".
-                                  "<div class="."child"." style="."width:33%".">".
-                                    "<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                                  "<div style="."text-align:center".">".
+                                      "<div class="."child"." style="."width:34%".">".
+                                          "<img src="."assets/images/icon-area.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                                      "</div>".
                                   "</div>".
-                                  "<div class="."child"." style="."width:34%;".">".
-                                    "<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                                  "<div style="."text-align:center".">".
+                                      "<div class="."child"." style="."width:33%;".">".
+                                          "<img src="."assets/images/icon-shopping.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                                      "</div>".
                                   "</div>".
                                 "</div>".
                                 "<br/><br/>".
