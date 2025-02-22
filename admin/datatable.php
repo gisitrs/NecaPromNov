@@ -236,14 +236,20 @@ if (!isset($_SESSION["user"])) {
         
         var clcikedvalues = $("#clickedImagesListId").text();
 
-        alert('PropId = ' + proId + ' Izabrane fotografije ' + clcikedvalues);
+        //alert('PropId = ' + proId + ' Izabrane fotografije ' + clcikedvalues);
 
         //$('#archiveusermodal').modal('hide');
         //alert("Cena " + txtprice + " Datum " + txtdate + " id " + proId);
+        
+        if (clcikedvalues.length > 0){
+            $.post("ajax_delete_images.php", { proId: proId, imagesForDelete: clcikedvalues }, function(data) {
+                $("#displaymessage").html(data);
+            });
+        }
 
-        /*$.post("archive_update.php", { proId: proId, txtprice: txtprice, txtdate: txtdate }, function(data) {
-           $("#displaymessage").html(data);
-        })*/
+        $("#clickedImagesListId").text('');
+        
+        $('#deleteimagesusermodal').modal('hide');
     });
 
     // update rec row on edit button click
