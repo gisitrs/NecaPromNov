@@ -438,22 +438,30 @@ https://templatemo.com/tm-591-villa-agency
 
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
-                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["ref"].", ".$row["pro_name"]."</span></a>".
-                                "<div class="."parent".">".
-                                    "<div class="."child"." style="."width:25%".">".
-                                        "<img src="."assets/images/icon-house-numbering.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
-                                    "</div>".
-                                    "<div class="."child"." style="."width:30%".">".
-                                        "<img src="."assets/images/icon-area.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
-                                    "</div>".
-                                    "<div class="."child"." style="."width:45%;".">".
-                                        "<img src="."assets/images/icon-shopping.png"." style="."width:30px;height:30px; display:inline-block;"."><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
-                                    "</div>".
-                                "</div>".
-                                "<br/><br/>".                            
-                                "<p>".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
+                              "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
+                              "<div style="."text-align:center".">".
+                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                               "</div>".
+                              "<div class="."parent".">".
+                                 "<div style="."text-align:center".">".
+                                     "<div class="."child"." style="."width:33%".">".
+                                         "<img src="."assets/images/icon-house-numbering.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                                     "</div>".
+                                 "</div>".
+                                 "<div style="."text-align:center".">".
+                                     "<div class="."child"." style="."width:34%".">".
+                                         "<img src="."assets/images/icon-area.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                                     "</div>".
+                                 "</div>".
+                                 "<div style="."text-align:center".">".
+                                     "<div class="."child"." style="."width:33%;".">".
+                                         "<img src="."assets/images/icon-shopping.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                                     "</div>".
+                                 "</div>".
+                              "</div>".
+                              "<br/><br/>".
+                              "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
+                            "</div>".
                           "</div>";
                }
             }
