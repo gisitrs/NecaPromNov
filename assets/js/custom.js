@@ -188,7 +188,7 @@ function collapseDivs(){
 		  element.style.display = "block";
 		  isCollapsed = 0;
        }
-  };
+    };
 
   var arrowImage = document.getElementById("collapseArrowId");
   if (isCollapsed === 1){

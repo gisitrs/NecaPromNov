@@ -1908,18 +1908,17 @@ body {
 } 
 
 .collapsible {
-  /*background-color: #777;
-  color: white;
-  padding: 18px;*/
   width: 100%;
   cursor: pointer;
   border: none;
-  text-align: right;
+  text-align: left;
   outline: none;
   font-size: 16px;
-  color: #36389b;
-  background-color: #FFFFFF;
   margin-top: -60px;
+  background-color: #36389b;
+  color: #FFFFFF;
+  border-radius: 5px;
+  height: 37px;
 }
 
 /*.active, .collapsible:hover {
