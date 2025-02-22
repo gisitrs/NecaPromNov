@@ -171,10 +171,10 @@ if (!isset($_SESSION["user"])) {
     });
     
     $(document).on("click", ".archive", function(e){
-      var id = $(this).attr("id");
       $('#user_id').val(id);
       $('#archiveusermodal').modal('show');
-
+      var id = $(this).attr("id");
+   
       /*var id = $(this).attr("id");
       var string = id;*/
     });
@@ -201,12 +201,50 @@ if (!isset($_SESSION["user"])) {
 
 // Delete images for row on delete button click
    $(document).on("click", ".deleteimages", function(){
-      var id = $(this).attr("id");
-      var string = id;
-      $.post("ajax_delete_images.php", { string: string}, function(data) {
-      $("#displaymessage").html(data);
+      var propId = $(this).attr("id");
+      var string = propId;
+      
+      $('#deleteimagespropid').val(propId);
+      $('#deleteimagesusermodal').modal('show');
+
+      $.post("imagesgallery.php", { propId: propId}, function(data) {
+         $("#deleteImagesRowId").html(data);
       });
     });
+
+    $(document).on("click", ".checkbox_images", function(){
+        var id = $(this).attr('id');
+        var newList = '';
+        var clcikedvalues = $("#clickedImagesListId").text();
+
+        if (clcikedvalues.length == 0){
+            newList = newList + id;
+        }
+        else {
+            newList = clcikedvalues + ';' + id;
+        }
+
+        $("#clickedImagesListId").text(newList);
+        //alert(newList);        
+    });
+
+    $(document).on("click", "#finalDeleteImagesId", function(){
+
+        var id = $('#deleteimagespropid').val();
+        var id1 = $('#'+ id +'').attr("id");
+        var proId = id1;
+        
+        var clcikedvalues = $("#clickedImagesListId").text();
+
+        alert('PropId = ' + proId + ' Izabrane fotografije ' + clcikedvalues);
+
+        //$('#archiveusermodal').modal('hide');
+        //alert("Cena " + txtprice + " Datum " + txtdate + " id " + proId);
+
+        /*$.post("archive_update.php", { proId: proId, txtprice: txtprice, txtdate: txtdate }, function(data) {
+           $("#displaymessage").html(data);
+        })*/
+    });
 
     // update rec row on edit button click
  $(document).on("click", ".update", function(){
@@ -676,6 +714,8 @@ if (!isset($_SESSION["user"])) {
         </div>
     </div>
 
+    <p id="clickedImagesListId" style="display: none"></p>
+
     <div class="modal fade" id="deleteusermodal" tabindex="-1" aria-labelledby="deleteusermodalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -720,6 +760,29 @@ if (!isset($_SESSION["user"])) {
         </div>
     </div>
 
+    <div class="modal fade" id="deleteimagesusermodal" tabindex="-1" aria-labelledby="deleteimagesusermodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Brisanje fotografija</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form name="form" action="" method="post">
+                    <input type="text" name="testname" id="deleteimagespropid" style="display: none;">
+                    <div class="modal-body">
+                        <h4>Odaberite fotografije koje želite da obrišete</h4><br/>
+                        <div id="deleteImagesRowId" class="row">
+                        </div>
+                    </div>    
+                    <div class="modal-footer">
+                        <button id="closeDeleteImagesId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
+                        <button id="finalDeleteImagesId" type="button" name="delete_data" class="btn btn-danger">Obriši</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -730,6 +793,7 @@ if (!isset($_SESSION["user"])) {
   <script src="../assets/js/counter.js"></script>
   <script src="../assets/js/custom.js"></script> 
   <script src="customAdmin.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>
 </html>
