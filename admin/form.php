@@ -55,12 +55,12 @@ if (!isset($_SESSION["user"])) {
                     </a>
 
                     <ul class="nav">
-                      <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Kreiraj nekretninu</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> class="active">Upload fotografija</a></li>
-                      <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
-                      <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Kreiraj nekretninu</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> class="active">Upload fotografija</a></li>
+                      <li><a style="margin-left: -30px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
+                      <li><a style="margin-left: -30px;" href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                     </ul>
                     <a class='menu-trigger'>
@@ -135,9 +135,73 @@ if (!isset($_SESSION["user"])) {
                 $image_pathOriginal = $folderOriginal.$_FILES['images']['name'][$i];
                 copy($image_path, $image_pathOriginal);
 
+                /* Resize images and save on the Thumb folder */
                 $folderThumb = $dirThumb."/";
                 $image_pathThumb = $folderThumb.$_FILES['images']['name'][$i];
-                copy($image_path, $image_pathThumb);
+                /*copy($image_path, $image_pathThumb);*/
+
+                $target_width = 170;  // Set target width
+                $target_height = 110;  // Set target height
+
+                list($width, $height, $type) = getimagesize($image_path);
+
+                // Calculate the new dimensions
+                $aspect_ratio = $width / $height;
+                if ($target_width / $target_height > $aspect_ratio) {
+                    $target_width = $target_height * $aspect_ratio;
+                } else {
+                    $target_height = $target_width / $aspect_ratio;
+                }
+
+                // Create a new image resource from the uploaded file based on the file type
+                switch ($type) {
+                    case IMAGETYPE_JPEG:
+                        $image = imagecreatefromjpeg($image_path);
+                        break;
+                    case IMAGETYPE_JPG:
+                        $image = imagecreatefromjpg($image_path);
+                        break;
+                    case IMAGETYPE_PNG:
+                        $image = imagecreatefrompng($image_path);
+                        break;
+                    case IMAGETYPE_GIF:
+                        $image = imagecreatefromgif($image_path);
+                        break;
+                    default:
+                        throw new Exception('Unsupported image type');
+                }
+
+                // Create a new true color image with the target dimensions
+                $new_image = imagecreatetruecolor($target_width, $target_height);
+
+                // Preserve transparency for PNG and GIF images
+                if ($type == IMAGETYPE_PNG || $type == IMAGETYPE_GIF) {
+                     imagealphablending($new_image, false);
+                     imagesavealpha($new_image, true);
+                }
+
+                // Resize the image
+                imagecopyresampled($new_image, $image, 0, 0, 0, 0, $target_width, $target_height, $width, $height);
+                
+                // Save the resized image to a new file
+                switch ($type) {
+                    case IMAGETYPE_JPEG:
+                        imagejpeg($new_image, $image_pathThumb, 90);  // Quality set to 90
+                        break;
+                    case IMAGETYPE_JPG:
+                        imagejpg($new_image, $image_pathThumb, 90);  // Quality set to 90
+                        break;
+                    case IMAGETYPE_PNG:
+                        imagepng($new_image, $image_pathThumb, 9);  // Compression level set to 9
+                        break;
+                    case IMAGETYPE_GIF:
+                        imagegif($new_image, $image_pathThumb);
+                        break;
+                }
+
+                // Free up memory
+                imagedestroy($image);
+                imagedestroy($new_image);
 
                 $sql = "INSERT INTO jos_osrs_photos (pro_id, image, ordering) VALUES (?,?,?)";
                 $stmt = $conn->prepare($sql);
@@ -180,7 +244,7 @@ if (!isset($_SESSION["user"])) {
                            <select name="property" class="form-select">
                               <?php 
                                   require_once "database.php";
-                                  $sql = "SELECT id, pro_name, ref FROM jos_osrs_properties ORDER BY pro_name";
+                                  $sql = "SELECT id, pro_name, ref FROM jos_osrs_properties WHERE isSold = 0 ORDER BY ref";
                                   $result = mysqli_query($conn, $sql);
                            
                                    while($rows = $result->fetch_assoc()){
