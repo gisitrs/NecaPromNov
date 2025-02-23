@@ -37,7 +37,7 @@ if (!isset($_SESSION["user"])) {
     body {
         color: #404E67;
         background: #F5F7FA;
-  font-family: 'Open Sans', sans-serif;
+
  }
  .table-wrapper {
   width: 100%;

@@ -105,10 +105,9 @@ https://templatemo.com/tm-591-villa-agency
      </div>
   </div>
 
-  <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
-      <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png">
-      </img>
-  </button>
+  <div id="btnScrollToTop" class="btnScrollToTopHidden">
+    <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png"></img>
+  </div>
 
   <!-- ***** Header Area End ***** -->
 

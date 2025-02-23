@@ -199,7 +199,7 @@ function collapseDivs(){
   }
 }
 
-$("#btnScrollToTop").on("click", function(){
+$("#scrollToTopArrowId").on("click", function(){
     window.scrollTo({
         top: 0,
 		left: 0,
