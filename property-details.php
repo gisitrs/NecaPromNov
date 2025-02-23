@@ -444,17 +444,17 @@ https://templatemo.com/tm-591-villa-agency
                               "<div class="."parent".">".
                                  "<div style="."text-align:center".">".
                                      "<div class="."child"." style="."width:33%".">".
-                                         "<img src="."assets/images/icon-house-numbering.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
+                                         "<img src="."assets/images/icon-house-numbering.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."font-weight:500;display:inline-block;margin-left:3px;"."><b>".$row["ref"]."</b></p><br/>".
                                      "</div>".
                                  "</div>".
                                  "<div style="."text-align:center".">".
                                      "<div class="."child"." style="."width:34%".">".
-                                         "<img src="."assets/images/icon-area.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
+                                         "<img src="."assets/images/icon-area.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."font-weight:500;display:inline-block;margin-left:3px;"."><b>".$areaText."</b></p><br/>".
                                      "</div>".
                                  "</div>".
                                  "<div style="."text-align:center".">".
                                      "<div class="."child"." style="."width:33%;".">".
-                                         "<img src="."assets/images/icon-shopping.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
+                                         "<img src="."assets/images/icon-shopping.png"." style="."width:35px;height:35px; display:inline-block;"."><br><p style="."font-weight:500;display:inline-block;margin-left:3px;"."><b>".$row["price_text"]."</b></p><br/>".
                                      "</div>".
                                  "</div>".
                               "</div>".
