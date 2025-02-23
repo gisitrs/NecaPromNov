@@ -114,10 +114,6 @@ img {
 Global Styles
 --------------------------------------------- 
 */
-html,
-body {
-  font-family: 'Poppins', sans-serif;
-}
 
 ::selection {
   background: #0071f8;

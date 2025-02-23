@@ -50,7 +50,34 @@ https://templatemo.com/tm-591-villa-agency
       </div>
     </div>
   </div>-->
-
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="" class="logo">
+                        <img src="../assets/images/2019/Necaprom_transparent.png" alt="" class="mainLogoImage">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start *****
+                    <ul class="nav">
+                      <li><a href="index.php" class="active" style="font-size: 18px">Naslovna</a></li>
+                      <li><a href="properties.php" style="font-size: 18px">Prodaja</a></li>
+                      <li><a href="rents.php" style="font-size: 18px">Izdavanje</a></li>
+                      <li><a href="excursions.php" style="font-size: 18px">Izleti</a></li>
+                      <li><a href="contact.html" style="font-size: 18px">Kontakt</a></li>
+                      <li><a href="contact.html" style="display:none"></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
   <?php
         if (isset($_POST["login"])) {
            $email = $_POST["email"];

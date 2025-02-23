@@ -354,7 +354,7 @@ if (!isset($_SESSION["user"])) {
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
                             '</div>' + 
                             '<div>' +
-                                '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                '<p style="display: inline-block;"><b>Kvadratura (m<sup>2</sup>):</b></p>' +
                                 '<p id="'+ id + '_pSquareFeet" style="display: inline-block;">' + txtSquareFeet + '</p>' +
                             '</div>' +
                             '<div>' +
@@ -462,7 +462,7 @@ if (!isset($_SESSION["user"])) {
                                  '<p style="display:none" id="txtref_old">' + refValue + '</p>' + 
                              '</div>' +
                              '<div>' +
-                                    '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                    '<p style="display: inline-block;"><b>Kvadratura (m<sup>2</sup>):</b></p>' +
                                     '<input type="text" name="updaterec" id="txtSquareFeet" ' + 
                                        'style="display: inline-block; width: 80px;" value="' + txtSquareFeetValue + '"></input>' +
                                     '<p style="display:none" id="txtSquareFeet_old">' + txtSquareFeetValue + '</p>' + 
@@ -555,7 +555,7 @@ if (!isset($_SESSION["user"])) {
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
                             '</div>' + 
                             '<div>' +
-                                '<p style="display: inline-block;"><b>Kvadratura (m2):</b></p>' +
+                                '<p style="display: inline-block;"><b>Kvadratura (m<sup>2</sup>):</b></p>' +
                                 '<p id="'+ id + '_pSquareFeet" style="display: inline-block;">' + txtSquareFeet + '</p>' +
                             '</div>' +
                             '<div>' +
@@ -619,18 +619,18 @@ if (!isset($_SESSION["user"])) {
             <div class="col-12">
               <nav class="main-nav">
                     <a href="index.php" class="logo">
-                        <img src="../assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
+                        <img src="../assets/images/2019/Necaprom_transparent.png" alt="" class="mainLogoImage">
                     </a>
 
                     <ul class="nav">
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Kreiraj nekretninu</a></li>
-                      <li><a style="margin-left: -20px;" class="active" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -20px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> class="active">Sve Nekretnine</a></li>
                       <li><a style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -20px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
                       <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
                       <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
-                  </ul>   
+                    </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -734,7 +734,7 @@ if (!isset($_SESSION["user"])) {
                                     <p <?php echo "id=".$property_id."_pRef" ?> style="display: inline-block; margin-top:10px;"><?php echo $property_ref; ?></p>
                                 </div>
                                 <div>
-                                    <p style="display: inline-block;"><b>Kvadratura (m2):</b></p>
+                                    <p style="display: inline-block;"><b>Kvadratura (m<sup>2</sup>):</b></p>
                                     <p <?php echo "id=".$property_id."_pSquareFeet" ?> style="display: inline-block;"><?php echo $squareFeet; ?></p>
                                 </div>
                                 <div>

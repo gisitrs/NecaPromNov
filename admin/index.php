@@ -58,7 +58,7 @@ if (!isset($_SESSION["user"])) {
             <div class="col-12">
               <nav class="main-nav">
                     <a href="index.php" class="logo">
-                        <img src="../assets/images/2019/logo-neca-prom.jpg" alt="" style="max-width:250px; margin-top:25px;">
+                      <img src="../assets/images/2019/Necaprom_transparent.png" alt="" class="mainLogoImage">
                     </a>
 
                     <ul class="nav">
@@ -69,7 +69,7 @@ if (!isset($_SESSION["user"])) {
                       <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
                       <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
-                  </ul>   
+                    </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -273,7 +273,7 @@ if (!isset($_SESSION["user"])) {
                            };
                         
                       </select>-->
-                      <input type="phone" name="squarefeet" placeholder="Kvadratura (m2):" autocomplete="on">
+                      <input type="phone" name="squarefeet" placeholder="Kvadratura (m&sup2):" autocomplete="on">
                   </fieldset>
               </div>
               <div class="col-lg-12">

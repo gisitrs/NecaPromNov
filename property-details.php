@@ -15,7 +15,6 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
@@ -89,11 +88,11 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.php">Naslovna</a></li>
-                      <li><a href="properties.php">Prodaja</a></li>
-                      <li><a href="rents.php">Izdavanje</a></li>
-                      <li><a href="excursions.php">Izleti</a></li>
-                      <li><a href="contact.html">Kontakt</a></li>
+                      <li><a href="index.php" class="active" style="font-size: 18px">Naslovna</a></li>
+                      <li><a href="properties.php" style="font-size: 18px">Prodaja</a></li>
+                      <li><a href="rents.php" style="font-size: 18px">Izdavanje</a></li>
+                      <li><a href="excursions.php" style="font-size: 18px">Izleti</a></li>
+                      <li><a href="contact.html" style="font-size: 18px">Kontakt</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -316,7 +315,7 @@ https://templatemo.com/tm-591-villa-agency
                               </div>
                               <br>
                               <h4 style="."margin-top:20px;".">Informacije o nepokretnosti</h4>
-                              <p style="."margin-bottom:30px;".">".$row["pro_small_desc"]."</p>
+                              <p style="."font-weight:500; margin-bottom:30px;".">".$row["pro_small_desc"]."</p>
                           </div>";
                }
             }
@@ -460,7 +459,7 @@ https://templatemo.com/tm-591-villa-agency
                                  "</div>".
                               "</div>".
                               "<br/><br/>".
-                              "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
+                              "<p style="."font-weight:500;line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
                             "</div>".
                           "</div>";
                }
