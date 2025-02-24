@@ -37,8 +37,8 @@ if (!isset($_SESSION["user"])) {
     body {
         color: #404E67;
         background: #F5F7FA;
-  font-family: 'Open Sans', sans-serif;
- }
+        /*font-family: 'Open Sans', sans-serif;*/
+    }
  .table-wrapper {
   width: 100%;
   margin: 30px auto;
@@ -545,11 +545,11 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Kreiraj nekretninu</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve nekretnine</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> class="active">Prodate nekretnine</a></li>
-                      <li><a style="margin-left: -20px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
-                      <li><a style="margin-left: -20px;" href="#" onclick='leaveAdminApp("Edit", "Napušta se sesija, da li ste sigurni?");' >Sajt</a></li>
-                      <li><a style="margin-left: -20px;" href="logout.php">Odjavi se</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> class="active">Prodate nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Upload fotografija</a></li>
+                      <li><a style="margin-left: -30px;" href="#" onclick='adminToWebsite("Edit", "Ovom akcijom napuštate admin sesiju, da li ste sigurni?");'>Sajt</a></li>
+                      <li><a style="margin-left: -30px;" href="#" onclick='adminLogOut("Edit", "Da li želite da napustite NecaProm admin?");'>Odjavi se</a></li>
                       <li><a href="contact.html" style="display:none"></a></li>
                     </ul>   
                     <a class='menu-trigger'>
@@ -612,7 +612,7 @@ if (!isset($_SESSION["user"])) {
                 <thead>
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
-                        <th style="width:45%;">Naziv / Broj nepokretnosti / Kvadratura / Površina / Cena / Lokacija / Tip </th>
+                        <th style="width:45%;">Informacije o nepokretnosti</th>
                         <th style="width:35%;">Opis / Beleška</th>
                         <th style="width:15%;">Datum prodaje</th>
                     </tr>
