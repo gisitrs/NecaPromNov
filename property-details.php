@@ -112,15 +112,14 @@ https://templatemo.com/tm-591-villa-agency
      </div>
   </div>
 
-  <button id="btnScrollToTop" class="btnScrollToTopHidden"> 
-         <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png" style="width:50px; height:50px; right:10px; bottom:10px; position:fixed;">
-         </img>
-      </button>
+  <div id="btnScrollToTop" class="btnScrollToTopHidden">
+    <img id="scrollToTopArrowId" src="assets/images/2019/scrollUpArrow.png"></img>
+  </div>
 
   <div id='DivIdToPrint' style="display:none;">
     <?php 
             include"admin/database.php"; 
-            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallpropertydetails WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
             if ($result-> num_rows > 0)
@@ -132,6 +131,13 @@ https://templatemo.com/tm-591-villa-agency
                    }
                    else {
                       $areaText = "Kvadratura: ".$row["square_feet_text"]." m<sup>2</sup>";
+
+                      if($row["pro_type"] == 11){
+                        $displayRefId = "display:none";
+                      }
+                      else {
+                        $displayRefId = "display:block";
+                      }
                   }    
 
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"].">".
@@ -139,7 +145,7 @@ https://templatemo.com/tm-591-villa-agency
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a><br><br><br>".
                                 "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                                 "<div>".
-                                    "<p class="."ref"."><b>Broj nepokretnosti: ".$row["ref"]."&nbsp;&nbsp;&nbsp;&nbsp;</b><b>".$areaText." m2&nbsp;&nbsp;&nbsp;&nbsp;<b>Cena: ".$row["price_text"]."</b></p>".
+                                    "<p class="."ref"." style=".$displayRefId."><b>Broj nepokretnosti: ".$row["ref"]."&nbsp;&nbsp;&nbsp;&nbsp;</b><b>".$areaText." m2&nbsp;&nbsp;&nbsp;&nbsp;<b>Cena: ".$row["price_text"]."</b></p>".
                                 "</div>".
                                 "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
                               "</div>".
@@ -159,7 +165,7 @@ https://templatemo.com/tm-591-villa-agency
       <div id="thirdRowId" class="row">
         <?php 
             include"admin/database.php";
-            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallpropertydetails WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             $counter = 1;
             
@@ -217,7 +223,7 @@ https://templatemo.com/tm-591-villa-agency
           <div class="carousel-item active">
            <?php 
             include"admin/database.php";
-            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallpropertydetails WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             
             if ($result-> num_rows > 0)
@@ -270,7 +276,7 @@ https://templatemo.com/tm-591-villa-agency
           </div>
           <?php 
             include"admin/database.php";
-            $sql = "SELECT * FROM vw_getallproperties WHERE id =".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallpropertydetails WHERE id =".$_GET['prid'];
             $result = $conn-> query($sql);
             $counter = 1;
             
@@ -289,19 +295,27 @@ https://templatemo.com/tm-591-villa-agency
                        }
 
                        $areaValue = "<span>".$areaText1." a</span>";
+                       $displayRefId = "display:block";
                    }
                    else {
                       $areaText = "Kvadratura: ";
                       $areaValue = "<span>".$row["square_feet_text"]." m<sup>2</sup></span>";
+
+                      if($row["pro_type"] == 11){
+                        $displayRefId = "display:none";
+                      }
+                      else {
+                        $displayRefId = "display:block";
+                      }
                    }
 
                     echo "<div class="."col-lg-3".">
-                              <div class="."info-table".">
+                              <div class="."info-table"." style=".$displayRefId.">
                                 <ul>
                                   <li>Broj nepokretnosti: <span>".$row["ref"]."</span></li>
                                 </ul>
                               </div>
-                              <br>
+                              <br style=".$displayRefId.">
                               <div class="."info-table".">
                                 <ul>
                                    <li>".$areaText.$areaValue."</span></li>
@@ -408,7 +422,7 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 </div>
 
-<div class="section properties">
+<div id="otherPropertiesId" class="section properties">
     <div class="container">
     <div class="section-heading">
         <h2>Povezane nepokretnosti</h2>
@@ -416,7 +430,7 @@ https://templatemo.com/tm-591-villa-agency
     <div id="lastRow" class="row">
         <?php 
             include"admin/database.php";
-            $sql = "SELECT * FROM vw_getallproperties WHERE pro_type = ".$_GET['typeid']." AND id != ".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallpropertydetails WHERE pro_type = ".$_GET['typeid']." AND id != ".$_GET['prid'];
             $result = $conn-> query($sql);
             
             if ($result-> num_rows > 0)
@@ -550,4 +564,19 @@ https://templatemo.com/tm-591-villa-agency
   <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
   </body>
+  
+  <script>
+      $(document).ready(function(){
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+
+          if (urlParams.get('typeid') == 11){
+              $("#otherPropertiesId").css("display", "none");
+          }
+          else {
+              $("#otherPropertiesId").css("display", "block");
+          }
+      });
+  </script>
+
 </html>
