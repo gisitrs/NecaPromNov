@@ -307,7 +307,9 @@ https://templatemo.com/tm-591-villa-agency
 
                             echo "<div "."id=".$row["typeId"]." class="."col-lg-4"." data-position=".$row["price"]."-".$row["pro_type"]."-".$row["square_feet"]."-".$row["land_area_text"]."-".$row["isFeatured"].">".
                                      "<div class="."item".">".
-                                         "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
+                                         "<div class="."img_lg".">".
+                                            "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]." class="."img_lg"."></a>".
+                                         "</div>".
                                          "<div style="."text-align:center".">".
                                             "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                                          "</div>".

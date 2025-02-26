@@ -618,7 +618,24 @@ Header Style
     padding-left: 5px;
     padding-right: 5px;
   }
+}
 
+@media (min-width: 1200px) {
+  .img_lg {
+    height:300px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .img_lg {
+    height:250px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .img_lg {
+    height:200px;
+  }
 }
 
 @media (max-width: 767px) {

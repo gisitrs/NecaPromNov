@@ -315,7 +315,7 @@ https://templatemo.com/tm-591-villa-agency
                                   <li>Broj nepokretnosti: <span>".$row["ref"]."</span></li>
                                 </ul>
                               </div>
-                              <br style=".$displayRefId.">
+                              <br>
                               <div class="."info-table".">
                                 <ul>
                                    <li>".$areaText.$areaValue."</span></li>
@@ -451,7 +451,10 @@ https://templatemo.com/tm-591-villa-agency
 
                    echo "<div "."id=".$row["typeId"]." class="."col-lg-4".">".
                             "<div class="."item".">".
-                              "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".
+                              "<div class="."img_lg".">".
+                                "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]." class="."img_lg"."></a>".
+                              "</div>".
+                              /*"<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><img src=".$row["image_path"]."></a>".*/
                               "<div style="."text-align:center".">".
                                  "<a href="."property-details.php?prid=".$row["id"]."&typeid=".$row["pro_type"]."><span class="."category".">".$row["pro_name"]."</span></a>".
                               "</div>".

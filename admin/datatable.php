@@ -347,10 +347,10 @@ if (!isset($_SESSION["user"])) {
                        '<div>' +
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
-                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isFeaturedValue + '"></input>' +
+                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px; margin-left:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isFeaturedValue + '"></input>' +
                             '</div>' + 
                             '<div>' +
-                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>' +
                                 '<p id="'+ id + '_pRef" style="display: inline-block; margin-top:10px;">'+ txtref + '</p>' +
                             '</div>' + 
                             '<div>' +
@@ -362,7 +362,7 @@ if (!isset($_SESSION["user"])) {
                                 '<p id="'+ id + '_pLandArea" style="display: inline-block;">' + txtLandArea + '</p>' +
                             '</div>' +
                             '<div>' +
-                                '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                '<p style="display: inline-block;"><b>Cena (€):</b></p>' +
                                 '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
                             '</div>' +
                             '<div>' +
@@ -452,11 +452,11 @@ if (!isset($_SESSION["user"])) {
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
                                     '<input type="checkbox" name="updaterec" id="txtisfeatured" value="' + isFeatured +  
-                                        '" style="display: inline-block; margin-top:10px; width: 20px;"' + isChecked + '></input>' +
+                                        '" style="display: inline-block; margin-top:10px; margin-left:10px; width: 20px;"' + isChecked + '></input>' +
                                  '<p style="display:none" id="txtisfeatured_old">' + isFeatured + '</p>' + 
                              '</div>' +
                             '<div>' +
-                                '<p style="display: inline-block; margin-top:10px;"><b>Ref#:</b></p>' +
+                                '<p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>' +
                                     '<input type="text" name="updaterec" id="txtref" ' + 
                                         'style="display: inline-block; margin-top:10px; width: 60px;" value="'+ refValue + '"></input>' +
                                  '<p style="display:none" id="txtref_old">' + refValue + '</p>' + 
@@ -474,7 +474,7 @@ if (!isset($_SESSION["user"])) {
                                     '<p style="display:none" id="txtLandArea_old">' + txtLandAreaValue + '</p>' + 
                             '</div>' +
                              '<div>' +
-                                    '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                    '<p style="display: inline-block;"><b>Cena (€):</b></p>' +
                                     '<input type="text" name="updaterec" id="txtprice" ' + 
                                        'style="display: inline-block; width: 200px;" value="' + txtPriceValue + '"></input>' +
                                     '<p style="display:none" id="txtprice_old">' + txtPriceValue + '</p>' + 
@@ -548,7 +548,7 @@ if (!isset($_SESSION["user"])) {
                        '<div>' +
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>' +
-                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isfeatured + '"></input>' +
+                                '<input id="'+ id + '_pIsFeatured" style="display: inline-block; margin-top:10px; margin-left:10px;" type="checkbox" disabled ' + isChecked + ' value="'+ isfeatured + '"></input>' +
                             '</div>' + 
                             '<div>' +
                                 '<p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>' +
@@ -563,7 +563,7 @@ if (!isset($_SESSION["user"])) {
                                 '<p id="'+ id + '_pLandArea" style="display: inline-block;">' + txtLandArea + '</p>' +
                             '</div>' +
                             '<div>' +
-                                '<p style="display: inline-block;"><b>Cena:</b></p>' +
+                                '<p style="display: inline-block;"><b>Cena (€):</b></p>' +
                                 '<p id="'+ id + '_pPrice" style="display: inline-block;">' + txtprice + '</p>' +
                             '</div>' +
                             '<div>' +
@@ -727,7 +727,7 @@ if (!isset($_SESSION["user"])) {
                                 <div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>
-                                    <input <?php echo "id=".$property_id."_pIsFeatured" ?> type="checkbox" style="display: inline-block; margin-top:10px;" <?php echo "value=".$isFeatured."" ?> disabled <?php echo ($isFeatured == 1 ? 'checked' : '');?>></input>
+                                    <input <?php echo "id=".$property_id."_pIsFeatured" ?> type="checkbox" style="display: inline-block; margin-top:10px; margin-left:10px;" <?php echo "value=".$isFeatured."" ?> disabled <?php echo ($isFeatured == 1 ? 'checked' : '');?>></input>
                                 </div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Broj nepokretnosti:</b></p>
@@ -742,7 +742,7 @@ if (!isset($_SESSION["user"])) {
                                     <p <?php echo "id=".$property_id."_pLandArea" ?> style="display: inline-block;"><?php echo $landArea; ?></p>
                                 </div>
                                 <div>
-                                    <p style="display: inline-block;"><b>Cena:</b></p>
+                                    <p style="display: inline-block;"><b>Cena (€):</b></p>
                                     <p <?php echo "id=".$property_id."_pPrice" ?> style="display: inline-block;"><?php echo $property_price; ?></p>
                                 </div>
                                 <div>
@@ -768,13 +768,13 @@ if (!isset($_SESSION["user"])) {
                         <td id="tdId4" data-cell="Akcije">
                             <div class="parent">
                                 <div class="child">
-                                    <div class="add" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
+                                    <div class="add" title="Sačuvaj izmene" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-check"></i></div>
                                 </div>
-                                <div class="close child" title="Exit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
-                                <div class="edit child" title="Edit" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
-                                <div class="delete child" title="Delete" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
-                                <div class="deleteimages child" title="Delete Image" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
-                                <div class="archive child" title="Arhiviraj nepokretnost" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
+                                <div class="close child" title="Napusti izmene" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
+                                <div class="edit child" title="Izmeni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
+                                <div class="delete child" title="Ukloni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
+                                <div class="deleteimages child" title="Brisanje fotografija" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                                <div class="archive child" title="Arhiviraj oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
                             </div>
                             <!--<div class="edit" title="Edit" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                             <div class="delete" title="Delete" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
