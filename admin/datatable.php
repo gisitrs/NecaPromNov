@@ -239,9 +239,9 @@ if (!isset($_SESSION["user"])) {
     });
     
     $(document).on("click", ".archive", function(e){
+      var id = $(this).attr("id");
       $('#user_id').val(id);
       $('#archiveusermodal').modal('show');
-      var id = $(this).attr("id");
    
       /*var id = $(this).attr("id");
       var string = id;*/
