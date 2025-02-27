@@ -63,7 +63,7 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a style="margin-left: -30px;" <?php echo "href="."index.php?userId=".$_GET['userId'] ?> class="active">Nova nekretnina</a></li>
-                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Dodaj fotografije</a></li>
                       <li><a style="margin-left: -30px;" href="#" onclick='adminToWebsite("Edit", "Ovom akcijom napuštate admin sesiju, da li ste sigurni?");'>Sajt</a></li>
@@ -200,8 +200,8 @@ if (!isset($_SESSION["user"])) {
     <?php echo "<form id="."contact-form"." style="."width: 100%;"." action="."index.php?userId=".$_GET["userId"]." method="."post".">"  ?>
       <div class="row">
       <div class="section-heading text-center">
-            <h2>Kreiraj Nekretninu</h2>
-          </div>
+          <h3>Kreiraj nekretninu</h3>
+      </div>
           <p>Broj nepokretnosti</p>
         <div class="col-lg-6">
             <div class="contact-content" style="margin-top: 0px;">

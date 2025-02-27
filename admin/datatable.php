@@ -140,11 +140,11 @@ if (!isset($_SESSION["user"])) {
 }
 
 #tdId2 {
-    width: 45%;
+    width: 40%;
 }
 
 #tdId3 {
-    width: 35%;
+    width: 30%;
 }
 
 #tdId4 {
@@ -175,7 +175,7 @@ if (!isset($_SESSION["user"])) {
     }
 
     #tdId1 {
-        background-color: #a3a3a3;
+        background-color: #9fa1f5;
     }
 
     #tdId4 {
@@ -386,7 +386,7 @@ if (!isset($_SESSION["user"])) {
        else if (i == 2){
         $(this).html('<td Id="tdId3">' +
                          '<div>' +
-                              '<p style="display: inline-block;"><b>Opis:</b></p>' +
+                              '<p><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
                          '</div>' +
                          '<div>' +
@@ -587,7 +587,7 @@ if (!isset($_SESSION["user"])) {
        else if (i == 2){
         $(this).html('<td Id="tdId3">' +
                          '<div>' +
-                              '<p style="display: inline-block;"><b>Opis:</b></p>' +
+                              '<p><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
                          '</div>' +
                          '<div>' +
@@ -630,7 +630,7 @@ if (!isset($_SESSION["user"])) {
 
                     <ul class="nav">
                       <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Nova nekretnina</a></li>
-                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> class="active">Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> class="active">Sve nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Dodaj fotografije</a></li>
                       <li><a style="margin-left: -30px;" href="#" onclick='adminToWebsite("Edit", "Ovom akcijom napuštate admin sesiju, da li ste sigurni?");'>Sajt</a></li>
@@ -659,9 +659,11 @@ if (!isset($_SESSION["user"])) {
     <div class="container col-lg-12">
         <div class="table-wrapper">
             <div class="table-title">
+                <div class="text-center">
+                    <h3>Detalji o nekretninama</h3>
+                </div>
                 <div style="height: 50px;"></div>
                 <div class="row">
-                    <div class="col-sm-8"><h2> Detalji o nekretninama</h2></div>
                     <div class="col-sm-4">
                         <!--<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Dodaj novu</button>-->
                     </div>
@@ -697,8 +699,8 @@ if (!isset($_SESSION["user"])) {
                 <thead>
                     <tr style="width:90%;">
                         <th style="width:5%;">ID</th>
-                        <th style="width:45%;">Informacije o nepokretnosti</th>
-                        <th style="width:35%;">Opis / Beleška</th>
+                        <th style="width:40%;">Informacije o nepokretnosti</th>
+                        <th style="width:40%;">Opis / Beleška</th>
                         <th style="width:15%;">Akcije</th>
                     </tr>
                 </thead>
@@ -763,7 +765,7 @@ if (!isset($_SESSION["user"])) {
                         </td>
                         <td id="tdId3" data-cell="Opis / Beleška">
                             <div Id="DivDescriptionId">
-                                <p style="display: inline-block;"><b>Opis:</b></p>
+                                <p><b>Opis:</b></p>
                                 <p <?php echo "id=".$property_id."_pSmalldesc" ?> style="display: inline-block;"><?php echo $smalldesc; ?></p>
                             </div>
                             <div>
@@ -829,8 +831,8 @@ if (!isset($_SESSION["user"])) {
                     <div class="modal-body">
                         <h4>Unesite datum kada je prodata i cenu za koju je prodata nepokretnost</h4>
                     </div>    
-                    <p style="display: inline-block; margin-left: 10px;">Cena prodaje</p><input type="text" name="user_id" id="soldprice_id" style="width:200px; display: inline-block; margin-left: 50px;"><br/>
-                    <p style="display: inline-block; margin-left: 10px;">Datum prodaje</p><input type="date" name="date_id" id="solddate_id" value="<?php echo date('Y-m-d'); ?>" style="width:200px; display: inline-block; margin-left: 42px;">
+                    <p style="display: inline-block; margin-left: 10px; margin-right: 20px;">Cena prodaje (€)</p><input type="text" name="user_id" id="soldprice_id" style="width:200px; display: inline-block; margin-left: 10px;"><br/><br/>
+                    <p style="display: inline-block; margin-left: 10px; margin-right: 38px;">Datum prodaje</p><input type="date" name="date_id" id="solddate_id" value="<?php echo date('Y-m-d'); ?>" style="width:200px; display: inline-block; margin-left: 10px;">
                     <div class="modal-footer" style="margin-top: 10px;">
                         <button id="closeLeaveAdminId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
                         <button id="finalArchiveId" type="button" name="delete_data" class="btn btn-danger">Snimi promene</button>

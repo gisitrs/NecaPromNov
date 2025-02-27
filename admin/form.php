@@ -55,7 +55,7 @@ if (!isset($_SESSION["user"])) {
                     </a>
                     <ul class="nav">
                       <li><a style="margin-left: -30px;" <?php echo "href="."index.php?userId=".$_GET['userId'] ?> >Nova nekretnina</a></li>
-                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve Nekretnine</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> >Sve nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> class="active">Dodaj fotografije</a></li>
                       <li><a style="margin-left: -30px;" href="#" onclick='adminToWebsite("Edit", "Ovom akcijom napuštate admin sesiju, da li ste sigurni?");'>Sajt</a></li>
@@ -236,11 +236,13 @@ if (!isset($_SESSION["user"])) {
         ?>
             <div class="row justify-content-center">
                 <div class="col-lg-9 bg-light mt-4 px-4 p-2 rounded">
-                    <h3 class="text-center text-info pb-2">Upload slika</h3>
+                <div class="text-center">
+                    <h3>Dodaj fotografije</h3>
+                </div>
                     <form <?php echo "href="."action.php?userId=".$_GET['userId'] ?> enctype="multipart/form-data" method="POST">
-                       <div class="col-lg-12 bg-light mt-4 px-4 p-2 rounded justify-content-center">
-                           <p>Izaberi nekretninu</p>
-                           <select name="property" class="form-select">
+                        <div class="col-lg-12 bg-light mt-4 px-4 p-2 rounded justify-content-center">
+                            <p style="font-size: 16px;">Izaberi nekretninu</p>
+                            <select name="property" class="form-select">
                               <?php 
                                   require_once "database.php";
                                   $sql = "SELECT id, pro_name, ref FROM jos_osrs_properties WHERE isSold = 0 ORDER BY ref";
@@ -250,19 +252,19 @@ if (!isset($_SESSION["user"])) {
                                       $propertyName = $rows['pro_name'];
                                       $propertyId = $rows['id'];
                                       $refValue = $rows['ref'];
-
                                       echo "<option value='$propertyId'>".$refValue.", ".$propertyName."</option>";
                                    };
                                ?>
-                           </select>
-                       </div> 
-                       <p style="margin-top: 30px;">Izaberi fotografije</p>
-                       <div class="form-control mt-4">
-                            <input class="form-control" type="file" name="images[]" multiple="multiple"/>
-                        </div>
-                        <div class="form-btn text-center">
-                            <input class="btn btn-info btn-block mt-4" type="submit" name="submit" value="Upload" />
-                        </div>
+                            </select>
+                       
+                            <p style="margin-top: 30px; font-size: 16px;">Izaberi fotografije</p>
+                            <div class="form-control">
+                                <input class="form-control" type="file" name="images[]" multiple="multiple"/>
+                            </div>
+                            <div class="form-btn text-center">
+                                <input class="btn btn-primary btn-block mt-4" type="submit" name="submit" value="Upload" style="margin-top: 30px; margin-bottom: 30px; background-color: #36389b; border: none;"/>
+                            </div>
+                        </div> 
                     </form>
                 </div>
             </div>
