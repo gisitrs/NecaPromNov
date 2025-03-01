@@ -192,7 +192,7 @@ if (!isset($_SESSION["user"])) {
     td::before {
         content: attr(data-cell) ":";
         font-weight: 700;
-        text-transform: capitalize;
+        /*text-transform: capitalize;*/
         margin-top: 10px;
     }
 }
