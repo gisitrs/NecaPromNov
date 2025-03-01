@@ -152,32 +152,34 @@ if (!isset($_SESSION["user"])) {
                     $target_height = $target_width / $aspect_ratio;
                 }
 
+                //throw new Exception($type);
+
                 // Create a new image resource from the uploaded file based on the file type
                 switch ($type) {
                     case IMAGETYPE_JPEG:
                         $image = imagecreatefromjpeg($image_path);
                         break;
-                    case IMAGETYPE_JPG:
+                    /*case IMAGETYPE_JPG:
                         $image = imagecreatefromjpg($image_path);
-                        break;
+                        break;*/
                     case IMAGETYPE_PNG:
                         $image = imagecreatefrompng($image_path);
                         break;
                     case IMAGETYPE_GIF:
                         $image = imagecreatefromgif($image_path);
                         break;
-                    default:
-                        throw new Exception('Unsupported image type');
+                    /*default:
+                        throw new Exception('Unsupported image type');*/
                 }
 
                 // Create a new true color image with the target dimensions
                 $new_image = imagecreatetruecolor($target_width, $target_height);
 
                 // Preserve transparency for PNG and GIF images
-                if ($type == IMAGETYPE_PNG || $type == IMAGETYPE_GIF) {
+                /*if ($type == IMAGETYPE_PNG || $type == IMAGETYPE_GIF) {
                      imagealphablending($new_image, false);
                      imagesavealpha($new_image, true);
-                }
+                }*/
 
                 // Resize the image
                 imagecopyresampled($new_image, $image, 0, 0, 0, 0, $target_width, $target_height, $width, $height);
@@ -187,9 +189,9 @@ if (!isset($_SESSION["user"])) {
                     case IMAGETYPE_JPEG:
                         imagejpeg($new_image, $image_pathThumb, 90);  // Quality set to 90
                         break;
-                    case IMAGETYPE_JPG:
+                    /*case IMAGETYPE_JPG:
                         imagejpg($new_image, $image_pathThumb, 90);  // Quality set to 90
-                        break;
+                        break;*/
                     case IMAGETYPE_PNG:
                         imagepng($new_image, $image_pathThumb, 9);  // Compression level set to 9
                         break;
