@@ -241,7 +241,7 @@ if (!isset($_SESSION["user"])) {
                           <input type="checkbox" id="isFeatured" name="isfeatured" style="margin-left:20px; width:30px; height:30px;" value="1">
                         </div>
                         <div style="display: inline-block;">
-                          <label for="isFeatured" style="margin-left: 15px; margin-bottom: 20px;">Istakni</label>
+                          <label for="isFeatured" style="margin-left: 15px; margin-bottom: 20px; margin-bottom: 20px;">Istakni</label>
                         </div>
                      </div>
                  </div>

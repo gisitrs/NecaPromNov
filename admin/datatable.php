@@ -629,7 +629,7 @@ if (!isset($_SESSION["user"])) {
                     </a>
 
                     <ul class="nav">
-                      <li><a <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Nova nekretnina</a></li>
+                      <li><a style="margin-left: -30px;" <?php echo "href="."index.php?userId=".$_GET['userId'] ?>>Nova nekretnina</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."datatable.php?userId=".$_GET['userId'] ?> class="active">Sve nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."sold_properties_datatable.php?userId=".$_GET['userId'] ?> >Prodate nekretnine</a></li>
                       <li><a style="margin-left: -30px;" <?php echo "href="."form.php?userId=".$_GET['userId'] ?> >Dodaj fotografije</a></li>
@@ -671,7 +671,7 @@ if (!isset($_SESSION["user"])) {
                 <div class="row col-lg-12">
                     <div class="col-lg-3">
                         <fieldset>
-                            <select id="typeSelectId" name="testDT" class="form-select">
+                            <select id="typeSelectId" name="testDT" class="form-select" style="margin-bottom:10px;">
                                 <?php 
                                     require_once "database.php";
                                     $sql = "SELECT id, type_name FROM vw_getallpropertytypes ORDER BY id";
@@ -690,7 +690,7 @@ if (!isset($_SESSION["user"])) {
                    <div class="col-lg-1">
                       <p id="displaymessage" style="display: none;"></p>
                       <fieldset >
-                          <button id="filterDataTableId" type="submit" name="filterProperties" class="orange-button">Filtriraj</button>
+                          <button id="filterDataTableId" type="submit" name="filterProperties" class="btn btn-primary btn-block" style="background-color: #36389b; border: none;">Filtriraj</button>
                       </fieldset>
                    </div>
                </div>
@@ -728,11 +728,11 @@ if (!isset($_SESSION["user"])) {
                         <td id="tdId1" data-cell="ID">
                            <p style="display: inline-block;" <?php echo "id=".$property_id."_pId" ?>><?php echo $property_id; ?></p>
                         </td>
-                        <td id="tdId2" data-cell="Osnovni podaci">
-                                <div id="PropertyNameHeaderId">
-                                    <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
-                                </div>
-                                <div>
+                        <td id="tdId2" data-cell="Informacije o nepokretnosti">
+                            <div id="PropertyNameHeaderId">
+                                <h4 <?php echo "id=".$property_id."_pName" ?>><?php echo $property_name; ?></h4>
+                            </div>
+                            <div>
                                 <div>
                                     <p style="display: inline-block; margin-top:10px;"><b>Istaknuto:</b></p>
                                     <input <?php echo "id=".$property_id."_pIsFeatured" ?> type="checkbox" style="display: inline-block; margin-top:10px; margin-left:10px;" <?php echo "value=".$isFeatured."" ?> disabled <?php echo ($isFeatured == 1 ? 'checked' : '');?>></input>
