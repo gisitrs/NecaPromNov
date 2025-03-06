@@ -164,9 +164,17 @@ if (!isset($_SESSION["user"])) {
 
     td {
         display: block;
-        padding: 0.5rem 1rem;
+        /*padding: 0.5rem 1rem;*/
         width: 100%;
         margin-top: 10px;
+    }
+
+    #txtaddress, #txtsmalldescription, #txtmetadesc {
+        margin-top: 2px;
+    }
+
+    #txtSquareFeet {
+        margin-left: 1px;
     }
 
     #tdId1, #tdId2, #tdId3, #tdId4 {
@@ -201,6 +209,34 @@ if (!isset($_SESSION["user"])) {
         /*text-transform: capitalize;*/
         margin-top: 10px;
     }
+
+    #tdId31::before {
+        content: attr(data-cell) "";
+    }
+
+    #tdId23::before {
+        content: attr(data-cell) "";
+    } 
+    
+    #tdId33::before {
+        content: attr(data-cell) "";
+    } 
+    
+    #tdId21::before {
+        content: attr(data-cell) "";
+    } 
+    
+    #tdId31::before {
+        content: attr(data-cell) "";
+    } 
+    
+    #tdId22::before {
+        content: attr(data-cell) "";
+    } 
+    
+    #tdId32::before {
+        content: attr(data-cell) "";
+    } 
 }
 
 </style>
@@ -348,7 +384,7 @@ if (!isset($_SESSION["user"])) {
 
   $(this).parents("tr").find("td:not(:last-child)").each(function(i){
     if (i == 1){
-       $(this).html('<td id="tdId2">' +
+       $(this).html('<td id="tdId23">' +
                        '<h4 style="display: inline-block;" id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
                             '<div>' +
@@ -384,7 +420,7 @@ if (!isset($_SESSION["user"])) {
                    );
        } 
        else if (i == 2){
-        $(this).html('<td id="tdId3">' +
+        $(this).html('<td id="tdId33">' +
                          '<div>' +
                               '<p><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
@@ -449,7 +485,7 @@ if (!isset($_SESSION["user"])) {
    $(this).parents("tr").find("td:not(:last-child)").each(function(i){
        
        if (i == 1){
-       $(this).html('<td id="tdId2">' +
+       $(this).html('<td id="tdId21">' +
                         '<div>' +
                            '<input type="text" name="updaterec" id="txtname" class="form-control" value="' + txtNameValue + '"></input>' +
                            '<p style="display:none" id="txtname_old">' + txtNameValue + '</p>' + 
@@ -499,7 +535,7 @@ if (!isset($_SESSION["user"])) {
                         '</div>' +
                     '</td>');
        } else if(i == 2){
-        $(this).html('<td id="tdId3">' +
+        $(this).html('<td id="tdId31">' +
                           '<div>' +
                                 '<p><b>Opis:</b></p>' +
                                 '<textarea type="text" name="updaterec" id="txtsmalldescription" ' +
@@ -549,7 +585,7 @@ if (!isset($_SESSION["user"])) {
     
     $(this).parents("tr").find("td:not(:last-child)").each(function(i){
         if (i == 1){
-       $(this).html('<td id="tdId2">' +
+       $(this).html('<td id="tdId22">' +
                        '<h4 id="'+ id + '_pName">'+ txtname +'</h4>' +
                        '<div>' +
                             '<div>' +
@@ -585,7 +621,7 @@ if (!isset($_SESSION["user"])) {
                    );
        } 
        else if (i == 2){
-        $(this).html('<td id="tdId3">' +
+        $(this).html('<td id="tdId32">' +
                          '<div>' +
                               '<p><b>Opis:</b></p>' +
                               '<p id="' + id + '_pSmalldesc" style="display: inline-block;">'+ txtsmalldescription +'</p>' +
