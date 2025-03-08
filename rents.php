@@ -181,7 +181,7 @@ https://templatemo.com/tm-591-villa-agency
                                   "</div>".
                                 "</div>".
                                 "<br/><br/>".
-                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."<b>".$row["isFeatured"]."</b></p>".
+                                "<p style="."line-height:24px;".">".$row["pro_small_desc"]."</p>".
                               "</div>".
                           "</div>";
                }

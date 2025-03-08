@@ -277,15 +277,18 @@ if (!isset($_SESSION["user"])) {
     $(document).on("click", ".archive", function(e){
       var id = $(this).attr("id");
       $('#user_id').val(id);
+      
+      $.post("getmetadesc.php", { propId: id}, function(data) {
+         $("#archivetxtmetadesc").val(data);
+      });
+
       $('#archiveusermodal').modal('show');
-   
-      /*var id = $(this).attr("id");
-      var string = id;*/
     });
 
     $(document).on("click", "#finalArchiveId", function(){
         var txtprice = $('#soldprice_id').val();
         var txtdate = $('#solddate_id').val();
+        var txtmetadesc = $('#archivetxtmetadesc').val();
         //var soldPrice1 = $('#'+ soldPrice +'').attr("id");
 
         var id = $('#user_id').val();
@@ -295,7 +298,7 @@ if (!isset($_SESSION["user"])) {
         //$('#archiveusermodal').modal('hide');
         //alert("Cena " + txtprice + " Datum " + txtdate + " id " + proId);
 
-        $.post("archive_update.php", { proId: proId, txtprice: txtprice, txtdate: txtdate }, function(data) {
+        $.post("archive_update.php", { proId: proId, txtprice: txtprice, txtdate: txtdate, txtmetadesc: txtmetadesc }, function(data) {
            $("#displaymessage").html(data);
         })
 
@@ -867,8 +870,15 @@ if (!isset($_SESSION["user"])) {
                     <div class="modal-body">
                         <h4>Unesite datum kada je prodata i cenu za koju je prodata nepokretnost</h4>
                     </div>    
-                    <p style="display: inline-block; margin-left: 10px; margin-right: 20px;">Cena prodaje (€)</p><input type="text" name="user_id" id="soldprice_id" style="width:200px; display: inline-block; margin-left: 10px;"><br/><br/>
-                    <p style="display: inline-block; margin-left: 10px; margin-right: 38px;">Datum prodaje</p><input type="date" name="date_id" id="solddate_id" value="<?php echo date('Y-m-d'); ?>" style="width:200px; display: inline-block; margin-left: 10px;">
+                    <p style="display: inline-block; margin-left: 10px; margin-right: 20px;">Cena prodaje (€)</p>
+                        <input type="text" name="user_id" id="soldprice_id" style="width:200px; display: inline-block; margin-left: 10px;">
+                        <br/><br/>
+                    <p style="display: inline-block; margin-left: 10px; margin-right: 38px;">Datum prodaje</p>
+                        <input type="date" name="date_id" id="solddate_id" value="<?php echo date('Y-m-d'); ?>" style="width:200px; display: inline-block; margin-left: 10px;">
+                        <br/><br/>
+                    <p style="display: inline-block; margin-left: 10px; margin-right: 38px;">Beleška agent</p>
+                        <textarea type="text" name="updaterec" id="archivetxtmetadesc" style="width:200px; min-height:150px; display: inline-block; margin-left: 17px;">
+                        </textarea>
                     <div class="modal-footer" style="margin-top: 10px;">
                         <button id="closeLeaveAdminId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
                         <button id="finalArchiveId" type="button" name="delete_data" class="btn btn-danger">Snimi promene</button>
