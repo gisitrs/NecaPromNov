@@ -10,8 +10,10 @@
         while ($row = $result-> fetch_assoc())
         {
             echo "<div class="."col-lg-4".">
-                          <img src=../".$row["image_path"]." ?image=".$counter." title=".$row["ordering"]." class="."img-fluid"." >
+                      <input id=".$row["photo_id"]." class="."change_image_ordering"." type="."text"." value='".$row["ordering"]."' style="."position:absolute;width:40px;height:40px;".">
+                      <img src=../".$row["image_path"]." ?image=".$counter." title=".$row["ordering"]." class="."img-fluid"." >
                       <input id=".$row["ordering"]." class="."checkbox_images"." type="."checkbox"." style="."position:absolute;width:40px;height:40px;margin-left:-40px;".">
+                      
                   </div>";
                 
                   $counter++;

@@ -359,6 +359,32 @@ if (!isset($_SESSION["user"])) {
         $('#deleteimagesusermodal').modal('hide');
     });
 
+    $(document).on("click", "#changeOrderImagesId", function(){
+      var inputValuesAndIds = [];
+      // Get all input fields with the class 'change_image_ordering'
+      var inputFields = document.querySelectorAll('.change_image_ordering');
+
+      var id = $('#deleteimagespropid').val();
+      var id1 = $('#'+ id +'').attr("id");
+      var proId = id1;
+
+      // Iterate through the NodeList and log each input field
+      inputFields.forEach(input => {
+         inputValuesAndIds.push(input.id + "_" + input.value);
+      });
+
+      $.post("ajax_change_order_images.php", { imagesForChangeOrder: inputValuesAndIds }, function(data) {
+                $("#displaymessage").html(data);
+            });
+      
+      setTimeout(function() {
+        // Refresh the images after 2 seconds
+        $.post("imagesgallery.php", { propId: proId}, function(data) {
+         $("#deleteImagesRowId").html(data);
+        });
+      }, 500);
+   });
+
     // update rec row on edit button click
  $(document).on("click", ".update", function(){
   var id = $(this).attr("id");
@@ -538,7 +564,7 @@ if (!isset($_SESSION["user"])) {
                         '</div>' +
                     '</td>');
        } else if(i == 2){
-        $(this).html('<td id="tdId31">' +
+        $(this).html('<td id="tdId31" style="width:40%;">' +
                           '<div>' +
                                 '<p><b>Opis:</b></p>' +
                                 '<textarea type="text" name="updaterec" id="txtsmalldescription" ' +
@@ -727,7 +753,7 @@ if (!isset($_SESSION["user"])) {
                        </fieldset>
                    </div>
                    <div class="col-lg-1">
-                      <p id="displaymessage" style="display: none;"></p>
+                      <p id="displaymessage" style="display: block;"></p>
                       <fieldset >
                           <button id="filterDataTableId" type="submit" name="filterProperties" class="btn btn-primary btn-block" style="background-color: #36389b; border: none;">Filtriraj</button>
                       </fieldset>
@@ -820,7 +846,7 @@ if (!isset($_SESSION["user"])) {
                                 <div class="close child" title="Napusti izmene" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
                                 <div class="edit child" title="Izmeni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                                 <div class="delete child" title="Ukloni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
-                                <div class="deleteimages child" title="Brisanje fotografija" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                                <div class="deleteimages child" title="Ažuriranje fotografija" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
                                 <div class="archive child" title="Arhiviraj oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
                             </div>
                             <!--<div class="edit" title="Edit" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
@@ -892,18 +918,19 @@ if (!isset($_SESSION["user"])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Brisanje fotografija</h1>
+                    <h1 class="modal-title fs-5" id="deleteusermodalLabel">Ažuriranje fotografija</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form name="form" action="" method="post">
                     <input type="text" name="testname" id="deleteimagespropid" style="display: none;">
                     <div class="modal-body">
-                        <h4>Odaberite fotografije koje želite da obrišete</h4><br/>
+                        <h4>Odaberite fotografije koje želite da obrišete, ili promenite njen redosled prikazivanja</h4><br/>
                         <div id="deleteImagesRowId" class="row">
                         </div>
                     </div>    
                     <div class="modal-footer">
                         <button id="closeDeleteImagesId" type="button" name="close_delete_data" class="btn btn-secondary" data-bs-dismiss="modal">Odustani</button>
+                        <button id="changeOrderImagesId" type="button" name="change_order_data" class="btn btn-danger">Promeni redosled</button>
                         <button id="finalDeleteImagesId" type="button" name="delete_data" class="btn btn-danger">Obriši</button>
                     </div>
                 </form>
