@@ -242,6 +242,8 @@ if (!isset($_SESSION["user"])) {
 </style>
 
 <script type="text/javascript">
+    var changedPhotoOrdering = [];
+
    // Delete row on delete button click
    $(document).on("click", ".delete", function(e){
       var id = $(this).attr("id");
@@ -335,6 +337,21 @@ if (!isset($_SESSION["user"])) {
         //alert(newList);        
     });
 
+    $(document).on("change", ".change_image_ordering", function(){
+        var id = $(this).attr('id');
+        var value = $(this).val();
+        
+        var index = changedPhotoOrdering.findIndex(item => item.includes(id + "_"));
+        
+        if (index !== -1) {
+            changedPhotoOrdering.splice(index, 1); // Remove the item from the array
+        }
+
+        changedPhotoOrdering.push(id + "_" + value);
+
+        //alert(changedPhotoOrdering);       
+    });
+
     $(document).on("click", "#finalDeleteImagesId", function(){
 
         var id = $('#deleteimagespropid').val();
@@ -367,13 +384,46 @@ if (!isset($_SESSION["user"])) {
       var id = $('#deleteimagespropid').val();
       var id1 = $('#'+ id +'').attr("id");
       var proId = id1;
+      var changedOrderingValues = [];
+      var unChangedOrderingValues = [];
 
       // Iterate through the NodeList and log each input field
       inputFields.forEach(input => {
          inputValuesAndIds.push(input.id + "_" + input.value);
       });
 
-      $.post("ajax_change_order_images.php", { imagesForChangeOrder: inputValuesAndIds }, function(data) {
+      inputValuesAndIds.forEach(input => {
+          var orderingValue = input.split("_")[1];
+
+          if (changedPhotoOrdering.includes(input)) {
+            changedOrderingValues.push(orderingValue);
+          }
+      });
+      
+      // Populate the array with values from 1 to n
+      for (let i = 1; i <= inputFields.length; i++) {
+        var index = changedOrderingValues.findIndex(item => item.includes(i));
+        if (index == -1 ) {
+            unChangedOrderingValues.push(i);
+        }
+      }
+
+      var finalInputValuesAndIds = [];
+
+      inputValuesAndIds.forEach(input => {
+        if (changedPhotoOrdering.includes(input)) {
+            finalInputValuesAndIds.push(input);
+        }
+        else{
+            var id = input.split("_")[0];
+            var minValue = Math.min(...unChangedOrderingValues);
+            finalInputValuesAndIds.push(id + "_" + minValue);
+            unChangedOrderingValues.splice(unChangedOrderingValues.indexOf(minValue), 1);
+        }
+      });
+
+      //alert(finalInputValuesAndIds);
+      $.post("ajax_change_order_images.php", { imagesForChangeOrder: finalInputValuesAndIds }, function(data) {
                 $("#displaymessage").html(data);
             });
       
@@ -383,6 +433,8 @@ if (!isset($_SESSION["user"])) {
          $("#deleteImagesRowId").html(data);
         });
       }, 500);
+
+      changedPhotoOrdering = [];
    });
 
     // update rec row on edit button click
