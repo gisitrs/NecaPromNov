@@ -898,7 +898,7 @@ if (!isset($_SESSION["user"])) {
                                 <div class="close child" title="Napusti izmene" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-close"></i></div>
                                 <div class="edit child" title="Izmeni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
                                 <div class="delete child" title="Ukloni oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><i class="fa fa-trash-o"></i></div>
-                                <div class="deleteimages child" title="Ažuriranje fotografija" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/remove-image.svg" style="width:30px;"></img></div>
+                                <div class="deleteimages child" title="Ažuriranje fotografija" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/edit-image.png" style="width:30px;"></img></div>
                                 <div class="archive child" title="Arhiviraj oglas" data-toggle="tooltip" id="<?php echo $property_id; ?>"><img src="../assets/images/2019/archive.png" style="width:30px;"></img></div>
                             </div>
                             <!--<div class="edit" title="Edit" data-toggle="tooltip" id="<php echo $property_id; ?>"><i class="fa fa-pencil"></i></div>
