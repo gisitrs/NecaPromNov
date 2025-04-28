@@ -200,7 +200,7 @@ https://templatemo.com/tm-591-villa-agency
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <?php 
                 include"admin/database.php";
-                $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+                $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid']." ORDER BY ordering";
                 $result = $conn-> query($sql);
                 $counter = 1;
             
@@ -242,7 +242,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
         <?php 
             include"admin/database.php";
-            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid'];
+            $sql = "SELECT * FROM vw_getallimages WHERE ordering != 1 AND id =".$_GET['prid']." ORDER BY ordering";
             $result = $conn-> query($sql);
             
             if ($result-> num_rows > 0)
@@ -398,7 +398,7 @@ https://templatemo.com/tm-591-villa-agency
    <div id="fifthRowId" class="row">
    <?php 
                 include"admin/database.php";
-                $sql = "SELECT * FROM vw_getallimages WHERE id =".$_GET['prid'];
+                $sql = "SELECT * FROM vw_getallimages WHERE id =".$_GET['prid']." ORDER BY ordering";
                 $result = $conn-> query($sql);
                 $counter = 1;
             
